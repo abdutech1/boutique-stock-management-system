@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum Role {
+  OWNER
+  EMPLOYEE
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  role         Role
+  baseSalary   Float?
+
+  sales        Sale[]
+  salaryPays   SalaryPayment[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+
+  priceCategories PriceCategory[]
+}
+
+model PriceCategory {
+  id         Int    @id @default(autoincrement())
+  fixedPrice Float
+  categoryId Int
+
+  category Category @relation(fields: [categoryId], references: [id])
+  stock    Stock?
+  sales    Sale[]
+}
+
+model Stock {
+  id              Int @id @default(autoincrement())
+  purchasePrice   Float
+  quantity        Int
+  priceCategoryId Int @unique
+
+  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])
+}
+
+model Sale {
+  id              Int      @id @default(autoincrement())
+  soldPrice       Float
+  quantity        Int
+  bonus           Float
+  createdAt       DateTime @default(now())
+
+  employeeId      Int
+  priceCategoryId Int
+
+  employee      User         @relation(fields: [employeeId], references: [id])
+  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])
+}
+
+model SalaryPayment {
+  id        Int      @id @default(autoincrement())
+  amount    Float
+  weekStart DateTime
+  weekEnd   DateTime
+  createdAt DateTime @default(now())
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+}
+
+model Expense {
+  id        Int      @id @default(autoincrement())
+  description String
+  amount    Float
+  weekStart DateTime
+  weekEnd   DateTime
+  createdAt DateTime @default(now())
+}

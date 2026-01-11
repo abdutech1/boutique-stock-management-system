@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "prisma.config.ts",
+    "prisma/**/*.ts"   // if you have seed files etc.
+  ]
+}
