@@ -18,7 +18,7 @@ Products are managed by category and price-based subcategories instead of names.
 - ORM: Prisma
 
 ## System Design
-- ER Diagram (link or image)
+- ER Diagram ![ER Diagram](docs/boutique-er-diagram.png)
 - Clean separation of sales, stock, salaries, and expenses
 
 ## Business Rules
