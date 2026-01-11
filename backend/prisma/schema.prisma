@@ -1,88 +1,83 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "mysql"
 }
 
-enum Role {
-  OWNER
-  EMPLOYEE
+model category {
+  id            Int             @id @default(autoincrement())
+  name          String          @unique(map: "Category_name_key")
+  pricecategory pricecategory[]
 }
 
-model User {
-  id           Int      @id @default(autoincrement())
-  name         String
-  role         Role
-  baseSalary   Float?
-
-  sales        Sale[]
-  salaryPays   SalaryPayment[]
+model expense {
+  id          Int      @id @default(autoincrement())
+  description String
+  amount      Float
+  weekStart   DateTime
+  weekEnd     DateTime
+  createdAt   DateTime @default(now())
 }
 
-model Category {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-
-  priceCategories PriceCategory[]
-}
-
-model PriceCategory {
-  id         Int    @id @default(autoincrement())
+model pricecategory {
+  id         Int      @id @default(autoincrement())
   fixedPrice Float
   categoryId Int
+  category   category @relation(fields: [categoryId], references: [id], map: "PriceCategory_categoryId_fkey")
+  sale       sale[]
+  stock      stock?
 
-  category Category @relation(fields: [categoryId], references: [id])
-  stock    Stock?
-  sales    Sale[]
+  @@index([categoryId], map: "PriceCategory_categoryId_fkey")
 }
 
-model Stock {
-  id              Int @id @default(autoincrement())
-  purchasePrice   Float
-  quantity        Int
-  priceCategoryId Int @unique
+model salarypayment {
+  id        Int      @id @default(autoincrement())
+  amount    Float
+  weekStart DateTime
+  weekEnd   DateTime
+  createdAt DateTime @default(now())
+  userId    Int
+  user      user     @relation(fields: [userId], references: [id], map: "SalaryPayment_userId_fkey")
 
-  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])
+  @@index([userId], map: "SalaryPayment_userId_fkey")
 }
 
-model Sale {
-  id              Int      @id @default(autoincrement())
+model sale {
+  id              Int           @id @default(autoincrement())
   soldPrice       Float
   quantity        Int
   bonus           Float
-  createdAt       DateTime @default(now())
-
+  createdAt       DateTime      @default(now())
   employeeId      Int
   priceCategoryId Int
+  user            user          @relation(fields: [employeeId], references: [id], map: "Sale_employeeId_fkey")
+  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Sale_priceCategoryId_fkey")
 
-  employee      User         @relation(fields: [employeeId], references: [id])
-  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])
+  @@index([employeeId], map: "Sale_employeeId_fkey")
+  @@index([priceCategoryId], map: "Sale_priceCategoryId_fkey")
 }
 
-model SalaryPayment {
-  id        Int      @id @default(autoincrement())
-  amount    Float
-  weekStart DateTime
-  weekEnd   DateTime
-  createdAt DateTime @default(now())
-
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
+model stock {
+  id              Int           @id @default(autoincrement())
+  purchasePrice   Float
+  quantity        Int
+  priceCategoryId Int           @unique(map: "Stock_priceCategoryId_key")
+  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Stock_priceCategoryId_fkey")
 }
 
-model Expense {
-  id        Int      @id @default(autoincrement())
-  description String
-  amount    Float
-  weekStart DateTime
-  weekEnd   DateTime
-  createdAt DateTime @default(now())
+model user {
+  id            Int             @id @default(autoincrement())
+  name          String
+  role          user_role
+  baseSalary    Float?
+  salarypayment salarypayment[]
+  sale          sale[]
+}
+
+enum user_role {
+  OWNER
+  EMPLOYEE
 }
