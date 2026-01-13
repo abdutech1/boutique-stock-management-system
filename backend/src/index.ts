@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 
 import saleRouter from "./api/sale/sale.route.js";
 import reportsRoutes from "./api/reports/reports.routes.js";
+import expenseRoutes from './api/expense/expense.routes.js'
+import salaryRoutes from "./api/salary/salary.routes.js";
 
 dotenv.config();
 
@@ -20,6 +22,8 @@ app.use(express.json());
    ========================= */
 app.use("/api/sales", saleRouter);
 app.use("/api/reports", reportsRoutes);
+app.use("/api/expenses", expenseRoutes);
+app.use("/api/salaries", salaryRoutes);
 
 /* =========================
    HEALTH CHECK (OPTIONAL)
