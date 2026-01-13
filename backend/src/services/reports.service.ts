@@ -1,194 +1,118 @@
 import prisma from "../prismaClient.js";
 
-type Period = {
+export type Period = {
   start: Date;
   end: Date;
 };
 
-export async function generateReport(period: Period) {
-  // 1️ Revenue
-  const sales = await prisma.sale.findMany({
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    select: {
-      soldPrice: true,
-      quantity: true,
-    },
+export async function generateBusinessReport(
+  period: Period,
+  options?: {
+    includeTopEmployees?: boolean;
+    includeLowStock?: boolean;
+    topEmployeesLimit?: number;
+  }
+) {
+  const { includeTopEmployees = false, includeLowStock = false, topEmployeesLimit = 3 } = options || {};
+
+  // 1️ Combined Data Fetching
+  const [salesWithRelations, totalBonusAgg, totalSalaryAgg, totalExpensesAgg] = await Promise.all([
+    prisma.sale.findMany({
+      where: { createdAt: { gte: period.start, lte: period.end } },
+      include: { pricecategory: { include: { stock: true } } },
+    }),
+    prisma.sale.aggregate({
+      where: { createdAt: { gte: period.start, lte: period.end } },
+      _sum: { bonus: true },
+    }),
+    prisma.salarypayment.aggregate({
+      where: { createdAt: { gte: period.start, lte: period.end } },
+      _sum: { amount: true },
+    }),
+    prisma.expense.aggregate({
+      where: { createdAt: { gte: period.start, lte: period.end } },
+      _sum: { amount: true },
+    }),
+  ]);
+
+  // 2️ Single-pass calculation for Revenue and Cost
+  let totalRevenue = 0;
+  let totalCost = 0;
+
+  salesWithRelations.forEach((sale) => {
+    totalRevenue += sale.soldPrice * sale.quantity;
+    const purchasePrice = sale.pricecategory.stock?.purchasePrice ?? 0;
+    totalCost += purchasePrice * sale.quantity;
   });
 
-  const totalRevenue = sales.reduce(
-    (sum, s) => sum + s.soldPrice * s.quantity,
-    0
-  );
+  const totalBonus = totalBonusAgg._sum.bonus ?? 0;
+  const totalSalaryPaid = totalSalaryAgg._sum.amount ?? 0;
+  const totalExpenses = totalExpensesAgg._sum.amount ?? 0;
+  
+  
+  const profit = totalRevenue - totalCost - totalSalaryPaid - totalExpenses - totalBonus;
 
-  // 2️ Bonus
-  const totalBonus = await prisma.sale.aggregate({
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    _sum: {
-      bonus: true,
-    },
-  });
+  // 3️ Top Employees (Optimized)
+  let topEmployees: any[] = [];
+  if (includeTopEmployees) {
+    const employeeSalesGrouped = await prisma.sale.groupBy({
+      by: ["employeeId"],
+      _sum: { quantity: true, bonus: true },
+      where: { createdAt: { gte: period.start, lte: period.end } },
+    });
 
-  // 3️ Salaries
-  const totalSalaryPaid = await prisma.salarypayment.aggregate({
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    _sum: {
-      amount: true,
-    },
-  });
+    const enrichedEmployees = await Promise.all(
+      employeeSalesGrouped.map(async (g) => {
+        const user = await prisma.user.findUnique({
+          where: { id: g.employeeId },
+          select: { name: true, role: true },
+        });
 
-  // 4️ Expenses
-  const totalExpenses = await prisma.expense.aggregate({
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    _sum: {
-      amount: true,
-    },
-  });
+        if (!user || user.role !== "EMPLOYEE") return null;
 
-  // 5️ Cost of goods
-  const salesWithCost = await prisma.sale.findMany({
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    include: {
-      pricecategory: {
-        include: {
-          stock: true,
-        },
-      },
-    },
-  });
+        const empRevenue = salesWithRelations
+          .filter(s => s.employeeId === g.employeeId)
+          .reduce((sum, s) => sum + s.soldPrice * s.quantity, 0);
 
-  const totalCost = salesWithCost.reduce((sum, sale) => {
-    const purchasePrice =
-      sale.pricecategory.stock?.purchasePrice ?? 0;
-    return sum + purchasePrice * sale.quantity;
-  }, 0);
+        return {
+          employeeId: g.employeeId,
+          name: user.name,
+          totalRevenue: empRevenue,
+          totalQuantity: g._sum.quantity ?? 0,
+          totalBonus: g._sum.bonus ?? 0,
+        };
+      })
+    );
 
-  // 6️ Profit
-  const profit =
-  totalRevenue -
-  totalCost -
-  (totalSalaryPaid._sum.amount ?? 0) -
-  (totalExpenses._sum.amount ?? 0) +
-  (totalBonus._sum.bonus ?? 0);
+    topEmployees = enrichedEmployees
+      .filter((emp): emp is NonNullable<typeof emp> => emp !== null)
+      .sort((a, b) => b.totalRevenue - a.totalRevenue)
+      .slice(0, topEmployeesLimit);
+  }
+
+  // 4️ Low Stock Alerts (remains the same)
+  let lowStock: any[] = [];
+  if (includeLowStock) {
+    const lowStockItems = await prisma.stock.findMany({
+      where: { quantity: { lt: 3 } },
+      include: { pricecategory: { include: { category: true } } },
+    });
+    lowStock = lowStockItems.map((s) => ({
+      priceCategoryId: s.priceCategoryId,
+      category: s.pricecategory.category.name,
+      quantity: s.quantity,
+    }));
+  }
 
   return {
     period,
     totalRevenue,
     totalCost,
-    totalBonus: totalBonus._sum.bonus ?? 0,
-    totalSalaryPaid: totalSalaryPaid._sum.amount ?? 0,
-    totalExpenses: totalExpenses._sum.amount ?? 0,
+    totalBonus,
+    totalSalaryPaid,
+    totalExpenses,
     profit,
+    ...(includeTopEmployees ? { topEmployees } : {}),
+    ...(includeLowStock ? { lowStock } : {}),
   };
 }
-
-
-// Employee Performance
-
-export async function employeePerformance(period: {
-  start: Date;
-  end: Date;
-}) {
-  // 1️⃣ Group sales by employee
-  const grouped = await prisma.sale.groupBy({
-    by: ['employeeId'],
-    where: {
-      createdAt: {
-        gte: period.start,
-        lte: period.end,
-      },
-    },
-    _sum: {
-      quantity: true,
-      bonus: true,
-    },
-  });
-
-  // 2️⃣ Enrich with user info & revenue
-  const enriched = await Promise.all(
-    grouped.map(async (g) => {
-      const user = await prisma.user.findUnique({
-        where: { id: g.employeeId },
-        select: {
-          name: true,
-          role: true,
-        },
-      });
-
-      // ⛔ FILTER OUT NON-EMPLOYEES
-      if (user?.role !== 'EMPLOYEE') {
-        return null;
-      }
-
-      const sales = await prisma.sale.findMany({
-        where: {
-          employeeId: g.employeeId,
-          createdAt: {
-            gte: period.start,
-            lte: period.end,
-          },
-        },
-        select: {
-          soldPrice: true,
-          quantity: true,
-        },
-      });
-
-      const totalRevenue = sales.reduce(
-        (sum, s) => sum + s.soldPrice * s.quantity,
-        0
-      );
-
-      const totalQuantity = g._sum.quantity ?? 0;
-
-      return {
-        employeeId: g.employeeId,
-        name: user.name,
-        role: user.role,
-        totalQuantity,
-        totalRevenue,
-        totalBonus: g._sum.bonus ?? 0,
-        averagePrice:
-          totalQuantity > 0
-            ? Math.round(totalRevenue / totalQuantity)
-            : 0,
-      };
-    })
-  );
-
-  // ✅ REMOVE NULL ENTRIES + SORT + ADD RANK
- return enriched
-  .filter((emp): emp is NonNullable<typeof emp> => Boolean(emp))
-  .sort((a, b) => b.totalRevenue - a.totalRevenue)
-  .map((emp, index) => ({
-    rank: index + 1,
-    ...emp,
-  }));
-}
-
-
-

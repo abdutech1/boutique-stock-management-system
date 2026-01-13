@@ -1,44 +1,70 @@
-import { Request, Response } from 'express';
-import { getWeeklyRange, getMonthlyRange,
-  getYearlyRange } from "../../utils/dateRange.js";
-import { generateReport,employeePerformance } from "../../services/reports.service.js";
+import { Request, Response } from "express";
+import { generateBusinessReport, Period } from "../../services/reports.service.js";
+import {
+  getWeeklyRange,
+  getMonthlyRange,
+  getYearlyRange,
+} from "../../utils/dateRange.js";
 
-// Weekly Report
-export async function weeklyReport(req:Request, res:Response) {
-  const period = getWeeklyRange();
+/* =========================
+   PERIOD MAP
+   ========================= */
 
-  const report = await generateReport(period);
+const rangeMap: Record<"weekly" | "monthly" | "yearly", () => Period> = {
+  weekly: getWeeklyRange,
+  monthly: getMonthlyRange,
+  yearly: getYearlyRange,
+};
 
-  res.json(report);
-}
+/* =========================
+   GENERIC HANDLER FACTORY
+   ========================= */
 
-// Monthly Report
-export async function monthlyReport(req:Request, res:Response) {
-  const report = await generateReport(getMonthlyRange());
-  res.json(report);
-}
-
-// Yearly Report
-export async function yearlyReport(req:Request, res:Response) {
-  const year = Number(req.query.year);
-  const report = await generateReport(
-    year ? getYearlyRange(year) : getYearlyRange()
-  );
-  res.json(report);
-}
-
-// Weekly Employee Performance
-
-export async function weeklyEmployeePerformance(req: Request, res: Response) {
+async function handleReportRequest(
+  req: Request,
+  res: Response,
+  type: "weekly" | "monthly" | "yearly",
+  isDashboard: boolean
+) {
   try {
-    const period = getWeeklyRange();
-    const report = await employeePerformance(period);
-    res.json(report);
-  } catch (err) {
-    const message = err instanceof Error 
-      ? err.message 
-      : 'An unexpected error occurred';
+    const period = rangeMap[type]();
 
-    res.status(500).json({ message });
+    const report = await generateBusinessReport(period, {
+      includeTopEmployees: isDashboard,
+      includeLowStock: isDashboard,
+    });
+
+    return res.status(200).json(report);
+  } catch (error) {
+    console.error("Report error:", error);
+    return res.status(500).json({
+      message: "Failed to generate report",
+    });
   }
 }
+
+/* =========================
+   FINANCIAL REPORTS (NO DASHBOARD DATA)
+   ========================= */
+
+export const weeklyFinancialReport = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "weekly", false);
+
+export const monthlyFinancialReport = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "monthly", false);
+
+export const yearlyFinancialReport = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "yearly", false);
+
+/* =========================
+   OWNER DASHBOARD REPORTS
+   ========================= */
+
+export const weeklyOwnerDashboard = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "weekly", true);
+
+export const monthlyOwnerDashboard = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "monthly", true);
+
+export const yearlyOwnerDashboard = (req: Request, res: Response) =>
+  handleReportRequest(req, res, "yearly", true);
