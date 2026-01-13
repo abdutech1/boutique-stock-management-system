@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `SalaryPayment` model and its related types.
+ * This file exports the `salarypayment` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,41 +13,32 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model SalaryPayment
+ * Model salarypayment
  * 
  */
-export type SalaryPaymentModel = runtime.Types.Result.DefaultSelection<Prisma.$SalaryPaymentPayload>
+export type salarypaymentModel = runtime.Types.Result.DefaultSelection<Prisma.$salarypaymentPayload>
 
-export type AggregateSalaryPayment = {
-  _count: SalaryPaymentCountAggregateOutputType | null
-  _avg: SalaryPaymentAvgAggregateOutputType | null
-  _sum: SalaryPaymentSumAggregateOutputType | null
-  _min: SalaryPaymentMinAggregateOutputType | null
-  _max: SalaryPaymentMaxAggregateOutputType | null
+export type AggregateSalarypayment = {
+  _count: SalarypaymentCountAggregateOutputType | null
+  _avg: SalarypaymentAvgAggregateOutputType | null
+  _sum: SalarypaymentSumAggregateOutputType | null
+  _min: SalarypaymentMinAggregateOutputType | null
+  _max: SalarypaymentMaxAggregateOutputType | null
 }
 
-export type SalaryPaymentAvgAggregateOutputType = {
+export type SalarypaymentAvgAggregateOutputType = {
   id: number | null
   amount: number | null
   userId: number | null
 }
 
-export type SalaryPaymentSumAggregateOutputType = {
+export type SalarypaymentSumAggregateOutputType = {
   id: number | null
   amount: number | null
   userId: number | null
 }
 
-export type SalaryPaymentMinAggregateOutputType = {
-  id: number | null
-  amount: number | null
-  weekStart: Date | null
-  weekEnd: Date | null
-  createdAt: Date | null
-  userId: number | null
-}
-
-export type SalaryPaymentMaxAggregateOutputType = {
+export type SalarypaymentMinAggregateOutputType = {
   id: number | null
   amount: number | null
   weekStart: Date | null
@@ -56,7 +47,16 @@ export type SalaryPaymentMaxAggregateOutputType = {
   userId: number | null
 }
 
-export type SalaryPaymentCountAggregateOutputType = {
+export type SalarypaymentMaxAggregateOutputType = {
+  id: number | null
+  amount: number | null
+  weekStart: Date | null
+  weekEnd: Date | null
+  createdAt: Date | null
+  userId: number | null
+}
+
+export type SalarypaymentCountAggregateOutputType = {
   id: number
   amount: number
   weekStart: number
@@ -67,28 +67,19 @@ export type SalaryPaymentCountAggregateOutputType = {
 }
 
 
-export type SalaryPaymentAvgAggregateInputType = {
+export type SalarypaymentAvgAggregateInputType = {
   id?: true
   amount?: true
   userId?: true
 }
 
-export type SalaryPaymentSumAggregateInputType = {
+export type SalarypaymentSumAggregateInputType = {
   id?: true
   amount?: true
   userId?: true
 }
 
-export type SalaryPaymentMinAggregateInputType = {
-  id?: true
-  amount?: true
-  weekStart?: true
-  weekEnd?: true
-  createdAt?: true
-  userId?: true
-}
-
-export type SalaryPaymentMaxAggregateInputType = {
+export type SalarypaymentMinAggregateInputType = {
   id?: true
   amount?: true
   weekStart?: true
@@ -97,7 +88,16 @@ export type SalaryPaymentMaxAggregateInputType = {
   userId?: true
 }
 
-export type SalaryPaymentCountAggregateInputType = {
+export type SalarypaymentMaxAggregateInputType = {
+  id?: true
+  amount?: true
+  weekStart?: true
+  weekEnd?: true
+  createdAt?: true
+  userId?: true
+}
+
+export type SalarypaymentCountAggregateInputType = {
   id?: true
   amount?: true
   weekStart?: true
@@ -107,192 +107,192 @@ export type SalaryPaymentCountAggregateInputType = {
   _all?: true
 }
 
-export type SalaryPaymentAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SalarypaymentAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which SalaryPayment to aggregate.
+   * Filter which salarypayment to aggregate.
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SalaryPayments to fetch.
+   * Determine the order of salarypayments to fetch.
    */
-  orderBy?: Prisma.SalaryPaymentOrderByWithRelationInput | Prisma.SalaryPaymentOrderByWithRelationInput[]
+  orderBy?: Prisma.salarypaymentOrderByWithRelationInput | Prisma.salarypaymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.SalaryPaymentWhereUniqueInput
+  cursor?: Prisma.salarypaymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SalaryPayments from the position of the cursor.
+   * Take `±n` salarypayments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SalaryPayments.
+   * Skip the first `n` salarypayments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned SalaryPayments
+   * Count returned salarypayments
   **/
-  _count?: true | SalaryPaymentCountAggregateInputType
+  _count?: true | SalarypaymentCountAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to average
   **/
-  _avg?: SalaryPaymentAvgAggregateInputType
+  _avg?: SalarypaymentAvgAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to sum
   **/
-  _sum?: SalaryPaymentSumAggregateInputType
+  _sum?: SalarypaymentSumAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the minimum value
   **/
-  _min?: SalaryPaymentMinAggregateInputType
+  _min?: SalarypaymentMinAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the maximum value
   **/
-  _max?: SalaryPaymentMaxAggregateInputType
+  _max?: SalarypaymentMaxAggregateInputType
 }
 
-export type GetSalaryPaymentAggregateType<T extends SalaryPaymentAggregateArgs> = {
-      [P in keyof T & keyof AggregateSalaryPayment]: P extends '_count' | 'count'
+export type GetSalarypaymentAggregateType<T extends SalarypaymentAggregateArgs> = {
+      [P in keyof T & keyof AggregateSalarypayment]: P extends '_count' | 'count'
     ? T[P] extends true
       ? number
-      : Prisma.GetScalarType<T[P], AggregateSalaryPayment[P]>
-    : Prisma.GetScalarType<T[P], AggregateSalaryPayment[P]>
+      : Prisma.GetScalarType<T[P], AggregateSalarypayment[P]>
+    : Prisma.GetScalarType<T[P], AggregateSalarypayment[P]>
 }
 
 
 
 
-export type SalaryPaymentGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.SalaryPaymentWhereInput
-  orderBy?: Prisma.SalaryPaymentOrderByWithAggregationInput | Prisma.SalaryPaymentOrderByWithAggregationInput[]
-  by: Prisma.SalaryPaymentScalarFieldEnum[] | Prisma.SalaryPaymentScalarFieldEnum
-  having?: Prisma.SalaryPaymentScalarWhereWithAggregatesInput
+export type salarypaymentGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.salarypaymentWhereInput
+  orderBy?: Prisma.salarypaymentOrderByWithAggregationInput | Prisma.salarypaymentOrderByWithAggregationInput[]
+  by: Prisma.SalarypaymentScalarFieldEnum[] | Prisma.SalarypaymentScalarFieldEnum
+  having?: Prisma.salarypaymentScalarWhereWithAggregatesInput
   take?: number
   skip?: number
-  _count?: SalaryPaymentCountAggregateInputType | true
-  _avg?: SalaryPaymentAvgAggregateInputType
-  _sum?: SalaryPaymentSumAggregateInputType
-  _min?: SalaryPaymentMinAggregateInputType
-  _max?: SalaryPaymentMaxAggregateInputType
+  _count?: SalarypaymentCountAggregateInputType | true
+  _avg?: SalarypaymentAvgAggregateInputType
+  _sum?: SalarypaymentSumAggregateInputType
+  _min?: SalarypaymentMinAggregateInputType
+  _max?: SalarypaymentMaxAggregateInputType
 }
 
-export type SalaryPaymentGroupByOutputType = {
+export type SalarypaymentGroupByOutputType = {
   id: number
   amount: number
   weekStart: Date
   weekEnd: Date
   createdAt: Date
   userId: number
-  _count: SalaryPaymentCountAggregateOutputType | null
-  _avg: SalaryPaymentAvgAggregateOutputType | null
-  _sum: SalaryPaymentSumAggregateOutputType | null
-  _min: SalaryPaymentMinAggregateOutputType | null
-  _max: SalaryPaymentMaxAggregateOutputType | null
+  _count: SalarypaymentCountAggregateOutputType | null
+  _avg: SalarypaymentAvgAggregateOutputType | null
+  _sum: SalarypaymentSumAggregateOutputType | null
+  _min: SalarypaymentMinAggregateOutputType | null
+  _max: SalarypaymentMaxAggregateOutputType | null
 }
 
-type GetSalaryPaymentGroupByPayload<T extends SalaryPaymentGroupByArgs> = Prisma.PrismaPromise<
+type GetSalarypaymentGroupByPayload<T extends salarypaymentGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<SalaryPaymentGroupByOutputType, T['by']> &
+    Prisma.PickEnumerable<SalarypaymentGroupByOutputType, T['by']> &
       {
-        [P in ((keyof T) & (keyof SalaryPaymentGroupByOutputType))]: P extends '_count'
+        [P in ((keyof T) & (keyof SalarypaymentGroupByOutputType))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : Prisma.GetScalarType<T[P], SalaryPaymentGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], SalaryPaymentGroupByOutputType[P]>
+            : Prisma.GetScalarType<T[P], SalarypaymentGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], SalarypaymentGroupByOutputType[P]>
       }
     >
   >
 
 
 
-export type SalaryPaymentWhereInput = {
-  AND?: Prisma.SalaryPaymentWhereInput | Prisma.SalaryPaymentWhereInput[]
-  OR?: Prisma.SalaryPaymentWhereInput[]
-  NOT?: Prisma.SalaryPaymentWhereInput | Prisma.SalaryPaymentWhereInput[]
-  id?: Prisma.IntFilter<"SalaryPayment"> | number
-  amount?: Prisma.FloatFilter<"SalaryPayment"> | number
-  weekStart?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  weekEnd?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  userId?: Prisma.IntFilter<"SalaryPayment"> | number
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+export type salarypaymentWhereInput = {
+  AND?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
+  OR?: Prisma.salarypaymentWhereInput[]
+  NOT?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
+  id?: Prisma.IntFilter<"salarypayment"> | number
+  amount?: Prisma.FloatFilter<"salarypayment"> | number
+  weekStart?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  weekEnd?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  userId?: Prisma.IntFilter<"salarypayment"> | number
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }
 
-export type SalaryPaymentOrderByWithRelationInput = {
+export type salarypaymentOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   weekStart?: Prisma.SortOrder
   weekEnd?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  user?: Prisma.userOrderByWithRelationInput
 }
 
-export type SalaryPaymentWhereUniqueInput = Prisma.AtLeast<{
+export type salarypaymentWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.SalaryPaymentWhereInput | Prisma.SalaryPaymentWhereInput[]
-  OR?: Prisma.SalaryPaymentWhereInput[]
-  NOT?: Prisma.SalaryPaymentWhereInput | Prisma.SalaryPaymentWhereInput[]
-  amount?: Prisma.FloatFilter<"SalaryPayment"> | number
-  weekStart?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  weekEnd?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  userId?: Prisma.IntFilter<"SalaryPayment"> | number
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  AND?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
+  OR?: Prisma.salarypaymentWhereInput[]
+  NOT?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
+  amount?: Prisma.FloatFilter<"salarypayment"> | number
+  weekStart?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  weekEnd?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  userId?: Prisma.IntFilter<"salarypayment"> | number
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }, "id">
 
-export type SalaryPaymentOrderByWithAggregationInput = {
+export type salarypaymentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   weekStart?: Prisma.SortOrder
   weekEnd?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  _count?: Prisma.SalaryPaymentCountOrderByAggregateInput
-  _avg?: Prisma.SalaryPaymentAvgOrderByAggregateInput
-  _max?: Prisma.SalaryPaymentMaxOrderByAggregateInput
-  _min?: Prisma.SalaryPaymentMinOrderByAggregateInput
-  _sum?: Prisma.SalaryPaymentSumOrderByAggregateInput
+  _count?: Prisma.salarypaymentCountOrderByAggregateInput
+  _avg?: Prisma.salarypaymentAvgOrderByAggregateInput
+  _max?: Prisma.salarypaymentMaxOrderByAggregateInput
+  _min?: Prisma.salarypaymentMinOrderByAggregateInput
+  _sum?: Prisma.salarypaymentSumOrderByAggregateInput
 }
 
-export type SalaryPaymentScalarWhereWithAggregatesInput = {
-  AND?: Prisma.SalaryPaymentScalarWhereWithAggregatesInput | Prisma.SalaryPaymentScalarWhereWithAggregatesInput[]
-  OR?: Prisma.SalaryPaymentScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.SalaryPaymentScalarWhereWithAggregatesInput | Prisma.SalaryPaymentScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"SalaryPayment"> | number
-  amount?: Prisma.FloatWithAggregatesFilter<"SalaryPayment"> | number
-  weekStart?: Prisma.DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
-  weekEnd?: Prisma.DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
-  userId?: Prisma.IntWithAggregatesFilter<"SalaryPayment"> | number
+export type salarypaymentScalarWhereWithAggregatesInput = {
+  AND?: Prisma.salarypaymentScalarWhereWithAggregatesInput | Prisma.salarypaymentScalarWhereWithAggregatesInput[]
+  OR?: Prisma.salarypaymentScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.salarypaymentScalarWhereWithAggregatesInput | Prisma.salarypaymentScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"salarypayment"> | number
+  amount?: Prisma.FloatWithAggregatesFilter<"salarypayment"> | number
+  weekStart?: Prisma.DateTimeWithAggregatesFilter<"salarypayment"> | Date | string
+  weekEnd?: Prisma.DateTimeWithAggregatesFilter<"salarypayment"> | Date | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"salarypayment"> | Date | string
+  userId?: Prisma.IntWithAggregatesFilter<"salarypayment"> | number
 }
 
-export type SalaryPaymentCreateInput = {
+export type salarypaymentCreateInput = {
   amount: number
   weekStart: Date | string
   weekEnd: Date | string
   createdAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutSalaryPaysInput
+  user: Prisma.userCreateNestedOneWithoutSalarypaymentInput
 }
 
-export type SalaryPaymentUncheckedCreateInput = {
+export type salarypaymentUncheckedCreateInput = {
   id?: number
   amount: number
   weekStart: Date | string
@@ -301,15 +301,15 @@ export type SalaryPaymentUncheckedCreateInput = {
   userId: number
 }
 
-export type SalaryPaymentUpdateInput = {
+export type salarypaymentUpdateInput = {
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weekEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutSalaryPaysNestedInput
+  user?: Prisma.userUpdateOneRequiredWithoutSalarypaymentNestedInput
 }
 
-export type SalaryPaymentUncheckedUpdateInput = {
+export type salarypaymentUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -318,7 +318,7 @@ export type SalaryPaymentUncheckedUpdateInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type SalaryPaymentCreateManyInput = {
+export type salarypaymentCreateManyInput = {
   id?: number
   amount: number
   weekStart: Date | string
@@ -327,14 +327,14 @@ export type SalaryPaymentCreateManyInput = {
   userId: number
 }
 
-export type SalaryPaymentUpdateManyMutationInput = {
+export type salarypaymentUpdateManyMutationInput = {
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weekEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SalaryPaymentUncheckedUpdateManyInput = {
+export type salarypaymentUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -343,105 +343,105 @@ export type SalaryPaymentUncheckedUpdateManyInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type SalaryPaymentListRelationFilter = {
-  every?: Prisma.SalaryPaymentWhereInput
-  some?: Prisma.SalaryPaymentWhereInput
-  none?: Prisma.SalaryPaymentWhereInput
+export type salarypaymentCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  weekStart?: Prisma.SortOrder
+  weekEnd?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
-export type SalaryPaymentOrderByRelationAggregateInput = {
+export type salarypaymentAvgOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+}
+
+export type salarypaymentMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  weekStart?: Prisma.SortOrder
+  weekEnd?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+}
+
+export type salarypaymentMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  weekStart?: Prisma.SortOrder
+  weekEnd?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+}
+
+export type salarypaymentSumOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+}
+
+export type SalarypaymentListRelationFilter = {
+  every?: Prisma.salarypaymentWhereInput
+  some?: Prisma.salarypaymentWhereInput
+  none?: Prisma.salarypaymentWhereInput
+}
+
+export type salarypaymentOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type SalaryPaymentCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  weekStart?: Prisma.SortOrder
-  weekEnd?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+export type salarypaymentCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput> | Prisma.salarypaymentCreateWithoutUserInput[] | Prisma.salarypaymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.salarypaymentCreateOrConnectWithoutUserInput | Prisma.salarypaymentCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.salarypaymentCreateManyUserInputEnvelope
+  connect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
 }
 
-export type SalaryPaymentAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+export type salarypaymentUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput> | Prisma.salarypaymentCreateWithoutUserInput[] | Prisma.salarypaymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.salarypaymentCreateOrConnectWithoutUserInput | Prisma.salarypaymentCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.salarypaymentCreateManyUserInputEnvelope
+  connect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
 }
 
-export type SalaryPaymentMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  weekStart?: Prisma.SortOrder
-  weekEnd?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+export type salarypaymentUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput> | Prisma.salarypaymentCreateWithoutUserInput[] | Prisma.salarypaymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.salarypaymentCreateOrConnectWithoutUserInput | Prisma.salarypaymentCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.salarypaymentUpsertWithWhereUniqueWithoutUserInput | Prisma.salarypaymentUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.salarypaymentCreateManyUserInputEnvelope
+  set?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  disconnect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  delete?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  connect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  update?: Prisma.salarypaymentUpdateWithWhereUniqueWithoutUserInput | Prisma.salarypaymentUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.salarypaymentUpdateManyWithWhereWithoutUserInput | Prisma.salarypaymentUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.salarypaymentScalarWhereInput | Prisma.salarypaymentScalarWhereInput[]
 }
 
-export type SalaryPaymentMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  weekStart?: Prisma.SortOrder
-  weekEnd?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+export type salarypaymentUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput> | Prisma.salarypaymentCreateWithoutUserInput[] | Prisma.salarypaymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.salarypaymentCreateOrConnectWithoutUserInput | Prisma.salarypaymentCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.salarypaymentUpsertWithWhereUniqueWithoutUserInput | Prisma.salarypaymentUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.salarypaymentCreateManyUserInputEnvelope
+  set?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  disconnect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  delete?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  connect?: Prisma.salarypaymentWhereUniqueInput | Prisma.salarypaymentWhereUniqueInput[]
+  update?: Prisma.salarypaymentUpdateWithWhereUniqueWithoutUserInput | Prisma.salarypaymentUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.salarypaymentUpdateManyWithWhereWithoutUserInput | Prisma.salarypaymentUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.salarypaymentScalarWhereInput | Prisma.salarypaymentScalarWhereInput[]
 }
 
-export type SalaryPaymentSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-}
-
-export type SalaryPaymentCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput> | Prisma.SalaryPaymentCreateWithoutUserInput[] | Prisma.SalaryPaymentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.SalaryPaymentCreateOrConnectWithoutUserInput | Prisma.SalaryPaymentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.SalaryPaymentCreateManyUserInputEnvelope
-  connect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-}
-
-export type SalaryPaymentUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput> | Prisma.SalaryPaymentCreateWithoutUserInput[] | Prisma.SalaryPaymentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.SalaryPaymentCreateOrConnectWithoutUserInput | Prisma.SalaryPaymentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.SalaryPaymentCreateManyUserInputEnvelope
-  connect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-}
-
-export type SalaryPaymentUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput> | Prisma.SalaryPaymentCreateWithoutUserInput[] | Prisma.SalaryPaymentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.SalaryPaymentCreateOrConnectWithoutUserInput | Prisma.SalaryPaymentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.SalaryPaymentUpsertWithWhereUniqueWithoutUserInput | Prisma.SalaryPaymentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.SalaryPaymentCreateManyUserInputEnvelope
-  set?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  disconnect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  delete?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  connect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  update?: Prisma.SalaryPaymentUpdateWithWhereUniqueWithoutUserInput | Prisma.SalaryPaymentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.SalaryPaymentUpdateManyWithWhereWithoutUserInput | Prisma.SalaryPaymentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.SalaryPaymentScalarWhereInput | Prisma.SalaryPaymentScalarWhereInput[]
-}
-
-export type SalaryPaymentUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput> | Prisma.SalaryPaymentCreateWithoutUserInput[] | Prisma.SalaryPaymentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.SalaryPaymentCreateOrConnectWithoutUserInput | Prisma.SalaryPaymentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.SalaryPaymentUpsertWithWhereUniqueWithoutUserInput | Prisma.SalaryPaymentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.SalaryPaymentCreateManyUserInputEnvelope
-  set?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  disconnect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  delete?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  connect?: Prisma.SalaryPaymentWhereUniqueInput | Prisma.SalaryPaymentWhereUniqueInput[]
-  update?: Prisma.SalaryPaymentUpdateWithWhereUniqueWithoutUserInput | Prisma.SalaryPaymentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.SalaryPaymentUpdateManyWithWhereWithoutUserInput | Prisma.SalaryPaymentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.SalaryPaymentScalarWhereInput | Prisma.SalaryPaymentScalarWhereInput[]
-}
-
-export type SalaryPaymentCreateWithoutUserInput = {
+export type salarypaymentCreateWithoutUserInput = {
   amount: number
   weekStart: Date | string
   weekEnd: Date | string
   createdAt?: Date | string
 }
 
-export type SalaryPaymentUncheckedCreateWithoutUserInput = {
+export type salarypaymentUncheckedCreateWithoutUserInput = {
   id?: number
   amount: number
   weekStart: Date | string
@@ -449,45 +449,45 @@ export type SalaryPaymentUncheckedCreateWithoutUserInput = {
   createdAt?: Date | string
 }
 
-export type SalaryPaymentCreateOrConnectWithoutUserInput = {
-  where: Prisma.SalaryPaymentWhereUniqueInput
-  create: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput>
+export type salarypaymentCreateOrConnectWithoutUserInput = {
+  where: Prisma.salarypaymentWhereUniqueInput
+  create: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput>
 }
 
-export type SalaryPaymentCreateManyUserInputEnvelope = {
-  data: Prisma.SalaryPaymentCreateManyUserInput | Prisma.SalaryPaymentCreateManyUserInput[]
+export type salarypaymentCreateManyUserInputEnvelope = {
+  data: Prisma.salarypaymentCreateManyUserInput | Prisma.salarypaymentCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type SalaryPaymentUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.SalaryPaymentWhereUniqueInput
-  update: Prisma.XOR<Prisma.SalaryPaymentUpdateWithoutUserInput, Prisma.SalaryPaymentUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.SalaryPaymentCreateWithoutUserInput, Prisma.SalaryPaymentUncheckedCreateWithoutUserInput>
+export type salarypaymentUpsertWithWhereUniqueWithoutUserInput = {
+  where: Prisma.salarypaymentWhereUniqueInput
+  update: Prisma.XOR<Prisma.salarypaymentUpdateWithoutUserInput, Prisma.salarypaymentUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.salarypaymentCreateWithoutUserInput, Prisma.salarypaymentUncheckedCreateWithoutUserInput>
 }
 
-export type SalaryPaymentUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.SalaryPaymentWhereUniqueInput
-  data: Prisma.XOR<Prisma.SalaryPaymentUpdateWithoutUserInput, Prisma.SalaryPaymentUncheckedUpdateWithoutUserInput>
+export type salarypaymentUpdateWithWhereUniqueWithoutUserInput = {
+  where: Prisma.salarypaymentWhereUniqueInput
+  data: Prisma.XOR<Prisma.salarypaymentUpdateWithoutUserInput, Prisma.salarypaymentUncheckedUpdateWithoutUserInput>
 }
 
-export type SalaryPaymentUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.SalaryPaymentScalarWhereInput
-  data: Prisma.XOR<Prisma.SalaryPaymentUpdateManyMutationInput, Prisma.SalaryPaymentUncheckedUpdateManyWithoutUserInput>
+export type salarypaymentUpdateManyWithWhereWithoutUserInput = {
+  where: Prisma.salarypaymentScalarWhereInput
+  data: Prisma.XOR<Prisma.salarypaymentUpdateManyMutationInput, Prisma.salarypaymentUncheckedUpdateManyWithoutUserInput>
 }
 
-export type SalaryPaymentScalarWhereInput = {
-  AND?: Prisma.SalaryPaymentScalarWhereInput | Prisma.SalaryPaymentScalarWhereInput[]
-  OR?: Prisma.SalaryPaymentScalarWhereInput[]
-  NOT?: Prisma.SalaryPaymentScalarWhereInput | Prisma.SalaryPaymentScalarWhereInput[]
-  id?: Prisma.IntFilter<"SalaryPayment"> | number
-  amount?: Prisma.FloatFilter<"SalaryPayment"> | number
-  weekStart?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  weekEnd?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"SalaryPayment"> | Date | string
-  userId?: Prisma.IntFilter<"SalaryPayment"> | number
+export type salarypaymentScalarWhereInput = {
+  AND?: Prisma.salarypaymentScalarWhereInput | Prisma.salarypaymentScalarWhereInput[]
+  OR?: Prisma.salarypaymentScalarWhereInput[]
+  NOT?: Prisma.salarypaymentScalarWhereInput | Prisma.salarypaymentScalarWhereInput[]
+  id?: Prisma.IntFilter<"salarypayment"> | number
+  amount?: Prisma.FloatFilter<"salarypayment"> | number
+  weekStart?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  weekEnd?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
+  userId?: Prisma.IntFilter<"salarypayment"> | number
 }
 
-export type SalaryPaymentCreateManyUserInput = {
+export type salarypaymentCreateManyUserInput = {
   id?: number
   amount: number
   weekStart: Date | string
@@ -495,14 +495,14 @@ export type SalaryPaymentCreateManyUserInput = {
   createdAt?: Date | string
 }
 
-export type SalaryPaymentUpdateWithoutUserInput = {
+export type salarypaymentUpdateWithoutUserInput = {
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weekEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SalaryPaymentUncheckedUpdateWithoutUserInput = {
+export type salarypaymentUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -510,7 +510,7 @@ export type SalaryPaymentUncheckedUpdateWithoutUserInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SalaryPaymentUncheckedUpdateManyWithoutUserInput = {
+export type salarypaymentUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -520,19 +520,19 @@ export type SalaryPaymentUncheckedUpdateManyWithoutUserInput = {
 
 
 
-export type SalaryPaymentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type salarypaymentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   amount?: boolean
   weekStart?: boolean
   weekEnd?: boolean
   createdAt?: boolean
   userId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}, ExtArgs["result"]["salaryPayment"]>
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["salarypayment"]>
 
 
 
-export type SalaryPaymentSelectScalar = {
+export type salarypaymentSelectScalar = {
   id?: boolean
   amount?: boolean
   weekStart?: boolean
@@ -541,15 +541,15 @@ export type SalaryPaymentSelectScalar = {
   userId?: boolean
 }
 
-export type SalaryPaymentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "amount" | "weekStart" | "weekEnd" | "createdAt" | "userId", ExtArgs["result"]["salaryPayment"]>
-export type SalaryPaymentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+export type salarypaymentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "amount" | "weekStart" | "weekEnd" | "createdAt" | "userId", ExtArgs["result"]["salarypayment"]>
+export type salarypaymentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
 }
 
-export type $SalaryPaymentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "SalaryPayment"
+export type $salarypaymentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "salarypayment"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    user: Prisma.$userPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -558,143 +558,143 @@ export type $SalaryPaymentPayload<ExtArgs extends runtime.Types.Extensions.Inter
     weekEnd: Date
     createdAt: Date
     userId: number
-  }, ExtArgs["result"]["salaryPayment"]>
+  }, ExtArgs["result"]["salarypayment"]>
   composites: {}
 }
 
-export type SalaryPaymentGetPayload<S extends boolean | null | undefined | SalaryPaymentDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload, S>
+export type salarypaymentGetPayload<S extends boolean | null | undefined | salarypaymentDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload, S>
 
-export type SalaryPaymentCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<SalaryPaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-    select?: SalaryPaymentCountAggregateInputType | true
+export type salarypaymentCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<salarypaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: SalarypaymentCountAggregateInputType | true
   }
 
-export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SalaryPayment'], meta: { name: 'SalaryPayment' } }
+export interface salarypaymentDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['salarypayment'], meta: { name: 'salarypayment' } }
   /**
-   * Find zero or one SalaryPayment that matches the filter.
-   * @param {SalaryPaymentFindUniqueArgs} args - Arguments to find a SalaryPayment
+   * Find zero or one Salarypayment that matches the filter.
+   * @param {salarypaymentFindUniqueArgs} args - Arguments to find a Salarypayment
    * @example
-   * // Get one SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.findUnique({
+   * // Get one Salarypayment
+   * const salarypayment = await prisma.salarypayment.findUnique({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUnique<T extends SalaryPaymentFindUniqueArgs>(args: Prisma.SelectSubset<T, SalaryPaymentFindUniqueArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends salarypaymentFindUniqueArgs>(args: Prisma.SelectSubset<T, salarypaymentFindUniqueArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find one SalaryPayment that matches the filter or throw an error with `error.code='P2025'`
+   * Find one Salarypayment that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {SalaryPaymentFindUniqueOrThrowArgs} args - Arguments to find a SalaryPayment
+   * @param {salarypaymentFindUniqueOrThrowArgs} args - Arguments to find a Salarypayment
    * @example
-   * // Get one SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.findUniqueOrThrow({
+   * // Get one Salarypayment
+   * const salarypayment = await prisma.salarypayment.findUniqueOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUniqueOrThrow<T extends SalaryPaymentFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, SalaryPaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends salarypaymentFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, salarypaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first SalaryPayment that matches the filter.
+   * Find the first Salarypayment that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentFindFirstArgs} args - Arguments to find a SalaryPayment
+   * @param {salarypaymentFindFirstArgs} args - Arguments to find a Salarypayment
    * @example
-   * // Get one SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.findFirst({
+   * // Get one Salarypayment
+   * const salarypayment = await prisma.salarypayment.findFirst({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirst<T extends SalaryPaymentFindFirstArgs>(args?: Prisma.SelectSubset<T, SalaryPaymentFindFirstArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends salarypaymentFindFirstArgs>(args?: Prisma.SelectSubset<T, salarypaymentFindFirstArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first SalaryPayment that matches the filter or
+   * Find the first Salarypayment that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentFindFirstOrThrowArgs} args - Arguments to find a SalaryPayment
+   * @param {salarypaymentFindFirstOrThrowArgs} args - Arguments to find a Salarypayment
    * @example
-   * // Get one SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.findFirstOrThrow({
+   * // Get one Salarypayment
+   * const salarypayment = await prisma.salarypayment.findFirstOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirstOrThrow<T extends SalaryPaymentFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, SalaryPaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends salarypaymentFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, salarypaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find zero or more SalaryPayments that matches the filter.
+   * Find zero or more Salarypayments that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {salarypaymentFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
-   * // Get all SalaryPayments
-   * const salaryPayments = await prisma.salaryPayment.findMany()
+   * // Get all Salarypayments
+   * const salarypayments = await prisma.salarypayment.findMany()
    * 
-   * // Get first 10 SalaryPayments
-   * const salaryPayments = await prisma.salaryPayment.findMany({ take: 10 })
+   * // Get first 10 Salarypayments
+   * const salarypayments = await prisma.salarypayment.findMany({ take: 10 })
    * 
    * // Only select the `id`
-   * const salaryPaymentWithIdOnly = await prisma.salaryPayment.findMany({ select: { id: true } })
+   * const salarypaymentWithIdOnly = await prisma.salarypayment.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends SalaryPaymentFindManyArgs>(args?: Prisma.SelectSubset<T, SalaryPaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends salarypaymentFindManyArgs>(args?: Prisma.SelectSubset<T, salarypaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
-   * Create a SalaryPayment.
-   * @param {SalaryPaymentCreateArgs} args - Arguments to create a SalaryPayment.
+   * Create a Salarypayment.
+   * @param {salarypaymentCreateArgs} args - Arguments to create a Salarypayment.
    * @example
-   * // Create one SalaryPayment
-   * const SalaryPayment = await prisma.salaryPayment.create({
+   * // Create one Salarypayment
+   * const Salarypayment = await prisma.salarypayment.create({
    *   data: {
-   *     // ... data to create a SalaryPayment
+   *     // ... data to create a Salarypayment
    *   }
    * })
    * 
    */
-  create<T extends SalaryPaymentCreateArgs>(args: Prisma.SelectSubset<T, SalaryPaymentCreateArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends salarypaymentCreateArgs>(args: Prisma.SelectSubset<T, salarypaymentCreateArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Create many SalaryPayments.
-   * @param {SalaryPaymentCreateManyArgs} args - Arguments to create many SalaryPayments.
+   * Create many Salarypayments.
+   * @param {salarypaymentCreateManyArgs} args - Arguments to create many Salarypayments.
    * @example
-   * // Create many SalaryPayments
-   * const salaryPayment = await prisma.salaryPayment.createMany({
+   * // Create many Salarypayments
+   * const salarypayment = await prisma.salarypayment.createMany({
    *   data: [
    *     // ... provide data here
    *   ]
    * })
    *     
    */
-  createMany<T extends SalaryPaymentCreateManyArgs>(args?: Prisma.SelectSubset<T, SalaryPaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends salarypaymentCreateManyArgs>(args?: Prisma.SelectSubset<T, salarypaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Delete a SalaryPayment.
-   * @param {SalaryPaymentDeleteArgs} args - Arguments to delete one SalaryPayment.
+   * Delete a Salarypayment.
+   * @param {salarypaymentDeleteArgs} args - Arguments to delete one Salarypayment.
    * @example
-   * // Delete one SalaryPayment
-   * const SalaryPayment = await prisma.salaryPayment.delete({
+   * // Delete one Salarypayment
+   * const Salarypayment = await prisma.salarypayment.delete({
    *   where: {
-   *     // ... filter to delete one SalaryPayment
+   *     // ... filter to delete one Salarypayment
    *   }
    * })
    * 
    */
-  delete<T extends SalaryPaymentDeleteArgs>(args: Prisma.SelectSubset<T, SalaryPaymentDeleteArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends salarypaymentDeleteArgs>(args: Prisma.SelectSubset<T, salarypaymentDeleteArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Update one SalaryPayment.
-   * @param {SalaryPaymentUpdateArgs} args - Arguments to update one SalaryPayment.
+   * Update one Salarypayment.
+   * @param {salarypaymentUpdateArgs} args - Arguments to update one Salarypayment.
    * @example
-   * // Update one SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.update({
+   * // Update one Salarypayment
+   * const salarypayment = await prisma.salarypayment.update({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -704,30 +704,30 @@ export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  update<T extends SalaryPaymentUpdateArgs>(args: Prisma.SelectSubset<T, SalaryPaymentUpdateArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends salarypaymentUpdateArgs>(args: Prisma.SelectSubset<T, salarypaymentUpdateArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Delete zero or more SalaryPayments.
-   * @param {SalaryPaymentDeleteManyArgs} args - Arguments to filter SalaryPayments to delete.
+   * Delete zero or more Salarypayments.
+   * @param {salarypaymentDeleteManyArgs} args - Arguments to filter Salarypayments to delete.
    * @example
-   * // Delete a few SalaryPayments
-   * const { count } = await prisma.salaryPayment.deleteMany({
+   * // Delete a few Salarypayments
+   * const { count } = await prisma.salarypayment.deleteMany({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    * 
    */
-  deleteMany<T extends SalaryPaymentDeleteManyArgs>(args?: Prisma.SelectSubset<T, SalaryPaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends salarypaymentDeleteManyArgs>(args?: Prisma.SelectSubset<T, salarypaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Update zero or more SalaryPayments.
+   * Update zero or more Salarypayments.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {salarypaymentUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
-   * // Update many SalaryPayments
-   * const salaryPayment = await prisma.salaryPayment.updateMany({
+   * // Update many Salarypayments
+   * const salarypayment = await prisma.salarypayment.updateMany({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -737,56 +737,56 @@ export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  updateMany<T extends SalaryPaymentUpdateManyArgs>(args: Prisma.SelectSubset<T, SalaryPaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends salarypaymentUpdateManyArgs>(args: Prisma.SelectSubset<T, salarypaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Create or update one SalaryPayment.
-   * @param {SalaryPaymentUpsertArgs} args - Arguments to update or create a SalaryPayment.
+   * Create or update one Salarypayment.
+   * @param {salarypaymentUpsertArgs} args - Arguments to update or create a Salarypayment.
    * @example
-   * // Update or create a SalaryPayment
-   * const salaryPayment = await prisma.salaryPayment.upsert({
+   * // Update or create a Salarypayment
+   * const salarypayment = await prisma.salarypayment.upsert({
    *   create: {
-   *     // ... data to create a SalaryPayment
+   *     // ... data to create a Salarypayment
    *   },
    *   update: {
    *     // ... in case it already exists, update
    *   },
    *   where: {
-   *     // ... the filter for the SalaryPayment we want to update
+   *     // ... the filter for the Salarypayment we want to update
    *   }
    * })
    */
-  upsert<T extends SalaryPaymentUpsertArgs>(args: Prisma.SelectSubset<T, SalaryPaymentUpsertArgs<ExtArgs>>): Prisma.Prisma__SalaryPaymentClient<runtime.Types.Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends salarypaymentUpsertArgs>(args: Prisma.SelectSubset<T, salarypaymentUpsertArgs<ExtArgs>>): Prisma.Prisma__salarypaymentClient<runtime.Types.Result.GetResult<Prisma.$salarypaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
-   * Count the number of SalaryPayments.
+   * Count the number of Salarypayments.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentCountArgs} args - Arguments to filter SalaryPayments to count.
+   * @param {salarypaymentCountArgs} args - Arguments to filter Salarypayments to count.
    * @example
-   * // Count the number of SalaryPayments
-   * const count = await prisma.salaryPayment.count({
+   * // Count the number of Salarypayments
+   * const count = await prisma.salarypayment.count({
    *   where: {
-   *     // ... the filter for the SalaryPayments we want to count
+   *     // ... the filter for the Salarypayments we want to count
    *   }
    * })
   **/
-  count<T extends SalaryPaymentCountArgs>(
-    args?: Prisma.Subset<T, SalaryPaymentCountArgs>,
+  count<T extends salarypaymentCountArgs>(
+    args?: Prisma.Subset<T, salarypaymentCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], SalaryPaymentCountAggregateOutputType>
+        : Prisma.GetScalarType<T['select'], SalarypaymentCountAggregateOutputType>
       : number
   >
 
   /**
-   * Allows you to perform aggregations operations on a SalaryPayment.
+   * Allows you to perform aggregations operations on a Salarypayment.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @param {SalarypaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
    * @example
    * // Ordered by age ascending
    * // Where email contains prisma.io
@@ -806,13 +806,13 @@ export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.
    *   take: 10,
    * })
   **/
-  aggregate<T extends SalaryPaymentAggregateArgs>(args: Prisma.Subset<T, SalaryPaymentAggregateArgs>): Prisma.PrismaPromise<GetSalaryPaymentAggregateType<T>>
+  aggregate<T extends SalarypaymentAggregateArgs>(args: Prisma.Subset<T, SalarypaymentAggregateArgs>): Prisma.PrismaPromise<GetSalarypaymentAggregateType<T>>
 
   /**
-   * Group by SalaryPayment.
+   * Group by Salarypayment.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SalaryPaymentGroupByArgs} args - Group by arguments.
+   * @param {salarypaymentGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -827,14 +827,14 @@ export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.
    * 
   **/
   groupBy<
-    T extends SalaryPaymentGroupByArgs,
+    T extends salarypaymentGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: SalaryPaymentGroupByArgs['orderBy'] }
-      : { orderBy?: SalaryPaymentGroupByArgs['orderBy'] },
+      ? { orderBy: salarypaymentGroupByArgs['orderBy'] }
+      : { orderBy?: salarypaymentGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -883,22 +883,22 @@ export interface SalaryPaymentDelegate<ExtArgs extends runtime.Types.Extensions.
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, SalaryPaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalaryPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, salarypaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalarypaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the SalaryPayment model
+ * Fields of the salarypayment model
  */
-readonly fields: SalaryPaymentFieldRefs;
+readonly fields: salarypaymentFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for SalaryPayment.
+ * The delegate class that acts as a "Promise-like" for salarypayment.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__SalaryPaymentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__salarypaymentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -925,371 +925,371 @@ export interface Prisma__SalaryPaymentClient<T, Null = never, ExtArgs extends ru
 
 
 /**
- * Fields of the SalaryPayment model
+ * Fields of the salarypayment model
  */
-export interface SalaryPaymentFieldRefs {
-  readonly id: Prisma.FieldRef<"SalaryPayment", 'Int'>
-  readonly amount: Prisma.FieldRef<"SalaryPayment", 'Float'>
-  readonly weekStart: Prisma.FieldRef<"SalaryPayment", 'DateTime'>
-  readonly weekEnd: Prisma.FieldRef<"SalaryPayment", 'DateTime'>
-  readonly createdAt: Prisma.FieldRef<"SalaryPayment", 'DateTime'>
-  readonly userId: Prisma.FieldRef<"SalaryPayment", 'Int'>
+export interface salarypaymentFieldRefs {
+  readonly id: Prisma.FieldRef<"salarypayment", 'Int'>
+  readonly amount: Prisma.FieldRef<"salarypayment", 'Float'>
+  readonly weekStart: Prisma.FieldRef<"salarypayment", 'DateTime'>
+  readonly weekEnd: Prisma.FieldRef<"salarypayment", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"salarypayment", 'DateTime'>
+  readonly userId: Prisma.FieldRef<"salarypayment", 'Int'>
 }
     
 
 // Custom InputTypes
 /**
- * SalaryPayment findUnique
+ * salarypayment findUnique
  */
-export type SalaryPaymentFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter, which SalaryPayment to fetch.
+   * Filter, which salarypayment to fetch.
    */
-  where: Prisma.SalaryPaymentWhereUniqueInput
+  where: Prisma.salarypaymentWhereUniqueInput
 }
 
 /**
- * SalaryPayment findUniqueOrThrow
+ * salarypayment findUniqueOrThrow
  */
-export type SalaryPaymentFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter, which SalaryPayment to fetch.
+   * Filter, which salarypayment to fetch.
    */
-  where: Prisma.SalaryPaymentWhereUniqueInput
+  where: Prisma.salarypaymentWhereUniqueInput
 }
 
 /**
- * SalaryPayment findFirst
+ * salarypayment findFirst
  */
-export type SalaryPaymentFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter, which SalaryPayment to fetch.
+   * Filter, which salarypayment to fetch.
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SalaryPayments to fetch.
+   * Determine the order of salarypayments to fetch.
    */
-  orderBy?: Prisma.SalaryPaymentOrderByWithRelationInput | Prisma.SalaryPaymentOrderByWithRelationInput[]
+  orderBy?: Prisma.salarypaymentOrderByWithRelationInput | Prisma.salarypaymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for SalaryPayments.
+   * Sets the position for searching for salarypayments.
    */
-  cursor?: Prisma.SalaryPaymentWhereUniqueInput
+  cursor?: Prisma.salarypaymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SalaryPayments from the position of the cursor.
+   * Take `±n` salarypayments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SalaryPayments.
+   * Skip the first `n` salarypayments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of SalaryPayments.
+   * Filter by unique combinations of salarypayments.
    */
-  distinct?: Prisma.SalaryPaymentScalarFieldEnum | Prisma.SalaryPaymentScalarFieldEnum[]
+  distinct?: Prisma.SalarypaymentScalarFieldEnum | Prisma.SalarypaymentScalarFieldEnum[]
 }
 
 /**
- * SalaryPayment findFirstOrThrow
+ * salarypayment findFirstOrThrow
  */
-export type SalaryPaymentFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter, which SalaryPayment to fetch.
+   * Filter, which salarypayment to fetch.
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SalaryPayments to fetch.
+   * Determine the order of salarypayments to fetch.
    */
-  orderBy?: Prisma.SalaryPaymentOrderByWithRelationInput | Prisma.SalaryPaymentOrderByWithRelationInput[]
+  orderBy?: Prisma.salarypaymentOrderByWithRelationInput | Prisma.salarypaymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for SalaryPayments.
+   * Sets the position for searching for salarypayments.
    */
-  cursor?: Prisma.SalaryPaymentWhereUniqueInput
+  cursor?: Prisma.salarypaymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SalaryPayments from the position of the cursor.
+   * Take `±n` salarypayments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SalaryPayments.
+   * Skip the first `n` salarypayments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of SalaryPayments.
+   * Filter by unique combinations of salarypayments.
    */
-  distinct?: Prisma.SalaryPaymentScalarFieldEnum | Prisma.SalaryPaymentScalarFieldEnum[]
+  distinct?: Prisma.SalarypaymentScalarFieldEnum | Prisma.SalarypaymentScalarFieldEnum[]
 }
 
 /**
- * SalaryPayment findMany
+ * salarypayment findMany
  */
-export type SalaryPaymentFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter, which SalaryPayments to fetch.
+   * Filter, which salarypayments to fetch.
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SalaryPayments to fetch.
+   * Determine the order of salarypayments to fetch.
    */
-  orderBy?: Prisma.SalaryPaymentOrderByWithRelationInput | Prisma.SalaryPaymentOrderByWithRelationInput[]
+  orderBy?: Prisma.salarypaymentOrderByWithRelationInput | Prisma.salarypaymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing SalaryPayments.
+   * Sets the position for listing salarypayments.
    */
-  cursor?: Prisma.SalaryPaymentWhereUniqueInput
+  cursor?: Prisma.salarypaymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SalaryPayments from the position of the cursor.
+   * Take `±n` salarypayments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SalaryPayments.
+   * Skip the first `n` salarypayments.
    */
   skip?: number
-  distinct?: Prisma.SalaryPaymentScalarFieldEnum | Prisma.SalaryPaymentScalarFieldEnum[]
+  distinct?: Prisma.SalarypaymentScalarFieldEnum | Prisma.SalarypaymentScalarFieldEnum[]
 }
 
 /**
- * SalaryPayment create
+ * salarypayment create
  */
-export type SalaryPaymentCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * The data needed to create a SalaryPayment.
+   * The data needed to create a salarypayment.
    */
-  data: Prisma.XOR<Prisma.SalaryPaymentCreateInput, Prisma.SalaryPaymentUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.salarypaymentCreateInput, Prisma.salarypaymentUncheckedCreateInput>
 }
 
 /**
- * SalaryPayment createMany
+ * salarypayment createMany
  */
-export type SalaryPaymentCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many SalaryPayments.
+   * The data used to create many salarypayments.
    */
-  data: Prisma.SalaryPaymentCreateManyInput | Prisma.SalaryPaymentCreateManyInput[]
+  data: Prisma.salarypaymentCreateManyInput | Prisma.salarypaymentCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * SalaryPayment update
+ * salarypayment update
  */
-export type SalaryPaymentUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * The data needed to update a SalaryPayment.
+   * The data needed to update a salarypayment.
    */
-  data: Prisma.XOR<Prisma.SalaryPaymentUpdateInput, Prisma.SalaryPaymentUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.salarypaymentUpdateInput, Prisma.salarypaymentUncheckedUpdateInput>
   /**
-   * Choose, which SalaryPayment to update.
+   * Choose, which salarypayment to update.
    */
-  where: Prisma.SalaryPaymentWhereUniqueInput
+  where: Prisma.salarypaymentWhereUniqueInput
 }
 
 /**
- * SalaryPayment updateMany
+ * salarypayment updateMany
  */
-export type SalaryPaymentUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update SalaryPayments.
+   * The data used to update salarypayments.
    */
-  data: Prisma.XOR<Prisma.SalaryPaymentUpdateManyMutationInput, Prisma.SalaryPaymentUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.salarypaymentUpdateManyMutationInput, Prisma.salarypaymentUncheckedUpdateManyInput>
   /**
-   * Filter which SalaryPayments to update
+   * Filter which salarypayments to update
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
-   * Limit how many SalaryPayments to update.
+   * Limit how many salarypayments to update.
    */
   limit?: number
 }
 
 /**
- * SalaryPayment upsert
+ * salarypayment upsert
  */
-export type SalaryPaymentUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * The filter to search for the SalaryPayment to update in case it exists.
+   * The filter to search for the salarypayment to update in case it exists.
    */
-  where: Prisma.SalaryPaymentWhereUniqueInput
+  where: Prisma.salarypaymentWhereUniqueInput
   /**
-   * In case the SalaryPayment found by the `where` argument doesn't exist, create a new SalaryPayment with this data.
+   * In case the salarypayment found by the `where` argument doesn't exist, create a new salarypayment with this data.
    */
-  create: Prisma.XOR<Prisma.SalaryPaymentCreateInput, Prisma.SalaryPaymentUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.salarypaymentCreateInput, Prisma.salarypaymentUncheckedCreateInput>
   /**
-   * In case the SalaryPayment was found with the provided `where` argument, update it with this data.
+   * In case the salarypayment was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.SalaryPaymentUpdateInput, Prisma.SalaryPaymentUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.salarypaymentUpdateInput, Prisma.salarypaymentUncheckedUpdateInput>
 }
 
 /**
- * SalaryPayment delete
+ * salarypayment delete
  */
-export type SalaryPaymentDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
   /**
-   * Filter which SalaryPayment to delete.
+   * Filter which salarypayment to delete.
    */
-  where: Prisma.SalaryPaymentWhereUniqueInput
+  where: Prisma.salarypaymentWhereUniqueInput
 }
 
 /**
- * SalaryPayment deleteMany
+ * salarypayment deleteMany
  */
-export type SalaryPaymentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which SalaryPayments to delete
+   * Filter which salarypayments to delete
    */
-  where?: Prisma.SalaryPaymentWhereInput
+  where?: Prisma.salarypaymentWhereInput
   /**
-   * Limit how many SalaryPayments to delete.
+   * Limit how many salarypayments to delete.
    */
   limit?: number
 }
 
 /**
- * SalaryPayment without action
+ * salarypayment without action
  */
-export type SalaryPaymentDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type salarypaymentDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SalaryPayment
+   * Select specific fields to fetch from the salarypayment
    */
-  select?: Prisma.SalaryPaymentSelect<ExtArgs> | null
+  select?: Prisma.salarypaymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SalaryPayment
+   * Omit specific fields from the salarypayment
    */
-  omit?: Prisma.SalaryPaymentOmit<ExtArgs> | null
+  omit?: Prisma.salarypaymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SalaryPaymentInclude<ExtArgs> | null
+  include?: Prisma.salarypaymentInclude<ExtArgs> | null
 }

@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `PriceCategory` model and its related types.
+ * This file exports the `pricecategory` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,44 +13,44 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model PriceCategory
+ * Model pricecategory
  * 
  */
-export type PriceCategoryModel = runtime.Types.Result.DefaultSelection<Prisma.$PriceCategoryPayload>
+export type pricecategoryModel = runtime.Types.Result.DefaultSelection<Prisma.$pricecategoryPayload>
 
-export type AggregatePriceCategory = {
-  _count: PriceCategoryCountAggregateOutputType | null
-  _avg: PriceCategoryAvgAggregateOutputType | null
-  _sum: PriceCategorySumAggregateOutputType | null
-  _min: PriceCategoryMinAggregateOutputType | null
-  _max: PriceCategoryMaxAggregateOutputType | null
+export type AggregatePricecategory = {
+  _count: PricecategoryCountAggregateOutputType | null
+  _avg: PricecategoryAvgAggregateOutputType | null
+  _sum: PricecategorySumAggregateOutputType | null
+  _min: PricecategoryMinAggregateOutputType | null
+  _max: PricecategoryMaxAggregateOutputType | null
 }
 
-export type PriceCategoryAvgAggregateOutputType = {
+export type PricecategoryAvgAggregateOutputType = {
   id: number | null
   fixedPrice: number | null
   categoryId: number | null
 }
 
-export type PriceCategorySumAggregateOutputType = {
+export type PricecategorySumAggregateOutputType = {
   id: number | null
   fixedPrice: number | null
   categoryId: number | null
 }
 
-export type PriceCategoryMinAggregateOutputType = {
+export type PricecategoryMinAggregateOutputType = {
   id: number | null
   fixedPrice: number | null
   categoryId: number | null
 }
 
-export type PriceCategoryMaxAggregateOutputType = {
+export type PricecategoryMaxAggregateOutputType = {
   id: number | null
   fixedPrice: number | null
   categoryId: number | null
 }
 
-export type PriceCategoryCountAggregateOutputType = {
+export type PricecategoryCountAggregateOutputType = {
   id: number
   fixedPrice: number
   categoryId: number
@@ -58,731 +58,723 @@ export type PriceCategoryCountAggregateOutputType = {
 }
 
 
-export type PriceCategoryAvgAggregateInputType = {
+export type PricecategoryAvgAggregateInputType = {
   id?: true
   fixedPrice?: true
   categoryId?: true
 }
 
-export type PriceCategorySumAggregateInputType = {
+export type PricecategorySumAggregateInputType = {
   id?: true
   fixedPrice?: true
   categoryId?: true
 }
 
-export type PriceCategoryMinAggregateInputType = {
+export type PricecategoryMinAggregateInputType = {
   id?: true
   fixedPrice?: true
   categoryId?: true
 }
 
-export type PriceCategoryMaxAggregateInputType = {
+export type PricecategoryMaxAggregateInputType = {
   id?: true
   fixedPrice?: true
   categoryId?: true
 }
 
-export type PriceCategoryCountAggregateInputType = {
+export type PricecategoryCountAggregateInputType = {
   id?: true
   fixedPrice?: true
   categoryId?: true
   _all?: true
 }
 
-export type PriceCategoryAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PricecategoryAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which PriceCategory to aggregate.
+   * Filter which pricecategory to aggregate.
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of PriceCategories to fetch.
+   * Determine the order of pricecategories to fetch.
    */
-  orderBy?: Prisma.PriceCategoryOrderByWithRelationInput | Prisma.PriceCategoryOrderByWithRelationInput[]
+  orderBy?: Prisma.pricecategoryOrderByWithRelationInput | Prisma.pricecategoryOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.PriceCategoryWhereUniqueInput
+  cursor?: Prisma.pricecategoryWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` PriceCategories from the position of the cursor.
+   * Take `±n` pricecategories from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` PriceCategories.
+   * Skip the first `n` pricecategories.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned PriceCategories
+   * Count returned pricecategories
   **/
-  _count?: true | PriceCategoryCountAggregateInputType
+  _count?: true | PricecategoryCountAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to average
   **/
-  _avg?: PriceCategoryAvgAggregateInputType
+  _avg?: PricecategoryAvgAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to sum
   **/
-  _sum?: PriceCategorySumAggregateInputType
+  _sum?: PricecategorySumAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the minimum value
   **/
-  _min?: PriceCategoryMinAggregateInputType
+  _min?: PricecategoryMinAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the maximum value
   **/
-  _max?: PriceCategoryMaxAggregateInputType
+  _max?: PricecategoryMaxAggregateInputType
 }
 
-export type GetPriceCategoryAggregateType<T extends PriceCategoryAggregateArgs> = {
-      [P in keyof T & keyof AggregatePriceCategory]: P extends '_count' | 'count'
+export type GetPricecategoryAggregateType<T extends PricecategoryAggregateArgs> = {
+      [P in keyof T & keyof AggregatePricecategory]: P extends '_count' | 'count'
     ? T[P] extends true
       ? number
-      : Prisma.GetScalarType<T[P], AggregatePriceCategory[P]>
-    : Prisma.GetScalarType<T[P], AggregatePriceCategory[P]>
+      : Prisma.GetScalarType<T[P], AggregatePricecategory[P]>
+    : Prisma.GetScalarType<T[P], AggregatePricecategory[P]>
 }
 
 
 
 
-export type PriceCategoryGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PriceCategoryWhereInput
-  orderBy?: Prisma.PriceCategoryOrderByWithAggregationInput | Prisma.PriceCategoryOrderByWithAggregationInput[]
-  by: Prisma.PriceCategoryScalarFieldEnum[] | Prisma.PriceCategoryScalarFieldEnum
-  having?: Prisma.PriceCategoryScalarWhereWithAggregatesInput
+export type pricecategoryGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.pricecategoryWhereInput
+  orderBy?: Prisma.pricecategoryOrderByWithAggregationInput | Prisma.pricecategoryOrderByWithAggregationInput[]
+  by: Prisma.PricecategoryScalarFieldEnum[] | Prisma.PricecategoryScalarFieldEnum
+  having?: Prisma.pricecategoryScalarWhereWithAggregatesInput
   take?: number
   skip?: number
-  _count?: PriceCategoryCountAggregateInputType | true
-  _avg?: PriceCategoryAvgAggregateInputType
-  _sum?: PriceCategorySumAggregateInputType
-  _min?: PriceCategoryMinAggregateInputType
-  _max?: PriceCategoryMaxAggregateInputType
+  _count?: PricecategoryCountAggregateInputType | true
+  _avg?: PricecategoryAvgAggregateInputType
+  _sum?: PricecategorySumAggregateInputType
+  _min?: PricecategoryMinAggregateInputType
+  _max?: PricecategoryMaxAggregateInputType
 }
 
-export type PriceCategoryGroupByOutputType = {
+export type PricecategoryGroupByOutputType = {
   id: number
   fixedPrice: number
   categoryId: number
-  _count: PriceCategoryCountAggregateOutputType | null
-  _avg: PriceCategoryAvgAggregateOutputType | null
-  _sum: PriceCategorySumAggregateOutputType | null
-  _min: PriceCategoryMinAggregateOutputType | null
-  _max: PriceCategoryMaxAggregateOutputType | null
+  _count: PricecategoryCountAggregateOutputType | null
+  _avg: PricecategoryAvgAggregateOutputType | null
+  _sum: PricecategorySumAggregateOutputType | null
+  _min: PricecategoryMinAggregateOutputType | null
+  _max: PricecategoryMaxAggregateOutputType | null
 }
 
-type GetPriceCategoryGroupByPayload<T extends PriceCategoryGroupByArgs> = Prisma.PrismaPromise<
+type GetPricecategoryGroupByPayload<T extends pricecategoryGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<PriceCategoryGroupByOutputType, T['by']> &
+    Prisma.PickEnumerable<PricecategoryGroupByOutputType, T['by']> &
       {
-        [P in ((keyof T) & (keyof PriceCategoryGroupByOutputType))]: P extends '_count'
+        [P in ((keyof T) & (keyof PricecategoryGroupByOutputType))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : Prisma.GetScalarType<T[P], PriceCategoryGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], PriceCategoryGroupByOutputType[P]>
+            : Prisma.GetScalarType<T[P], PricecategoryGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], PricecategoryGroupByOutputType[P]>
       }
     >
   >
 
 
 
-export type PriceCategoryWhereInput = {
-  AND?: Prisma.PriceCategoryWhereInput | Prisma.PriceCategoryWhereInput[]
-  OR?: Prisma.PriceCategoryWhereInput[]
-  NOT?: Prisma.PriceCategoryWhereInput | Prisma.PriceCategoryWhereInput[]
-  id?: Prisma.IntFilter<"PriceCategory"> | number
-  fixedPrice?: Prisma.FloatFilter<"PriceCategory"> | number
-  categoryId?: Prisma.IntFilter<"PriceCategory"> | number
-  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
-  stock?: Prisma.XOR<Prisma.StockNullableScalarRelationFilter, Prisma.StockWhereInput> | null
-  sales?: Prisma.SaleListRelationFilter
+export type pricecategoryWhereInput = {
+  AND?: Prisma.pricecategoryWhereInput | Prisma.pricecategoryWhereInput[]
+  OR?: Prisma.pricecategoryWhereInput[]
+  NOT?: Prisma.pricecategoryWhereInput | Prisma.pricecategoryWhereInput[]
+  id?: Prisma.IntFilter<"pricecategory"> | number
+  fixedPrice?: Prisma.FloatFilter<"pricecategory"> | number
+  categoryId?: Prisma.IntFilter<"pricecategory"> | number
+  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.categoryWhereInput>
+  sale?: Prisma.SaleListRelationFilter
+  stock?: Prisma.XOR<Prisma.StockNullableScalarRelationFilter, Prisma.stockWhereInput> | null
 }
 
-export type PriceCategoryOrderByWithRelationInput = {
+export type pricecategoryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
-  category?: Prisma.CategoryOrderByWithRelationInput
-  stock?: Prisma.StockOrderByWithRelationInput
-  sales?: Prisma.SaleOrderByRelationAggregateInput
+  category?: Prisma.categoryOrderByWithRelationInput
+  sale?: Prisma.saleOrderByRelationAggregateInput
+  stock?: Prisma.stockOrderByWithRelationInput
 }
 
-export type PriceCategoryWhereUniqueInput = Prisma.AtLeast<{
+export type pricecategoryWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.PriceCategoryWhereInput | Prisma.PriceCategoryWhereInput[]
-  OR?: Prisma.PriceCategoryWhereInput[]
-  NOT?: Prisma.PriceCategoryWhereInput | Prisma.PriceCategoryWhereInput[]
-  fixedPrice?: Prisma.FloatFilter<"PriceCategory"> | number
-  categoryId?: Prisma.IntFilter<"PriceCategory"> | number
-  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
-  stock?: Prisma.XOR<Prisma.StockNullableScalarRelationFilter, Prisma.StockWhereInput> | null
-  sales?: Prisma.SaleListRelationFilter
+  AND?: Prisma.pricecategoryWhereInput | Prisma.pricecategoryWhereInput[]
+  OR?: Prisma.pricecategoryWhereInput[]
+  NOT?: Prisma.pricecategoryWhereInput | Prisma.pricecategoryWhereInput[]
+  fixedPrice?: Prisma.FloatFilter<"pricecategory"> | number
+  categoryId?: Prisma.IntFilter<"pricecategory"> | number
+  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.categoryWhereInput>
+  sale?: Prisma.SaleListRelationFilter
+  stock?: Prisma.XOR<Prisma.StockNullableScalarRelationFilter, Prisma.stockWhereInput> | null
 }, "id">
 
-export type PriceCategoryOrderByWithAggregationInput = {
+export type pricecategoryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
-  _count?: Prisma.PriceCategoryCountOrderByAggregateInput
-  _avg?: Prisma.PriceCategoryAvgOrderByAggregateInput
-  _max?: Prisma.PriceCategoryMaxOrderByAggregateInput
-  _min?: Prisma.PriceCategoryMinOrderByAggregateInput
-  _sum?: Prisma.PriceCategorySumOrderByAggregateInput
+  _count?: Prisma.pricecategoryCountOrderByAggregateInput
+  _avg?: Prisma.pricecategoryAvgOrderByAggregateInput
+  _max?: Prisma.pricecategoryMaxOrderByAggregateInput
+  _min?: Prisma.pricecategoryMinOrderByAggregateInput
+  _sum?: Prisma.pricecategorySumOrderByAggregateInput
 }
 
-export type PriceCategoryScalarWhereWithAggregatesInput = {
-  AND?: Prisma.PriceCategoryScalarWhereWithAggregatesInput | Prisma.PriceCategoryScalarWhereWithAggregatesInput[]
-  OR?: Prisma.PriceCategoryScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.PriceCategoryScalarWhereWithAggregatesInput | Prisma.PriceCategoryScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"PriceCategory"> | number
-  fixedPrice?: Prisma.FloatWithAggregatesFilter<"PriceCategory"> | number
-  categoryId?: Prisma.IntWithAggregatesFilter<"PriceCategory"> | number
+export type pricecategoryScalarWhereWithAggregatesInput = {
+  AND?: Prisma.pricecategoryScalarWhereWithAggregatesInput | Prisma.pricecategoryScalarWhereWithAggregatesInput[]
+  OR?: Prisma.pricecategoryScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.pricecategoryScalarWhereWithAggregatesInput | Prisma.pricecategoryScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"pricecategory"> | number
+  fixedPrice?: Prisma.FloatWithAggregatesFilter<"pricecategory"> | number
+  categoryId?: Prisma.IntWithAggregatesFilter<"pricecategory"> | number
 }
 
-export type PriceCategoryCreateInput = {
+export type pricecategoryCreateInput = {
   fixedPrice: number
-  category: Prisma.CategoryCreateNestedOneWithoutPriceCategoriesInput
-  stock?: Prisma.StockCreateNestedOneWithoutPriceCategoryInput
-  sales?: Prisma.SaleCreateNestedManyWithoutPriceCategoryInput
+  category: Prisma.categoryCreateNestedOneWithoutPricecategoryInput
+  sale?: Prisma.saleCreateNestedManyWithoutPricecategoryInput
+  stock?: Prisma.stockCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryUncheckedCreateInput = {
+export type pricecategoryUncheckedCreateInput = {
   id?: number
   fixedPrice: number
   categoryId: number
-  stock?: Prisma.StockUncheckedCreateNestedOneWithoutPriceCategoryInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutPriceCategoryInput
+  sale?: Prisma.saleUncheckedCreateNestedManyWithoutPricecategoryInput
+  stock?: Prisma.stockUncheckedCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryUpdateInput = {
+export type pricecategoryUpdateInput = {
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  category?: Prisma.CategoryUpdateOneRequiredWithoutPriceCategoriesNestedInput
-  stock?: Prisma.StockUpdateOneWithoutPriceCategoryNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutPriceCategoryNestedInput
+  category?: Prisma.categoryUpdateOneRequiredWithoutPricecategoryNestedInput
+  sale?: Prisma.saleUpdateManyWithoutPricecategoryNestedInput
+  stock?: Prisma.stockUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryUncheckedUpdateInput = {
+export type pricecategoryUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   categoryId?: Prisma.IntFieldUpdateOperationsInput | number
-  stock?: Prisma.StockUncheckedUpdateOneWithoutPriceCategoryNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutPriceCategoryNestedInput
+  sale?: Prisma.saleUncheckedUpdateManyWithoutPricecategoryNestedInput
+  stock?: Prisma.stockUncheckedUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryCreateManyInput = {
+export type pricecategoryCreateManyInput = {
   id?: number
   fixedPrice: number
   categoryId: number
 }
 
-export type PriceCategoryUpdateManyMutationInput = {
+export type pricecategoryUpdateManyMutationInput = {
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
-export type PriceCategoryUncheckedUpdateManyInput = {
+export type pricecategoryUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   categoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type PriceCategoryListRelationFilter = {
-  every?: Prisma.PriceCategoryWhereInput
-  some?: Prisma.PriceCategoryWhereInput
-  none?: Prisma.PriceCategoryWhereInput
+export type PricecategoryListRelationFilter = {
+  every?: Prisma.pricecategoryWhereInput
+  some?: Prisma.pricecategoryWhereInput
+  none?: Prisma.pricecategoryWhereInput
 }
 
-export type PriceCategoryOrderByRelationAggregateInput = {
+export type pricecategoryOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type PriceCategoryCountOrderByAggregateInput = {
+export type pricecategoryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
 }
 
-export type PriceCategoryAvgOrderByAggregateInput = {
+export type pricecategoryAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
 }
 
-export type PriceCategoryMaxOrderByAggregateInput = {
+export type pricecategoryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
 }
 
-export type PriceCategoryMinOrderByAggregateInput = {
+export type pricecategoryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
 }
 
-export type PriceCategorySumOrderByAggregateInput = {
+export type pricecategorySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fixedPrice?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
 }
 
-export type PriceCategoryScalarRelationFilter = {
-  is?: Prisma.PriceCategoryWhereInput
-  isNot?: Prisma.PriceCategoryWhereInput
+export type PricecategoryScalarRelationFilter = {
+  is?: Prisma.pricecategoryWhereInput
+  isNot?: Prisma.pricecategoryWhereInput
 }
 
-export type PriceCategoryCreateNestedManyWithoutCategoryInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput> | Prisma.PriceCategoryCreateWithoutCategoryInput[] | Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput[]
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput | Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput[]
-  createMany?: Prisma.PriceCategoryCreateManyCategoryInputEnvelope
-  connect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
+export type pricecategoryCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput> | Prisma.pricecategoryCreateWithoutCategoryInput[] | Prisma.pricecategoryUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutCategoryInput | Prisma.pricecategoryCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.pricecategoryCreateManyCategoryInputEnvelope
+  connect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
 }
 
-export type PriceCategoryUncheckedCreateNestedManyWithoutCategoryInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput> | Prisma.PriceCategoryCreateWithoutCategoryInput[] | Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput[]
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput | Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput[]
-  createMany?: Prisma.PriceCategoryCreateManyCategoryInputEnvelope
-  connect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
+export type pricecategoryUncheckedCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput> | Prisma.pricecategoryCreateWithoutCategoryInput[] | Prisma.pricecategoryUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutCategoryInput | Prisma.pricecategoryCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.pricecategoryCreateManyCategoryInputEnvelope
+  connect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
 }
 
-export type PriceCategoryUpdateManyWithoutCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput> | Prisma.PriceCategoryCreateWithoutCategoryInput[] | Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput[]
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput | Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput[]
-  upsert?: Prisma.PriceCategoryUpsertWithWhereUniqueWithoutCategoryInput | Prisma.PriceCategoryUpsertWithWhereUniqueWithoutCategoryInput[]
-  createMany?: Prisma.PriceCategoryCreateManyCategoryInputEnvelope
-  set?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  disconnect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  delete?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  connect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  update?: Prisma.PriceCategoryUpdateWithWhereUniqueWithoutCategoryInput | Prisma.PriceCategoryUpdateWithWhereUniqueWithoutCategoryInput[]
-  updateMany?: Prisma.PriceCategoryUpdateManyWithWhereWithoutCategoryInput | Prisma.PriceCategoryUpdateManyWithWhereWithoutCategoryInput[]
-  deleteMany?: Prisma.PriceCategoryScalarWhereInput | Prisma.PriceCategoryScalarWhereInput[]
+export type pricecategoryUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput> | Prisma.pricecategoryCreateWithoutCategoryInput[] | Prisma.pricecategoryUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutCategoryInput | Prisma.pricecategoryCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.pricecategoryUpsertWithWhereUniqueWithoutCategoryInput | Prisma.pricecategoryUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.pricecategoryCreateManyCategoryInputEnvelope
+  set?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  disconnect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  delete?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  connect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  update?: Prisma.pricecategoryUpdateWithWhereUniqueWithoutCategoryInput | Prisma.pricecategoryUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.pricecategoryUpdateManyWithWhereWithoutCategoryInput | Prisma.pricecategoryUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.pricecategoryScalarWhereInput | Prisma.pricecategoryScalarWhereInput[]
 }
 
-export type PriceCategoryUncheckedUpdateManyWithoutCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput> | Prisma.PriceCategoryCreateWithoutCategoryInput[] | Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput[]
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput | Prisma.PriceCategoryCreateOrConnectWithoutCategoryInput[]
-  upsert?: Prisma.PriceCategoryUpsertWithWhereUniqueWithoutCategoryInput | Prisma.PriceCategoryUpsertWithWhereUniqueWithoutCategoryInput[]
-  createMany?: Prisma.PriceCategoryCreateManyCategoryInputEnvelope
-  set?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  disconnect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  delete?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  connect?: Prisma.PriceCategoryWhereUniqueInput | Prisma.PriceCategoryWhereUniqueInput[]
-  update?: Prisma.PriceCategoryUpdateWithWhereUniqueWithoutCategoryInput | Prisma.PriceCategoryUpdateWithWhereUniqueWithoutCategoryInput[]
-  updateMany?: Prisma.PriceCategoryUpdateManyWithWhereWithoutCategoryInput | Prisma.PriceCategoryUpdateManyWithWhereWithoutCategoryInput[]
-  deleteMany?: Prisma.PriceCategoryScalarWhereInput | Prisma.PriceCategoryScalarWhereInput[]
+export type pricecategoryUncheckedUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput> | Prisma.pricecategoryCreateWithoutCategoryInput[] | Prisma.pricecategoryUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutCategoryInput | Prisma.pricecategoryCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.pricecategoryUpsertWithWhereUniqueWithoutCategoryInput | Prisma.pricecategoryUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.pricecategoryCreateManyCategoryInputEnvelope
+  set?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  disconnect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  delete?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  connect?: Prisma.pricecategoryWhereUniqueInput | Prisma.pricecategoryWhereUniqueInput[]
+  update?: Prisma.pricecategoryUpdateWithWhereUniqueWithoutCategoryInput | Prisma.pricecategoryUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.pricecategoryUpdateManyWithWhereWithoutCategoryInput | Prisma.pricecategoryUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.pricecategoryScalarWhereInput | Prisma.pricecategoryScalarWhereInput[]
 }
 
-export type FloatFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
+export type pricecategoryCreateNestedOneWithoutSaleInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutSaleInput, Prisma.pricecategoryUncheckedCreateWithoutSaleInput>
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutSaleInput
+  connect?: Prisma.pricecategoryWhereUniqueInput
 }
 
-export type PriceCategoryCreateNestedOneWithoutStockInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutStockInput, Prisma.PriceCategoryUncheckedCreateWithoutStockInput>
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutStockInput
-  connect?: Prisma.PriceCategoryWhereUniqueInput
+export type pricecategoryUpdateOneRequiredWithoutSaleNestedInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutSaleInput, Prisma.pricecategoryUncheckedCreateWithoutSaleInput>
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutSaleInput
+  upsert?: Prisma.pricecategoryUpsertWithoutSaleInput
+  connect?: Prisma.pricecategoryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.pricecategoryUpdateToOneWithWhereWithoutSaleInput, Prisma.pricecategoryUpdateWithoutSaleInput>, Prisma.pricecategoryUncheckedUpdateWithoutSaleInput>
 }
 
-export type PriceCategoryUpdateOneRequiredWithoutStockNestedInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutStockInput, Prisma.PriceCategoryUncheckedCreateWithoutStockInput>
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutStockInput
-  upsert?: Prisma.PriceCategoryUpsertWithoutStockInput
-  connect?: Prisma.PriceCategoryWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PriceCategoryUpdateToOneWithWhereWithoutStockInput, Prisma.PriceCategoryUpdateWithoutStockInput>, Prisma.PriceCategoryUncheckedUpdateWithoutStockInput>
+export type pricecategoryCreateNestedOneWithoutStockInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutStockInput, Prisma.pricecategoryUncheckedCreateWithoutStockInput>
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutStockInput
+  connect?: Prisma.pricecategoryWhereUniqueInput
 }
 
-export type PriceCategoryCreateNestedOneWithoutSalesInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutSalesInput, Prisma.PriceCategoryUncheckedCreateWithoutSalesInput>
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutSalesInput
-  connect?: Prisma.PriceCategoryWhereUniqueInput
+export type pricecategoryUpdateOneRequiredWithoutStockNestedInput = {
+  create?: Prisma.XOR<Prisma.pricecategoryCreateWithoutStockInput, Prisma.pricecategoryUncheckedCreateWithoutStockInput>
+  connectOrCreate?: Prisma.pricecategoryCreateOrConnectWithoutStockInput
+  upsert?: Prisma.pricecategoryUpsertWithoutStockInput
+  connect?: Prisma.pricecategoryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.pricecategoryUpdateToOneWithWhereWithoutStockInput, Prisma.pricecategoryUpdateWithoutStockInput>, Prisma.pricecategoryUncheckedUpdateWithoutStockInput>
 }
 
-export type PriceCategoryUpdateOneRequiredWithoutSalesNestedInput = {
-  create?: Prisma.XOR<Prisma.PriceCategoryCreateWithoutSalesInput, Prisma.PriceCategoryUncheckedCreateWithoutSalesInput>
-  connectOrCreate?: Prisma.PriceCategoryCreateOrConnectWithoutSalesInput
-  upsert?: Prisma.PriceCategoryUpsertWithoutSalesInput
-  connect?: Prisma.PriceCategoryWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PriceCategoryUpdateToOneWithWhereWithoutSalesInput, Prisma.PriceCategoryUpdateWithoutSalesInput>, Prisma.PriceCategoryUncheckedUpdateWithoutSalesInput>
-}
-
-export type PriceCategoryCreateWithoutCategoryInput = {
+export type pricecategoryCreateWithoutCategoryInput = {
   fixedPrice: number
-  stock?: Prisma.StockCreateNestedOneWithoutPriceCategoryInput
-  sales?: Prisma.SaleCreateNestedManyWithoutPriceCategoryInput
+  sale?: Prisma.saleCreateNestedManyWithoutPricecategoryInput
+  stock?: Prisma.stockCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryUncheckedCreateWithoutCategoryInput = {
+export type pricecategoryUncheckedCreateWithoutCategoryInput = {
   id?: number
   fixedPrice: number
-  stock?: Prisma.StockUncheckedCreateNestedOneWithoutPriceCategoryInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutPriceCategoryInput
+  sale?: Prisma.saleUncheckedCreateNestedManyWithoutPricecategoryInput
+  stock?: Prisma.stockUncheckedCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryCreateOrConnectWithoutCategoryInput = {
-  where: Prisma.PriceCategoryWhereUniqueInput
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput>
+export type pricecategoryCreateOrConnectWithoutCategoryInput = {
+  where: Prisma.pricecategoryWhereUniqueInput
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput>
 }
 
-export type PriceCategoryCreateManyCategoryInputEnvelope = {
-  data: Prisma.PriceCategoryCreateManyCategoryInput | Prisma.PriceCategoryCreateManyCategoryInput[]
+export type pricecategoryCreateManyCategoryInputEnvelope = {
+  data: Prisma.pricecategoryCreateManyCategoryInput | Prisma.pricecategoryCreateManyCategoryInput[]
   skipDuplicates?: boolean
 }
 
-export type PriceCategoryUpsertWithWhereUniqueWithoutCategoryInput = {
-  where: Prisma.PriceCategoryWhereUniqueInput
-  update: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutCategoryInput, Prisma.PriceCategoryUncheckedUpdateWithoutCategoryInput>
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutCategoryInput, Prisma.PriceCategoryUncheckedCreateWithoutCategoryInput>
+export type pricecategoryUpsertWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.pricecategoryWhereUniqueInput
+  update: Prisma.XOR<Prisma.pricecategoryUpdateWithoutCategoryInput, Prisma.pricecategoryUncheckedUpdateWithoutCategoryInput>
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutCategoryInput, Prisma.pricecategoryUncheckedCreateWithoutCategoryInput>
 }
 
-export type PriceCategoryUpdateWithWhereUniqueWithoutCategoryInput = {
-  where: Prisma.PriceCategoryWhereUniqueInput
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutCategoryInput, Prisma.PriceCategoryUncheckedUpdateWithoutCategoryInput>
+export type pricecategoryUpdateWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.pricecategoryWhereUniqueInput
+  data: Prisma.XOR<Prisma.pricecategoryUpdateWithoutCategoryInput, Prisma.pricecategoryUncheckedUpdateWithoutCategoryInput>
 }
 
-export type PriceCategoryUpdateManyWithWhereWithoutCategoryInput = {
-  where: Prisma.PriceCategoryScalarWhereInput
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateManyMutationInput, Prisma.PriceCategoryUncheckedUpdateManyWithoutCategoryInput>
+export type pricecategoryUpdateManyWithWhereWithoutCategoryInput = {
+  where: Prisma.pricecategoryScalarWhereInput
+  data: Prisma.XOR<Prisma.pricecategoryUpdateManyMutationInput, Prisma.pricecategoryUncheckedUpdateManyWithoutCategoryInput>
 }
 
-export type PriceCategoryScalarWhereInput = {
-  AND?: Prisma.PriceCategoryScalarWhereInput | Prisma.PriceCategoryScalarWhereInput[]
-  OR?: Prisma.PriceCategoryScalarWhereInput[]
-  NOT?: Prisma.PriceCategoryScalarWhereInput | Prisma.PriceCategoryScalarWhereInput[]
-  id?: Prisma.IntFilter<"PriceCategory"> | number
-  fixedPrice?: Prisma.FloatFilter<"PriceCategory"> | number
-  categoryId?: Prisma.IntFilter<"PriceCategory"> | number
+export type pricecategoryScalarWhereInput = {
+  AND?: Prisma.pricecategoryScalarWhereInput | Prisma.pricecategoryScalarWhereInput[]
+  OR?: Prisma.pricecategoryScalarWhereInput[]
+  NOT?: Prisma.pricecategoryScalarWhereInput | Prisma.pricecategoryScalarWhereInput[]
+  id?: Prisma.IntFilter<"pricecategory"> | number
+  fixedPrice?: Prisma.FloatFilter<"pricecategory"> | number
+  categoryId?: Prisma.IntFilter<"pricecategory"> | number
 }
 
-export type PriceCategoryCreateWithoutStockInput = {
+export type pricecategoryCreateWithoutSaleInput = {
   fixedPrice: number
-  category: Prisma.CategoryCreateNestedOneWithoutPriceCategoriesInput
-  sales?: Prisma.SaleCreateNestedManyWithoutPriceCategoryInput
+  category: Prisma.categoryCreateNestedOneWithoutPricecategoryInput
+  stock?: Prisma.stockCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryUncheckedCreateWithoutStockInput = {
+export type pricecategoryUncheckedCreateWithoutSaleInput = {
   id?: number
   fixedPrice: number
   categoryId: number
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutPriceCategoryInput
+  stock?: Prisma.stockUncheckedCreateNestedOneWithoutPricecategoryInput
 }
 
-export type PriceCategoryCreateOrConnectWithoutStockInput = {
-  where: Prisma.PriceCategoryWhereUniqueInput
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutStockInput, Prisma.PriceCategoryUncheckedCreateWithoutStockInput>
+export type pricecategoryCreateOrConnectWithoutSaleInput = {
+  where: Prisma.pricecategoryWhereUniqueInput
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutSaleInput, Prisma.pricecategoryUncheckedCreateWithoutSaleInput>
 }
 
-export type PriceCategoryUpsertWithoutStockInput = {
-  update: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutStockInput, Prisma.PriceCategoryUncheckedUpdateWithoutStockInput>
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutStockInput, Prisma.PriceCategoryUncheckedCreateWithoutStockInput>
-  where?: Prisma.PriceCategoryWhereInput
+export type pricecategoryUpsertWithoutSaleInput = {
+  update: Prisma.XOR<Prisma.pricecategoryUpdateWithoutSaleInput, Prisma.pricecategoryUncheckedUpdateWithoutSaleInput>
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutSaleInput, Prisma.pricecategoryUncheckedCreateWithoutSaleInput>
+  where?: Prisma.pricecategoryWhereInput
 }
 
-export type PriceCategoryUpdateToOneWithWhereWithoutStockInput = {
-  where?: Prisma.PriceCategoryWhereInput
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutStockInput, Prisma.PriceCategoryUncheckedUpdateWithoutStockInput>
+export type pricecategoryUpdateToOneWithWhereWithoutSaleInput = {
+  where?: Prisma.pricecategoryWhereInput
+  data: Prisma.XOR<Prisma.pricecategoryUpdateWithoutSaleInput, Prisma.pricecategoryUncheckedUpdateWithoutSaleInput>
 }
 
-export type PriceCategoryUpdateWithoutStockInput = {
+export type pricecategoryUpdateWithoutSaleInput = {
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  category?: Prisma.CategoryUpdateOneRequiredWithoutPriceCategoriesNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutPriceCategoryNestedInput
+  category?: Prisma.categoryUpdateOneRequiredWithoutPricecategoryNestedInput
+  stock?: Prisma.stockUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryUncheckedUpdateWithoutStockInput = {
+export type pricecategoryUncheckedUpdateWithoutSaleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   categoryId?: Prisma.IntFieldUpdateOperationsInput | number
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutPriceCategoryNestedInput
+  stock?: Prisma.stockUncheckedUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryCreateWithoutSalesInput = {
+export type pricecategoryCreateWithoutStockInput = {
   fixedPrice: number
-  category: Prisma.CategoryCreateNestedOneWithoutPriceCategoriesInput
-  stock?: Prisma.StockCreateNestedOneWithoutPriceCategoryInput
+  category: Prisma.categoryCreateNestedOneWithoutPricecategoryInput
+  sale?: Prisma.saleCreateNestedManyWithoutPricecategoryInput
 }
 
-export type PriceCategoryUncheckedCreateWithoutSalesInput = {
+export type pricecategoryUncheckedCreateWithoutStockInput = {
   id?: number
   fixedPrice: number
   categoryId: number
-  stock?: Prisma.StockUncheckedCreateNestedOneWithoutPriceCategoryInput
+  sale?: Prisma.saleUncheckedCreateNestedManyWithoutPricecategoryInput
 }
 
-export type PriceCategoryCreateOrConnectWithoutSalesInput = {
-  where: Prisma.PriceCategoryWhereUniqueInput
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutSalesInput, Prisma.PriceCategoryUncheckedCreateWithoutSalesInput>
+export type pricecategoryCreateOrConnectWithoutStockInput = {
+  where: Prisma.pricecategoryWhereUniqueInput
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutStockInput, Prisma.pricecategoryUncheckedCreateWithoutStockInput>
 }
 
-export type PriceCategoryUpsertWithoutSalesInput = {
-  update: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutSalesInput, Prisma.PriceCategoryUncheckedUpdateWithoutSalesInput>
-  create: Prisma.XOR<Prisma.PriceCategoryCreateWithoutSalesInput, Prisma.PriceCategoryUncheckedCreateWithoutSalesInput>
-  where?: Prisma.PriceCategoryWhereInput
+export type pricecategoryUpsertWithoutStockInput = {
+  update: Prisma.XOR<Prisma.pricecategoryUpdateWithoutStockInput, Prisma.pricecategoryUncheckedUpdateWithoutStockInput>
+  create: Prisma.XOR<Prisma.pricecategoryCreateWithoutStockInput, Prisma.pricecategoryUncheckedCreateWithoutStockInput>
+  where?: Prisma.pricecategoryWhereInput
 }
 
-export type PriceCategoryUpdateToOneWithWhereWithoutSalesInput = {
-  where?: Prisma.PriceCategoryWhereInput
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateWithoutSalesInput, Prisma.PriceCategoryUncheckedUpdateWithoutSalesInput>
+export type pricecategoryUpdateToOneWithWhereWithoutStockInput = {
+  where?: Prisma.pricecategoryWhereInput
+  data: Prisma.XOR<Prisma.pricecategoryUpdateWithoutStockInput, Prisma.pricecategoryUncheckedUpdateWithoutStockInput>
 }
 
-export type PriceCategoryUpdateWithoutSalesInput = {
+export type pricecategoryUpdateWithoutStockInput = {
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  category?: Prisma.CategoryUpdateOneRequiredWithoutPriceCategoriesNestedInput
-  stock?: Prisma.StockUpdateOneWithoutPriceCategoryNestedInput
+  category?: Prisma.categoryUpdateOneRequiredWithoutPricecategoryNestedInput
+  sale?: Prisma.saleUpdateManyWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryUncheckedUpdateWithoutSalesInput = {
+export type pricecategoryUncheckedUpdateWithoutStockInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   categoryId?: Prisma.IntFieldUpdateOperationsInput | number
-  stock?: Prisma.StockUncheckedUpdateOneWithoutPriceCategoryNestedInput
+  sale?: Prisma.saleUncheckedUpdateManyWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryCreateManyCategoryInput = {
+export type pricecategoryCreateManyCategoryInput = {
   id?: number
   fixedPrice: number
 }
 
-export type PriceCategoryUpdateWithoutCategoryInput = {
+export type pricecategoryUpdateWithoutCategoryInput = {
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  stock?: Prisma.StockUpdateOneWithoutPriceCategoryNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutPriceCategoryNestedInput
+  sale?: Prisma.saleUpdateManyWithoutPricecategoryNestedInput
+  stock?: Prisma.stockUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryUncheckedUpdateWithoutCategoryInput = {
+export type pricecategoryUncheckedUpdateWithoutCategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  stock?: Prisma.StockUncheckedUpdateOneWithoutPriceCategoryNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutPriceCategoryNestedInput
+  sale?: Prisma.saleUncheckedUpdateManyWithoutPricecategoryNestedInput
+  stock?: Prisma.stockUncheckedUpdateOneWithoutPricecategoryNestedInput
 }
 
-export type PriceCategoryUncheckedUpdateManyWithoutCategoryInput = {
+export type pricecategoryUncheckedUpdateManyWithoutCategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   fixedPrice?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
 
 /**
- * Count Type PriceCategoryCountOutputType
+ * Count Type PricecategoryCountOutputType
  */
 
-export type PriceCategoryCountOutputType = {
-  sales: number
+export type PricecategoryCountOutputType = {
+  sale: number
 }
 
-export type PriceCategoryCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sales?: boolean | PriceCategoryCountOutputTypeCountSalesArgs
+export type PricecategoryCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  sale?: boolean | PricecategoryCountOutputTypeCountSaleArgs
 }
 
 /**
- * PriceCategoryCountOutputType without action
+ * PricecategoryCountOutputType without action
  */
-export type PriceCategoryCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PricecategoryCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategoryCountOutputType
+   * Select specific fields to fetch from the PricecategoryCountOutputType
    */
-  select?: Prisma.PriceCategoryCountOutputTypeSelect<ExtArgs> | null
+  select?: Prisma.PricecategoryCountOutputTypeSelect<ExtArgs> | null
 }
 
 /**
- * PriceCategoryCountOutputType without action
+ * PricecategoryCountOutputType without action
  */
-export type PriceCategoryCountOutputTypeCountSalesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.SaleWhereInput
+export type PricecategoryCountOutputTypeCountSaleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.saleWhereInput
 }
 
 
-export type PriceCategorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type pricecategorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   fixedPrice?: boolean
   categoryId?: boolean
-  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
-  stock?: boolean | Prisma.PriceCategory$stockArgs<ExtArgs>
-  sales?: boolean | Prisma.PriceCategory$salesArgs<ExtArgs>
-  _count?: boolean | Prisma.PriceCategoryCountOutputTypeDefaultArgs<ExtArgs>
-}, ExtArgs["result"]["priceCategory"]>
+  category?: boolean | Prisma.categoryDefaultArgs<ExtArgs>
+  sale?: boolean | Prisma.pricecategory$saleArgs<ExtArgs>
+  stock?: boolean | Prisma.pricecategory$stockArgs<ExtArgs>
+  _count?: boolean | Prisma.PricecategoryCountOutputTypeDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["pricecategory"]>
 
 
 
-export type PriceCategorySelectScalar = {
+export type pricecategorySelectScalar = {
   id?: boolean
   fixedPrice?: boolean
   categoryId?: boolean
 }
 
-export type PriceCategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fixedPrice" | "categoryId", ExtArgs["result"]["priceCategory"]>
-export type PriceCategoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
-  stock?: boolean | Prisma.PriceCategory$stockArgs<ExtArgs>
-  sales?: boolean | Prisma.PriceCategory$salesArgs<ExtArgs>
-  _count?: boolean | Prisma.PriceCategoryCountOutputTypeDefaultArgs<ExtArgs>
+export type pricecategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fixedPrice" | "categoryId", ExtArgs["result"]["pricecategory"]>
+export type pricecategoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  category?: boolean | Prisma.categoryDefaultArgs<ExtArgs>
+  sale?: boolean | Prisma.pricecategory$saleArgs<ExtArgs>
+  stock?: boolean | Prisma.pricecategory$stockArgs<ExtArgs>
+  _count?: boolean | Prisma.PricecategoryCountOutputTypeDefaultArgs<ExtArgs>
 }
 
-export type $PriceCategoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "PriceCategory"
+export type $pricecategoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "pricecategory"
   objects: {
-    category: Prisma.$CategoryPayload<ExtArgs>
-    stock: Prisma.$StockPayload<ExtArgs> | null
-    sales: Prisma.$SalePayload<ExtArgs>[]
+    category: Prisma.$categoryPayload<ExtArgs>
+    sale: Prisma.$salePayload<ExtArgs>[]
+    stock: Prisma.$stockPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     fixedPrice: number
     categoryId: number
-  }, ExtArgs["result"]["priceCategory"]>
+  }, ExtArgs["result"]["pricecategory"]>
   composites: {}
 }
 
-export type PriceCategoryGetPayload<S extends boolean | null | undefined | PriceCategoryDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload, S>
+export type pricecategoryGetPayload<S extends boolean | null | undefined | pricecategoryDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload, S>
 
-export type PriceCategoryCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<PriceCategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-    select?: PriceCategoryCountAggregateInputType | true
+export type pricecategoryCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<pricecategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: PricecategoryCountAggregateInputType | true
   }
 
-export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PriceCategory'], meta: { name: 'PriceCategory' } }
+export interface pricecategoryDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['pricecategory'], meta: { name: 'pricecategory' } }
   /**
-   * Find zero or one PriceCategory that matches the filter.
-   * @param {PriceCategoryFindUniqueArgs} args - Arguments to find a PriceCategory
+   * Find zero or one Pricecategory that matches the filter.
+   * @param {pricecategoryFindUniqueArgs} args - Arguments to find a Pricecategory
    * @example
-   * // Get one PriceCategory
-   * const priceCategory = await prisma.priceCategory.findUnique({
+   * // Get one Pricecategory
+   * const pricecategory = await prisma.pricecategory.findUnique({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUnique<T extends PriceCategoryFindUniqueArgs>(args: Prisma.SelectSubset<T, PriceCategoryFindUniqueArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends pricecategoryFindUniqueArgs>(args: Prisma.SelectSubset<T, pricecategoryFindUniqueArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find one PriceCategory that matches the filter or throw an error with `error.code='P2025'`
+   * Find one Pricecategory that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {PriceCategoryFindUniqueOrThrowArgs} args - Arguments to find a PriceCategory
+   * @param {pricecategoryFindUniqueOrThrowArgs} args - Arguments to find a Pricecategory
    * @example
-   * // Get one PriceCategory
-   * const priceCategory = await prisma.priceCategory.findUniqueOrThrow({
+   * // Get one Pricecategory
+   * const pricecategory = await prisma.pricecategory.findUniqueOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUniqueOrThrow<T extends PriceCategoryFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, PriceCategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends pricecategoryFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, pricecategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first PriceCategory that matches the filter.
+   * Find the first Pricecategory that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryFindFirstArgs} args - Arguments to find a PriceCategory
+   * @param {pricecategoryFindFirstArgs} args - Arguments to find a Pricecategory
    * @example
-   * // Get one PriceCategory
-   * const priceCategory = await prisma.priceCategory.findFirst({
+   * // Get one Pricecategory
+   * const pricecategory = await prisma.pricecategory.findFirst({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirst<T extends PriceCategoryFindFirstArgs>(args?: Prisma.SelectSubset<T, PriceCategoryFindFirstArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends pricecategoryFindFirstArgs>(args?: Prisma.SelectSubset<T, pricecategoryFindFirstArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first PriceCategory that matches the filter or
+   * Find the first Pricecategory that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryFindFirstOrThrowArgs} args - Arguments to find a PriceCategory
+   * @param {pricecategoryFindFirstOrThrowArgs} args - Arguments to find a Pricecategory
    * @example
-   * // Get one PriceCategory
-   * const priceCategory = await prisma.priceCategory.findFirstOrThrow({
+   * // Get one Pricecategory
+   * const pricecategory = await prisma.pricecategory.findFirstOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirstOrThrow<T extends PriceCategoryFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, PriceCategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends pricecategoryFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, pricecategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find zero or more PriceCategories that matches the filter.
+   * Find zero or more Pricecategories that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {pricecategoryFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
-   * // Get all PriceCategories
-   * const priceCategories = await prisma.priceCategory.findMany()
+   * // Get all Pricecategories
+   * const pricecategories = await prisma.pricecategory.findMany()
    * 
-   * // Get first 10 PriceCategories
-   * const priceCategories = await prisma.priceCategory.findMany({ take: 10 })
+   * // Get first 10 Pricecategories
+   * const pricecategories = await prisma.pricecategory.findMany({ take: 10 })
    * 
    * // Only select the `id`
-   * const priceCategoryWithIdOnly = await prisma.priceCategory.findMany({ select: { id: true } })
+   * const pricecategoryWithIdOnly = await prisma.pricecategory.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends PriceCategoryFindManyArgs>(args?: Prisma.SelectSubset<T, PriceCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends pricecategoryFindManyArgs>(args?: Prisma.SelectSubset<T, pricecategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
-   * Create a PriceCategory.
-   * @param {PriceCategoryCreateArgs} args - Arguments to create a PriceCategory.
+   * Create a Pricecategory.
+   * @param {pricecategoryCreateArgs} args - Arguments to create a Pricecategory.
    * @example
-   * // Create one PriceCategory
-   * const PriceCategory = await prisma.priceCategory.create({
+   * // Create one Pricecategory
+   * const Pricecategory = await prisma.pricecategory.create({
    *   data: {
-   *     // ... data to create a PriceCategory
+   *     // ... data to create a Pricecategory
    *   }
    * })
    * 
    */
-  create<T extends PriceCategoryCreateArgs>(args: Prisma.SelectSubset<T, PriceCategoryCreateArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends pricecategoryCreateArgs>(args: Prisma.SelectSubset<T, pricecategoryCreateArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Create many PriceCategories.
-   * @param {PriceCategoryCreateManyArgs} args - Arguments to create many PriceCategories.
+   * Create many Pricecategories.
+   * @param {pricecategoryCreateManyArgs} args - Arguments to create many Pricecategories.
    * @example
-   * // Create many PriceCategories
-   * const priceCategory = await prisma.priceCategory.createMany({
+   * // Create many Pricecategories
+   * const pricecategory = await prisma.pricecategory.createMany({
    *   data: [
    *     // ... provide data here
    *   ]
    * })
    *     
    */
-  createMany<T extends PriceCategoryCreateManyArgs>(args?: Prisma.SelectSubset<T, PriceCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends pricecategoryCreateManyArgs>(args?: Prisma.SelectSubset<T, pricecategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Delete a PriceCategory.
-   * @param {PriceCategoryDeleteArgs} args - Arguments to delete one PriceCategory.
+   * Delete a Pricecategory.
+   * @param {pricecategoryDeleteArgs} args - Arguments to delete one Pricecategory.
    * @example
-   * // Delete one PriceCategory
-   * const PriceCategory = await prisma.priceCategory.delete({
+   * // Delete one Pricecategory
+   * const Pricecategory = await prisma.pricecategory.delete({
    *   where: {
-   *     // ... filter to delete one PriceCategory
+   *     // ... filter to delete one Pricecategory
    *   }
    * })
    * 
    */
-  delete<T extends PriceCategoryDeleteArgs>(args: Prisma.SelectSubset<T, PriceCategoryDeleteArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends pricecategoryDeleteArgs>(args: Prisma.SelectSubset<T, pricecategoryDeleteArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Update one PriceCategory.
-   * @param {PriceCategoryUpdateArgs} args - Arguments to update one PriceCategory.
+   * Update one Pricecategory.
+   * @param {pricecategoryUpdateArgs} args - Arguments to update one Pricecategory.
    * @example
-   * // Update one PriceCategory
-   * const priceCategory = await prisma.priceCategory.update({
+   * // Update one Pricecategory
+   * const pricecategory = await prisma.pricecategory.update({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -792,30 +784,30 @@ export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  update<T extends PriceCategoryUpdateArgs>(args: Prisma.SelectSubset<T, PriceCategoryUpdateArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends pricecategoryUpdateArgs>(args: Prisma.SelectSubset<T, pricecategoryUpdateArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Delete zero or more PriceCategories.
-   * @param {PriceCategoryDeleteManyArgs} args - Arguments to filter PriceCategories to delete.
+   * Delete zero or more Pricecategories.
+   * @param {pricecategoryDeleteManyArgs} args - Arguments to filter Pricecategories to delete.
    * @example
-   * // Delete a few PriceCategories
-   * const { count } = await prisma.priceCategory.deleteMany({
+   * // Delete a few Pricecategories
+   * const { count } = await prisma.pricecategory.deleteMany({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    * 
    */
-  deleteMany<T extends PriceCategoryDeleteManyArgs>(args?: Prisma.SelectSubset<T, PriceCategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends pricecategoryDeleteManyArgs>(args?: Prisma.SelectSubset<T, pricecategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Update zero or more PriceCategories.
+   * Update zero or more Pricecategories.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {pricecategoryUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
-   * // Update many PriceCategories
-   * const priceCategory = await prisma.priceCategory.updateMany({
+   * // Update many Pricecategories
+   * const pricecategory = await prisma.pricecategory.updateMany({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -825,56 +817,56 @@ export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  updateMany<T extends PriceCategoryUpdateManyArgs>(args: Prisma.SelectSubset<T, PriceCategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends pricecategoryUpdateManyArgs>(args: Prisma.SelectSubset<T, pricecategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Create or update one PriceCategory.
-   * @param {PriceCategoryUpsertArgs} args - Arguments to update or create a PriceCategory.
+   * Create or update one Pricecategory.
+   * @param {pricecategoryUpsertArgs} args - Arguments to update or create a Pricecategory.
    * @example
-   * // Update or create a PriceCategory
-   * const priceCategory = await prisma.priceCategory.upsert({
+   * // Update or create a Pricecategory
+   * const pricecategory = await prisma.pricecategory.upsert({
    *   create: {
-   *     // ... data to create a PriceCategory
+   *     // ... data to create a Pricecategory
    *   },
    *   update: {
    *     // ... in case it already exists, update
    *   },
    *   where: {
-   *     // ... the filter for the PriceCategory we want to update
+   *     // ... the filter for the Pricecategory we want to update
    *   }
    * })
    */
-  upsert<T extends PriceCategoryUpsertArgs>(args: Prisma.SelectSubset<T, PriceCategoryUpsertArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends pricecategoryUpsertArgs>(args: Prisma.SelectSubset<T, pricecategoryUpsertArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
-   * Count the number of PriceCategories.
+   * Count the number of Pricecategories.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryCountArgs} args - Arguments to filter PriceCategories to count.
+   * @param {pricecategoryCountArgs} args - Arguments to filter Pricecategories to count.
    * @example
-   * // Count the number of PriceCategories
-   * const count = await prisma.priceCategory.count({
+   * // Count the number of Pricecategories
+   * const count = await prisma.pricecategory.count({
    *   where: {
-   *     // ... the filter for the PriceCategories we want to count
+   *     // ... the filter for the Pricecategories we want to count
    *   }
    * })
   **/
-  count<T extends PriceCategoryCountArgs>(
-    args?: Prisma.Subset<T, PriceCategoryCountArgs>,
+  count<T extends pricecategoryCountArgs>(
+    args?: Prisma.Subset<T, pricecategoryCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], PriceCategoryCountAggregateOutputType>
+        : Prisma.GetScalarType<T['select'], PricecategoryCountAggregateOutputType>
       : number
   >
 
   /**
-   * Allows you to perform aggregations operations on a PriceCategory.
+   * Allows you to perform aggregations operations on a Pricecategory.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @param {PricecategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
    * @example
    * // Ordered by age ascending
    * // Where email contains prisma.io
@@ -894,13 +886,13 @@ export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.
    *   take: 10,
    * })
   **/
-  aggregate<T extends PriceCategoryAggregateArgs>(args: Prisma.Subset<T, PriceCategoryAggregateArgs>): Prisma.PrismaPromise<GetPriceCategoryAggregateType<T>>
+  aggregate<T extends PricecategoryAggregateArgs>(args: Prisma.Subset<T, PricecategoryAggregateArgs>): Prisma.PrismaPromise<GetPricecategoryAggregateType<T>>
 
   /**
-   * Group by PriceCategory.
+   * Group by Pricecategory.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {PriceCategoryGroupByArgs} args - Group by arguments.
+   * @param {pricecategoryGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -915,14 +907,14 @@ export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.
    * 
   **/
   groupBy<
-    T extends PriceCategoryGroupByArgs,
+    T extends pricecategoryGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: PriceCategoryGroupByArgs['orderBy'] }
-      : { orderBy?: PriceCategoryGroupByArgs['orderBy'] },
+      ? { orderBy: pricecategoryGroupByArgs['orderBy'] }
+      : { orderBy?: pricecategoryGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -971,24 +963,24 @@ export interface PriceCategoryDelegate<ExtArgs extends runtime.Types.Extensions.
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, PriceCategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPriceCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, pricecategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPricecategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the PriceCategory model
+ * Fields of the pricecategory model
  */
-readonly fields: PriceCategoryFieldRefs;
+readonly fields: pricecategoryFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for PriceCategory.
+ * The delegate class that acts as a "Promise-like" for pricecategory.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__PriceCategoryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__pricecategoryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  category<T extends Prisma.CategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoryClient<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  stock<T extends Prisma.PriceCategory$stockArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceCategory$stockArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  sales<T extends Prisma.PriceCategory$salesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceCategory$salesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  category<T extends Prisma.categoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.categoryDefaultArgs<ExtArgs>>): Prisma.Prisma__categoryClient<runtime.Types.Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  sale<T extends Prisma.pricecategory$saleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pricecategory$saleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  stock<T extends Prisma.pricecategory$stockArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pricecategory$stockArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1015,411 +1007,411 @@ export interface Prisma__PriceCategoryClient<T, Null = never, ExtArgs extends ru
 
 
 /**
- * Fields of the PriceCategory model
+ * Fields of the pricecategory model
  */
-export interface PriceCategoryFieldRefs {
-  readonly id: Prisma.FieldRef<"PriceCategory", 'Int'>
-  readonly fixedPrice: Prisma.FieldRef<"PriceCategory", 'Float'>
-  readonly categoryId: Prisma.FieldRef<"PriceCategory", 'Int'>
+export interface pricecategoryFieldRefs {
+  readonly id: Prisma.FieldRef<"pricecategory", 'Int'>
+  readonly fixedPrice: Prisma.FieldRef<"pricecategory", 'Float'>
+  readonly categoryId: Prisma.FieldRef<"pricecategory", 'Int'>
 }
     
 
 // Custom InputTypes
 /**
- * PriceCategory findUnique
+ * pricecategory findUnique
  */
-export type PriceCategoryFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter, which PriceCategory to fetch.
+   * Filter, which pricecategory to fetch.
    */
-  where: Prisma.PriceCategoryWhereUniqueInput
+  where: Prisma.pricecategoryWhereUniqueInput
 }
 
 /**
- * PriceCategory findUniqueOrThrow
+ * pricecategory findUniqueOrThrow
  */
-export type PriceCategoryFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter, which PriceCategory to fetch.
+   * Filter, which pricecategory to fetch.
    */
-  where: Prisma.PriceCategoryWhereUniqueInput
+  where: Prisma.pricecategoryWhereUniqueInput
 }
 
 /**
- * PriceCategory findFirst
+ * pricecategory findFirst
  */
-export type PriceCategoryFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter, which PriceCategory to fetch.
+   * Filter, which pricecategory to fetch.
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of PriceCategories to fetch.
+   * Determine the order of pricecategories to fetch.
    */
-  orderBy?: Prisma.PriceCategoryOrderByWithRelationInput | Prisma.PriceCategoryOrderByWithRelationInput[]
+  orderBy?: Prisma.pricecategoryOrderByWithRelationInput | Prisma.pricecategoryOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for PriceCategories.
+   * Sets the position for searching for pricecategories.
    */
-  cursor?: Prisma.PriceCategoryWhereUniqueInput
+  cursor?: Prisma.pricecategoryWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` PriceCategories from the position of the cursor.
+   * Take `±n` pricecategories from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` PriceCategories.
+   * Skip the first `n` pricecategories.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of PriceCategories.
+   * Filter by unique combinations of pricecategories.
    */
-  distinct?: Prisma.PriceCategoryScalarFieldEnum | Prisma.PriceCategoryScalarFieldEnum[]
+  distinct?: Prisma.PricecategoryScalarFieldEnum | Prisma.PricecategoryScalarFieldEnum[]
 }
 
 /**
- * PriceCategory findFirstOrThrow
+ * pricecategory findFirstOrThrow
  */
-export type PriceCategoryFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter, which PriceCategory to fetch.
+   * Filter, which pricecategory to fetch.
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of PriceCategories to fetch.
+   * Determine the order of pricecategories to fetch.
    */
-  orderBy?: Prisma.PriceCategoryOrderByWithRelationInput | Prisma.PriceCategoryOrderByWithRelationInput[]
+  orderBy?: Prisma.pricecategoryOrderByWithRelationInput | Prisma.pricecategoryOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for PriceCategories.
+   * Sets the position for searching for pricecategories.
    */
-  cursor?: Prisma.PriceCategoryWhereUniqueInput
+  cursor?: Prisma.pricecategoryWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` PriceCategories from the position of the cursor.
+   * Take `±n` pricecategories from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` PriceCategories.
+   * Skip the first `n` pricecategories.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of PriceCategories.
+   * Filter by unique combinations of pricecategories.
    */
-  distinct?: Prisma.PriceCategoryScalarFieldEnum | Prisma.PriceCategoryScalarFieldEnum[]
+  distinct?: Prisma.PricecategoryScalarFieldEnum | Prisma.PricecategoryScalarFieldEnum[]
 }
 
 /**
- * PriceCategory findMany
+ * pricecategory findMany
  */
-export type PriceCategoryFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter, which PriceCategories to fetch.
+   * Filter, which pricecategories to fetch.
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of PriceCategories to fetch.
+   * Determine the order of pricecategories to fetch.
    */
-  orderBy?: Prisma.PriceCategoryOrderByWithRelationInput | Prisma.PriceCategoryOrderByWithRelationInput[]
+  orderBy?: Prisma.pricecategoryOrderByWithRelationInput | Prisma.pricecategoryOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing PriceCategories.
+   * Sets the position for listing pricecategories.
    */
-  cursor?: Prisma.PriceCategoryWhereUniqueInput
+  cursor?: Prisma.pricecategoryWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` PriceCategories from the position of the cursor.
+   * Take `±n` pricecategories from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` PriceCategories.
+   * Skip the first `n` pricecategories.
    */
   skip?: number
-  distinct?: Prisma.PriceCategoryScalarFieldEnum | Prisma.PriceCategoryScalarFieldEnum[]
+  distinct?: Prisma.PricecategoryScalarFieldEnum | Prisma.PricecategoryScalarFieldEnum[]
 }
 
 /**
- * PriceCategory create
+ * pricecategory create
  */
-export type PriceCategoryCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * The data needed to create a PriceCategory.
+   * The data needed to create a pricecategory.
    */
-  data: Prisma.XOR<Prisma.PriceCategoryCreateInput, Prisma.PriceCategoryUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.pricecategoryCreateInput, Prisma.pricecategoryUncheckedCreateInput>
 }
 
 /**
- * PriceCategory createMany
+ * pricecategory createMany
  */
-export type PriceCategoryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many PriceCategories.
+   * The data used to create many pricecategories.
    */
-  data: Prisma.PriceCategoryCreateManyInput | Prisma.PriceCategoryCreateManyInput[]
+  data: Prisma.pricecategoryCreateManyInput | Prisma.pricecategoryCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * PriceCategory update
+ * pricecategory update
  */
-export type PriceCategoryUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * The data needed to update a PriceCategory.
+   * The data needed to update a pricecategory.
    */
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateInput, Prisma.PriceCategoryUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.pricecategoryUpdateInput, Prisma.pricecategoryUncheckedUpdateInput>
   /**
-   * Choose, which PriceCategory to update.
+   * Choose, which pricecategory to update.
    */
-  where: Prisma.PriceCategoryWhereUniqueInput
+  where: Prisma.pricecategoryWhereUniqueInput
 }
 
 /**
- * PriceCategory updateMany
+ * pricecategory updateMany
  */
-export type PriceCategoryUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update PriceCategories.
+   * The data used to update pricecategories.
    */
-  data: Prisma.XOR<Prisma.PriceCategoryUpdateManyMutationInput, Prisma.PriceCategoryUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.pricecategoryUpdateManyMutationInput, Prisma.pricecategoryUncheckedUpdateManyInput>
   /**
-   * Filter which PriceCategories to update
+   * Filter which pricecategories to update
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
-   * Limit how many PriceCategories to update.
+   * Limit how many pricecategories to update.
    */
   limit?: number
 }
 
 /**
- * PriceCategory upsert
+ * pricecategory upsert
  */
-export type PriceCategoryUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * The filter to search for the PriceCategory to update in case it exists.
+   * The filter to search for the pricecategory to update in case it exists.
    */
-  where: Prisma.PriceCategoryWhereUniqueInput
+  where: Prisma.pricecategoryWhereUniqueInput
   /**
-   * In case the PriceCategory found by the `where` argument doesn't exist, create a new PriceCategory with this data.
+   * In case the pricecategory found by the `where` argument doesn't exist, create a new pricecategory with this data.
    */
-  create: Prisma.XOR<Prisma.PriceCategoryCreateInput, Prisma.PriceCategoryUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.pricecategoryCreateInput, Prisma.pricecategoryUncheckedCreateInput>
   /**
-   * In case the PriceCategory was found with the provided `where` argument, update it with this data.
+   * In case the pricecategory was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.PriceCategoryUpdateInput, Prisma.PriceCategoryUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.pricecategoryUpdateInput, Prisma.pricecategoryUncheckedUpdateInput>
 }
 
 /**
- * PriceCategory delete
+ * pricecategory delete
  */
-export type PriceCategoryDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the pricecategory
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the pricecategory
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
   /**
-   * Filter which PriceCategory to delete.
+   * Filter which pricecategory to delete.
    */
-  where: Prisma.PriceCategoryWhereUniqueInput
+  where: Prisma.pricecategoryWhereUniqueInput
 }
 
 /**
- * PriceCategory deleteMany
+ * pricecategory deleteMany
  */
-export type PriceCategoryDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategoryDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which PriceCategories to delete
+   * Filter which pricecategories to delete
    */
-  where?: Prisma.PriceCategoryWhereInput
+  where?: Prisma.pricecategoryWhereInput
   /**
-   * Limit how many PriceCategories to delete.
+   * Limit how many pricecategories to delete.
    */
   limit?: number
 }
 
 /**
- * PriceCategory.stock
+ * pricecategory.sale
  */
-export type PriceCategory$stockArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategory$saleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
-  where?: Prisma.StockWhereInput
-}
-
-/**
- * PriceCategory.sales
- */
-export type PriceCategory$salesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Sale
-   */
-  select?: Prisma.SaleSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Sale
-   */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.SaleInclude<ExtArgs> | null
-  where?: Prisma.SaleWhereInput
-  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
-  cursor?: Prisma.SaleWhereUniqueInput
+  include?: Prisma.saleInclude<ExtArgs> | null
+  where?: Prisma.saleWhereInput
+  orderBy?: Prisma.saleOrderByWithRelationInput | Prisma.saleOrderByWithRelationInput[]
+  cursor?: Prisma.saleWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
 }
 
 /**
- * PriceCategory without action
+ * pricecategory.stock
  */
-export type PriceCategoryDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pricecategory$stockArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PriceCategory
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.PriceCategorySelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PriceCategory
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.PriceCategoryOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PriceCategoryInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
+  where?: Prisma.stockWhereInput
+}
+
+/**
+ * pricecategory without action
+ */
+export type pricecategoryDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pricecategory
+   */
+  select?: Prisma.pricecategorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pricecategory
+   */
+  omit?: Prisma.pricecategoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pricecategoryInclude<ExtArgs> | null
 }

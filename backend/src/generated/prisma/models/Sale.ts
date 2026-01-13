@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `Sale` model and its related types.
+ * This file exports the `sale` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model Sale
+ * Model sale
  * 
  */
-export type SaleModel = runtime.Types.Result.DefaultSelection<Prisma.$SalePayload>
+export type saleModel = runtime.Types.Result.DefaultSelection<Prisma.$salePayload>
 
 export type AggregateSale = {
   _count: SaleCountAggregateOutputType | null
@@ -127,37 +127,37 @@ export type SaleCountAggregateInputType = {
 
 export type SaleAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Sale to aggregate.
+   * Filter which sale to aggregate.
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Sales to fetch.
+   * Determine the order of sales to fetch.
    */
-  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
+  orderBy?: Prisma.saleOrderByWithRelationInput | Prisma.saleOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.SaleWhereUniqueInput
+  cursor?: Prisma.saleWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Sales from the position of the cursor.
+   * Take `±n` sales from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Sales.
+   * Skip the first `n` sales.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned Sales
+   * Count returned sales
   **/
   _count?: true | SaleCountAggregateInputType
   /**
@@ -197,11 +197,11 @@ export type GetSaleAggregateType<T extends SaleAggregateArgs> = {
 
 
 
-export type SaleGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.SaleWhereInput
-  orderBy?: Prisma.SaleOrderByWithAggregationInput | Prisma.SaleOrderByWithAggregationInput[]
+export type saleGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.saleWhereInput
+  orderBy?: Prisma.saleOrderByWithAggregationInput | Prisma.saleOrderByWithAggregationInput[]
   by: Prisma.SaleScalarFieldEnum[] | Prisma.SaleScalarFieldEnum
-  having?: Prisma.SaleScalarWhereWithAggregatesInput
+  having?: Prisma.saleScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: SaleCountAggregateInputType | true
@@ -226,7 +226,7 @@ export type SaleGroupByOutputType = {
   _max: SaleMaxAggregateOutputType | null
 }
 
-type GetSaleGroupByPayload<T extends SaleGroupByArgs> = Prisma.PrismaPromise<
+type GetSaleGroupByPayload<T extends saleGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SaleGroupByOutputType, T['by']> &
       {
@@ -241,22 +241,22 @@ type GetSaleGroupByPayload<T extends SaleGroupByArgs> = Prisma.PrismaPromise<
 
 
 
-export type SaleWhereInput = {
-  AND?: Prisma.SaleWhereInput | Prisma.SaleWhereInput[]
-  OR?: Prisma.SaleWhereInput[]
-  NOT?: Prisma.SaleWhereInput | Prisma.SaleWhereInput[]
-  id?: Prisma.IntFilter<"Sale"> | number
-  soldPrice?: Prisma.FloatFilter<"Sale"> | number
-  quantity?: Prisma.IntFilter<"Sale"> | number
-  bonus?: Prisma.FloatFilter<"Sale"> | number
-  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
-  employeeId?: Prisma.IntFilter<"Sale"> | number
-  priceCategoryId?: Prisma.IntFilter<"Sale"> | number
-  employee?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  priceCategory?: Prisma.XOR<Prisma.PriceCategoryScalarRelationFilter, Prisma.PriceCategoryWhereInput>
+export type saleWhereInput = {
+  AND?: Prisma.saleWhereInput | Prisma.saleWhereInput[]
+  OR?: Prisma.saleWhereInput[]
+  NOT?: Prisma.saleWhereInput | Prisma.saleWhereInput[]
+  id?: Prisma.IntFilter<"sale"> | number
+  soldPrice?: Prisma.FloatFilter<"sale"> | number
+  quantity?: Prisma.IntFilter<"sale"> | number
+  bonus?: Prisma.FloatFilter<"sale"> | number
+  createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  employeeId?: Prisma.IntFilter<"sale"> | number
+  priceCategoryId?: Prisma.IntFilter<"sale"> | number
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+  pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }
 
-export type SaleOrderByWithRelationInput = {
+export type saleOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -264,26 +264,26 @@ export type SaleOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
-  employee?: Prisma.UserOrderByWithRelationInput
-  priceCategory?: Prisma.PriceCategoryOrderByWithRelationInput
+  user?: Prisma.userOrderByWithRelationInput
+  pricecategory?: Prisma.pricecategoryOrderByWithRelationInput
 }
 
-export type SaleWhereUniqueInput = Prisma.AtLeast<{
+export type saleWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.SaleWhereInput | Prisma.SaleWhereInput[]
-  OR?: Prisma.SaleWhereInput[]
-  NOT?: Prisma.SaleWhereInput | Prisma.SaleWhereInput[]
-  soldPrice?: Prisma.FloatFilter<"Sale"> | number
-  quantity?: Prisma.IntFilter<"Sale"> | number
-  bonus?: Prisma.FloatFilter<"Sale"> | number
-  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
-  employeeId?: Prisma.IntFilter<"Sale"> | number
-  priceCategoryId?: Prisma.IntFilter<"Sale"> | number
-  employee?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  priceCategory?: Prisma.XOR<Prisma.PriceCategoryScalarRelationFilter, Prisma.PriceCategoryWhereInput>
+  AND?: Prisma.saleWhereInput | Prisma.saleWhereInput[]
+  OR?: Prisma.saleWhereInput[]
+  NOT?: Prisma.saleWhereInput | Prisma.saleWhereInput[]
+  soldPrice?: Prisma.FloatFilter<"sale"> | number
+  quantity?: Prisma.IntFilter<"sale"> | number
+  bonus?: Prisma.FloatFilter<"sale"> | number
+  createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  employeeId?: Prisma.IntFilter<"sale"> | number
+  priceCategoryId?: Prisma.IntFilter<"sale"> | number
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+  pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }, "id">
 
-export type SaleOrderByWithAggregationInput = {
+export type saleOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -291,36 +291,36 @@ export type SaleOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
-  _count?: Prisma.SaleCountOrderByAggregateInput
-  _avg?: Prisma.SaleAvgOrderByAggregateInput
-  _max?: Prisma.SaleMaxOrderByAggregateInput
-  _min?: Prisma.SaleMinOrderByAggregateInput
-  _sum?: Prisma.SaleSumOrderByAggregateInput
+  _count?: Prisma.saleCountOrderByAggregateInput
+  _avg?: Prisma.saleAvgOrderByAggregateInput
+  _max?: Prisma.saleMaxOrderByAggregateInput
+  _min?: Prisma.saleMinOrderByAggregateInput
+  _sum?: Prisma.saleSumOrderByAggregateInput
 }
 
-export type SaleScalarWhereWithAggregatesInput = {
-  AND?: Prisma.SaleScalarWhereWithAggregatesInput | Prisma.SaleScalarWhereWithAggregatesInput[]
-  OR?: Prisma.SaleScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.SaleScalarWhereWithAggregatesInput | Prisma.SaleScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Sale"> | number
-  soldPrice?: Prisma.FloatWithAggregatesFilter<"Sale"> | number
-  quantity?: Prisma.IntWithAggregatesFilter<"Sale"> | number
-  bonus?: Prisma.FloatWithAggregatesFilter<"Sale"> | number
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Sale"> | Date | string
-  employeeId?: Prisma.IntWithAggregatesFilter<"Sale"> | number
-  priceCategoryId?: Prisma.IntWithAggregatesFilter<"Sale"> | number
+export type saleScalarWhereWithAggregatesInput = {
+  AND?: Prisma.saleScalarWhereWithAggregatesInput | Prisma.saleScalarWhereWithAggregatesInput[]
+  OR?: Prisma.saleScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.saleScalarWhereWithAggregatesInput | Prisma.saleScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"sale"> | number
+  soldPrice?: Prisma.FloatWithAggregatesFilter<"sale"> | number
+  quantity?: Prisma.IntWithAggregatesFilter<"sale"> | number
+  bonus?: Prisma.FloatWithAggregatesFilter<"sale"> | number
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"sale"> | Date | string
+  employeeId?: Prisma.IntWithAggregatesFilter<"sale"> | number
+  priceCategoryId?: Prisma.IntWithAggregatesFilter<"sale"> | number
 }
 
-export type SaleCreateInput = {
+export type saleCreateInput = {
   soldPrice: number
   quantity: number
   bonus: number
   createdAt?: Date | string
-  employee: Prisma.UserCreateNestedOneWithoutSalesInput
-  priceCategory: Prisma.PriceCategoryCreateNestedOneWithoutSalesInput
+  user: Prisma.userCreateNestedOneWithoutSaleInput
+  pricecategory: Prisma.pricecategoryCreateNestedOneWithoutSaleInput
 }
 
-export type SaleUncheckedCreateInput = {
+export type saleUncheckedCreateInput = {
   id?: number
   soldPrice: number
   quantity: number
@@ -330,16 +330,16 @@ export type SaleUncheckedCreateInput = {
   priceCategoryId: number
 }
 
-export type SaleUpdateInput = {
+export type saleUpdateInput = {
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  employee?: Prisma.UserUpdateOneRequiredWithoutSalesNestedInput
-  priceCategory?: Prisma.PriceCategoryUpdateOneRequiredWithoutSalesNestedInput
+  user?: Prisma.userUpdateOneRequiredWithoutSaleNestedInput
+  pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutSaleNestedInput
 }
 
-export type SaleUncheckedUpdateInput = {
+export type saleUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -349,7 +349,7 @@ export type SaleUncheckedUpdateInput = {
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type SaleCreateManyInput = {
+export type saleCreateManyInput = {
   id?: number
   soldPrice: number
   quantity: number
@@ -359,14 +359,14 @@ export type SaleCreateManyInput = {
   priceCategoryId: number
 }
 
-export type SaleUpdateManyMutationInput = {
+export type saleUpdateManyMutationInput = {
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SaleUncheckedUpdateManyInput = {
+export type saleUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -377,16 +377,16 @@ export type SaleUncheckedUpdateManyInput = {
 }
 
 export type SaleListRelationFilter = {
-  every?: Prisma.SaleWhereInput
-  some?: Prisma.SaleWhereInput
-  none?: Prisma.SaleWhereInput
+  every?: Prisma.saleWhereInput
+  some?: Prisma.saleWhereInput
+  none?: Prisma.saleWhereInput
 }
 
-export type SaleOrderByRelationAggregateInput = {
+export type saleOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type SaleCountOrderByAggregateInput = {
+export type saleCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -396,7 +396,7 @@ export type SaleCountOrderByAggregateInput = {
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type SaleAvgOrderByAggregateInput = {
+export type saleAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -405,17 +405,7 @@ export type SaleAvgOrderByAggregateInput = {
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type SaleMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  soldPrice?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  bonus?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  employeeId?: Prisma.SortOrder
-  priceCategoryId?: Prisma.SortOrder
-}
-
-export type SaleMinOrderByAggregateInput = {
+export type saleMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -425,7 +415,17 @@ export type SaleMinOrderByAggregateInput = {
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type SaleSumOrderByAggregateInput = {
+export type saleMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  soldPrice?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  bonus?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  employeeId?: Prisma.SortOrder
+  priceCategoryId?: Prisma.SortOrder
+}
+
+export type saleSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   soldPrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -434,159 +434,99 @@ export type SaleSumOrderByAggregateInput = {
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type SaleCreateNestedManyWithoutEmployeeInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput> | Prisma.SaleCreateWithoutEmployeeInput[] | Prisma.SaleUncheckedCreateWithoutEmployeeInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutEmployeeInput | Prisma.SaleCreateOrConnectWithoutEmployeeInput[]
-  createMany?: Prisma.SaleCreateManyEmployeeInputEnvelope
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
+export type saleCreateNestedManyWithoutPricecategoryInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput> | Prisma.saleCreateWithoutPricecategoryInput[] | Prisma.saleUncheckedCreateWithoutPricecategoryInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutPricecategoryInput | Prisma.saleCreateOrConnectWithoutPricecategoryInput[]
+  createMany?: Prisma.saleCreateManyPricecategoryInputEnvelope
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
 }
 
-export type SaleUncheckedCreateNestedManyWithoutEmployeeInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput> | Prisma.SaleCreateWithoutEmployeeInput[] | Prisma.SaleUncheckedCreateWithoutEmployeeInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutEmployeeInput | Prisma.SaleCreateOrConnectWithoutEmployeeInput[]
-  createMany?: Prisma.SaleCreateManyEmployeeInputEnvelope
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
+export type saleUncheckedCreateNestedManyWithoutPricecategoryInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput> | Prisma.saleCreateWithoutPricecategoryInput[] | Prisma.saleUncheckedCreateWithoutPricecategoryInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutPricecategoryInput | Prisma.saleCreateOrConnectWithoutPricecategoryInput[]
+  createMany?: Prisma.saleCreateManyPricecategoryInputEnvelope
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
 }
 
-export type SaleUpdateManyWithoutEmployeeNestedInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput> | Prisma.SaleCreateWithoutEmployeeInput[] | Prisma.SaleUncheckedCreateWithoutEmployeeInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutEmployeeInput | Prisma.SaleCreateOrConnectWithoutEmployeeInput[]
-  upsert?: Prisma.SaleUpsertWithWhereUniqueWithoutEmployeeInput | Prisma.SaleUpsertWithWhereUniqueWithoutEmployeeInput[]
-  createMany?: Prisma.SaleCreateManyEmployeeInputEnvelope
-  set?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  disconnect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  delete?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  update?: Prisma.SaleUpdateWithWhereUniqueWithoutEmployeeInput | Prisma.SaleUpdateWithWhereUniqueWithoutEmployeeInput[]
-  updateMany?: Prisma.SaleUpdateManyWithWhereWithoutEmployeeInput | Prisma.SaleUpdateManyWithWhereWithoutEmployeeInput[]
-  deleteMany?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
+export type saleUpdateManyWithoutPricecategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput> | Prisma.saleCreateWithoutPricecategoryInput[] | Prisma.saleUncheckedCreateWithoutPricecategoryInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutPricecategoryInput | Prisma.saleCreateOrConnectWithoutPricecategoryInput[]
+  upsert?: Prisma.saleUpsertWithWhereUniqueWithoutPricecategoryInput | Prisma.saleUpsertWithWhereUniqueWithoutPricecategoryInput[]
+  createMany?: Prisma.saleCreateManyPricecategoryInputEnvelope
+  set?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  disconnect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  delete?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  update?: Prisma.saleUpdateWithWhereUniqueWithoutPricecategoryInput | Prisma.saleUpdateWithWhereUniqueWithoutPricecategoryInput[]
+  updateMany?: Prisma.saleUpdateManyWithWhereWithoutPricecategoryInput | Prisma.saleUpdateManyWithWhereWithoutPricecategoryInput[]
+  deleteMany?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
 }
 
-export type SaleUncheckedUpdateManyWithoutEmployeeNestedInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput> | Prisma.SaleCreateWithoutEmployeeInput[] | Prisma.SaleUncheckedCreateWithoutEmployeeInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutEmployeeInput | Prisma.SaleCreateOrConnectWithoutEmployeeInput[]
-  upsert?: Prisma.SaleUpsertWithWhereUniqueWithoutEmployeeInput | Prisma.SaleUpsertWithWhereUniqueWithoutEmployeeInput[]
-  createMany?: Prisma.SaleCreateManyEmployeeInputEnvelope
-  set?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  disconnect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  delete?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  update?: Prisma.SaleUpdateWithWhereUniqueWithoutEmployeeInput | Prisma.SaleUpdateWithWhereUniqueWithoutEmployeeInput[]
-  updateMany?: Prisma.SaleUpdateManyWithWhereWithoutEmployeeInput | Prisma.SaleUpdateManyWithWhereWithoutEmployeeInput[]
-  deleteMany?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
+export type saleUncheckedUpdateManyWithoutPricecategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput> | Prisma.saleCreateWithoutPricecategoryInput[] | Prisma.saleUncheckedCreateWithoutPricecategoryInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutPricecategoryInput | Prisma.saleCreateOrConnectWithoutPricecategoryInput[]
+  upsert?: Prisma.saleUpsertWithWhereUniqueWithoutPricecategoryInput | Prisma.saleUpsertWithWhereUniqueWithoutPricecategoryInput[]
+  createMany?: Prisma.saleCreateManyPricecategoryInputEnvelope
+  set?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  disconnect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  delete?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  update?: Prisma.saleUpdateWithWhereUniqueWithoutPricecategoryInput | Prisma.saleUpdateWithWhereUniqueWithoutPricecategoryInput[]
+  updateMany?: Prisma.saleUpdateManyWithWhereWithoutPricecategoryInput | Prisma.saleUpdateManyWithWhereWithoutPricecategoryInput[]
+  deleteMany?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
 }
 
-export type SaleCreateNestedManyWithoutPriceCategoryInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput> | Prisma.SaleCreateWithoutPriceCategoryInput[] | Prisma.SaleUncheckedCreateWithoutPriceCategoryInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutPriceCategoryInput | Prisma.SaleCreateOrConnectWithoutPriceCategoryInput[]
-  createMany?: Prisma.SaleCreateManyPriceCategoryInputEnvelope
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
+export type saleCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput> | Prisma.saleCreateWithoutUserInput[] | Prisma.saleUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutUserInput | Prisma.saleCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.saleCreateManyUserInputEnvelope
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
 }
 
-export type SaleUncheckedCreateNestedManyWithoutPriceCategoryInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput> | Prisma.SaleCreateWithoutPriceCategoryInput[] | Prisma.SaleUncheckedCreateWithoutPriceCategoryInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutPriceCategoryInput | Prisma.SaleCreateOrConnectWithoutPriceCategoryInput[]
-  createMany?: Prisma.SaleCreateManyPriceCategoryInputEnvelope
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
+export type saleUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput> | Prisma.saleCreateWithoutUserInput[] | Prisma.saleUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutUserInput | Prisma.saleCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.saleCreateManyUserInputEnvelope
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
 }
 
-export type SaleUpdateManyWithoutPriceCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput> | Prisma.SaleCreateWithoutPriceCategoryInput[] | Prisma.SaleUncheckedCreateWithoutPriceCategoryInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutPriceCategoryInput | Prisma.SaleCreateOrConnectWithoutPriceCategoryInput[]
-  upsert?: Prisma.SaleUpsertWithWhereUniqueWithoutPriceCategoryInput | Prisma.SaleUpsertWithWhereUniqueWithoutPriceCategoryInput[]
-  createMany?: Prisma.SaleCreateManyPriceCategoryInputEnvelope
-  set?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  disconnect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  delete?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  update?: Prisma.SaleUpdateWithWhereUniqueWithoutPriceCategoryInput | Prisma.SaleUpdateWithWhereUniqueWithoutPriceCategoryInput[]
-  updateMany?: Prisma.SaleUpdateManyWithWhereWithoutPriceCategoryInput | Prisma.SaleUpdateManyWithWhereWithoutPriceCategoryInput[]
-  deleteMany?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
+export type saleUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput> | Prisma.saleCreateWithoutUserInput[] | Prisma.saleUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutUserInput | Prisma.saleCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.saleUpsertWithWhereUniqueWithoutUserInput | Prisma.saleUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.saleCreateManyUserInputEnvelope
+  set?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  disconnect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  delete?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  update?: Prisma.saleUpdateWithWhereUniqueWithoutUserInput | Prisma.saleUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.saleUpdateManyWithWhereWithoutUserInput | Prisma.saleUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
 }
 
-export type SaleUncheckedUpdateManyWithoutPriceCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput> | Prisma.SaleCreateWithoutPriceCategoryInput[] | Prisma.SaleUncheckedCreateWithoutPriceCategoryInput[]
-  connectOrCreate?: Prisma.SaleCreateOrConnectWithoutPriceCategoryInput | Prisma.SaleCreateOrConnectWithoutPriceCategoryInput[]
-  upsert?: Prisma.SaleUpsertWithWhereUniqueWithoutPriceCategoryInput | Prisma.SaleUpsertWithWhereUniqueWithoutPriceCategoryInput[]
-  createMany?: Prisma.SaleCreateManyPriceCategoryInputEnvelope
-  set?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  disconnect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  delete?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  connect?: Prisma.SaleWhereUniqueInput | Prisma.SaleWhereUniqueInput[]
-  update?: Prisma.SaleUpdateWithWhereUniqueWithoutPriceCategoryInput | Prisma.SaleUpdateWithWhereUniqueWithoutPriceCategoryInput[]
-  updateMany?: Prisma.SaleUpdateManyWithWhereWithoutPriceCategoryInput | Prisma.SaleUpdateManyWithWhereWithoutPriceCategoryInput[]
-  deleteMany?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
+export type saleUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput> | Prisma.saleCreateWithoutUserInput[] | Prisma.saleUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.saleCreateOrConnectWithoutUserInput | Prisma.saleCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.saleUpsertWithWhereUniqueWithoutUserInput | Prisma.saleUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.saleCreateManyUserInputEnvelope
+  set?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  disconnect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  delete?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  connect?: Prisma.saleWhereUniqueInput | Prisma.saleWhereUniqueInput[]
+  update?: Prisma.saleUpdateWithWhereUniqueWithoutUserInput | Prisma.saleUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.saleUpdateManyWithWhereWithoutUserInput | Prisma.saleUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
-export type SaleCreateWithoutEmployeeInput = {
+export type saleCreateWithoutPricecategoryInput = {
   soldPrice: number
   quantity: number
   bonus: number
   createdAt?: Date | string
-  priceCategory: Prisma.PriceCategoryCreateNestedOneWithoutSalesInput
+  user: Prisma.userCreateNestedOneWithoutSaleInput
 }
 
-export type SaleUncheckedCreateWithoutEmployeeInput = {
-  id?: number
-  soldPrice: number
-  quantity: number
-  bonus: number
-  createdAt?: Date | string
-  priceCategoryId: number
-}
-
-export type SaleCreateOrConnectWithoutEmployeeInput = {
-  where: Prisma.SaleWhereUniqueInput
-  create: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput>
-}
-
-export type SaleCreateManyEmployeeInputEnvelope = {
-  data: Prisma.SaleCreateManyEmployeeInput | Prisma.SaleCreateManyEmployeeInput[]
-  skipDuplicates?: boolean
-}
-
-export type SaleUpsertWithWhereUniqueWithoutEmployeeInput = {
-  where: Prisma.SaleWhereUniqueInput
-  update: Prisma.XOR<Prisma.SaleUpdateWithoutEmployeeInput, Prisma.SaleUncheckedUpdateWithoutEmployeeInput>
-  create: Prisma.XOR<Prisma.SaleCreateWithoutEmployeeInput, Prisma.SaleUncheckedCreateWithoutEmployeeInput>
-}
-
-export type SaleUpdateWithWhereUniqueWithoutEmployeeInput = {
-  where: Prisma.SaleWhereUniqueInput
-  data: Prisma.XOR<Prisma.SaleUpdateWithoutEmployeeInput, Prisma.SaleUncheckedUpdateWithoutEmployeeInput>
-}
-
-export type SaleUpdateManyWithWhereWithoutEmployeeInput = {
-  where: Prisma.SaleScalarWhereInput
-  data: Prisma.XOR<Prisma.SaleUpdateManyMutationInput, Prisma.SaleUncheckedUpdateManyWithoutEmployeeInput>
-}
-
-export type SaleScalarWhereInput = {
-  AND?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
-  OR?: Prisma.SaleScalarWhereInput[]
-  NOT?: Prisma.SaleScalarWhereInput | Prisma.SaleScalarWhereInput[]
-  id?: Prisma.IntFilter<"Sale"> | number
-  soldPrice?: Prisma.FloatFilter<"Sale"> | number
-  quantity?: Prisma.IntFilter<"Sale"> | number
-  bonus?: Prisma.FloatFilter<"Sale"> | number
-  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
-  employeeId?: Prisma.IntFilter<"Sale"> | number
-  priceCategoryId?: Prisma.IntFilter<"Sale"> | number
-}
-
-export type SaleCreateWithoutPriceCategoryInput = {
-  soldPrice: number
-  quantity: number
-  bonus: number
-  createdAt?: Date | string
-  employee: Prisma.UserCreateNestedOneWithoutSalesInput
-}
-
-export type SaleUncheckedCreateWithoutPriceCategoryInput = {
+export type saleUncheckedCreateWithoutPricecategoryInput = {
   id?: number
   soldPrice: number
   quantity: number
@@ -595,33 +535,54 @@ export type SaleUncheckedCreateWithoutPriceCategoryInput = {
   employeeId: number
 }
 
-export type SaleCreateOrConnectWithoutPriceCategoryInput = {
-  where: Prisma.SaleWhereUniqueInput
-  create: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput>
+export type saleCreateOrConnectWithoutPricecategoryInput = {
+  where: Prisma.saleWhereUniqueInput
+  create: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput>
 }
 
-export type SaleCreateManyPriceCategoryInputEnvelope = {
-  data: Prisma.SaleCreateManyPriceCategoryInput | Prisma.SaleCreateManyPriceCategoryInput[]
+export type saleCreateManyPricecategoryInputEnvelope = {
+  data: Prisma.saleCreateManyPricecategoryInput | Prisma.saleCreateManyPricecategoryInput[]
   skipDuplicates?: boolean
 }
 
-export type SaleUpsertWithWhereUniqueWithoutPriceCategoryInput = {
-  where: Prisma.SaleWhereUniqueInput
-  update: Prisma.XOR<Prisma.SaleUpdateWithoutPriceCategoryInput, Prisma.SaleUncheckedUpdateWithoutPriceCategoryInput>
-  create: Prisma.XOR<Prisma.SaleCreateWithoutPriceCategoryInput, Prisma.SaleUncheckedCreateWithoutPriceCategoryInput>
+export type saleUpsertWithWhereUniqueWithoutPricecategoryInput = {
+  where: Prisma.saleWhereUniqueInput
+  update: Prisma.XOR<Prisma.saleUpdateWithoutPricecategoryInput, Prisma.saleUncheckedUpdateWithoutPricecategoryInput>
+  create: Prisma.XOR<Prisma.saleCreateWithoutPricecategoryInput, Prisma.saleUncheckedCreateWithoutPricecategoryInput>
 }
 
-export type SaleUpdateWithWhereUniqueWithoutPriceCategoryInput = {
-  where: Prisma.SaleWhereUniqueInput
-  data: Prisma.XOR<Prisma.SaleUpdateWithoutPriceCategoryInput, Prisma.SaleUncheckedUpdateWithoutPriceCategoryInput>
+export type saleUpdateWithWhereUniqueWithoutPricecategoryInput = {
+  where: Prisma.saleWhereUniqueInput
+  data: Prisma.XOR<Prisma.saleUpdateWithoutPricecategoryInput, Prisma.saleUncheckedUpdateWithoutPricecategoryInput>
 }
 
-export type SaleUpdateManyWithWhereWithoutPriceCategoryInput = {
-  where: Prisma.SaleScalarWhereInput
-  data: Prisma.XOR<Prisma.SaleUpdateManyMutationInput, Prisma.SaleUncheckedUpdateManyWithoutPriceCategoryInput>
+export type saleUpdateManyWithWhereWithoutPricecategoryInput = {
+  where: Prisma.saleScalarWhereInput
+  data: Prisma.XOR<Prisma.saleUpdateManyMutationInput, Prisma.saleUncheckedUpdateManyWithoutPricecategoryInput>
 }
 
-export type SaleCreateManyEmployeeInput = {
+export type saleScalarWhereInput = {
+  AND?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
+  OR?: Prisma.saleScalarWhereInput[]
+  NOT?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
+  id?: Prisma.IntFilter<"sale"> | number
+  soldPrice?: Prisma.FloatFilter<"sale"> | number
+  quantity?: Prisma.IntFilter<"sale"> | number
+  bonus?: Prisma.FloatFilter<"sale"> | number
+  createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  employeeId?: Prisma.IntFilter<"sale"> | number
+  priceCategoryId?: Prisma.IntFilter<"sale"> | number
+}
+
+export type saleCreateWithoutUserInput = {
+  soldPrice: number
+  quantity: number
+  bonus: number
+  createdAt?: Date | string
+  pricecategory: Prisma.pricecategoryCreateNestedOneWithoutSaleInput
+}
+
+export type saleUncheckedCreateWithoutUserInput = {
   id?: number
   soldPrice: number
   quantity: number
@@ -630,33 +591,33 @@ export type SaleCreateManyEmployeeInput = {
   priceCategoryId: number
 }
 
-export type SaleUpdateWithoutEmployeeInput = {
-  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  priceCategory?: Prisma.PriceCategoryUpdateOneRequiredWithoutSalesNestedInput
+export type saleCreateOrConnectWithoutUserInput = {
+  where: Prisma.saleWhereUniqueInput
+  create: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput>
 }
 
-export type SaleUncheckedUpdateWithoutEmployeeInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
+export type saleCreateManyUserInputEnvelope = {
+  data: Prisma.saleCreateManyUserInput | Prisma.saleCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
-export type SaleUncheckedUpdateManyWithoutEmployeeInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
+export type saleUpsertWithWhereUniqueWithoutUserInput = {
+  where: Prisma.saleWhereUniqueInput
+  update: Prisma.XOR<Prisma.saleUpdateWithoutUserInput, Prisma.saleUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput>
 }
 
-export type SaleCreateManyPriceCategoryInput = {
+export type saleUpdateWithWhereUniqueWithoutUserInput = {
+  where: Prisma.saleWhereUniqueInput
+  data: Prisma.XOR<Prisma.saleUpdateWithoutUserInput, Prisma.saleUncheckedUpdateWithoutUserInput>
+}
+
+export type saleUpdateManyWithWhereWithoutUserInput = {
+  where: Prisma.saleScalarWhereInput
+  data: Prisma.XOR<Prisma.saleUpdateManyMutationInput, Prisma.saleUncheckedUpdateManyWithoutUserInput>
+}
+
+export type saleCreateManyPricecategoryInput = {
   id?: number
   soldPrice: number
   quantity: number
@@ -665,15 +626,15 @@ export type SaleCreateManyPriceCategoryInput = {
   employeeId: number
 }
 
-export type SaleUpdateWithoutPriceCategoryInput = {
+export type saleUpdateWithoutPricecategoryInput = {
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  employee?: Prisma.UserUpdateOneRequiredWithoutSalesNestedInput
+  user?: Prisma.userUpdateOneRequiredWithoutSaleNestedInput
 }
 
-export type SaleUncheckedUpdateWithoutPriceCategoryInput = {
+export type saleUncheckedUpdateWithoutPricecategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -682,7 +643,7 @@ export type SaleUncheckedUpdateWithoutPriceCategoryInput = {
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type SaleUncheckedUpdateManyWithoutPriceCategoryInput = {
+export type saleUncheckedUpdateManyWithoutPricecategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -691,9 +652,44 @@ export type SaleUncheckedUpdateManyWithoutPriceCategoryInput = {
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
+export type saleCreateManyUserInput = {
+  id?: number
+  soldPrice: number
+  quantity: number
+  bonus: number
+  createdAt?: Date | string
+  priceCategoryId: number
+}
+
+export type saleUpdateWithoutUserInput = {
+  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutSaleNestedInput
+}
+
+export type saleUncheckedUpdateWithoutUserInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type saleUncheckedUpdateManyWithoutUserInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  soldPrice?: Prisma.FloatFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  bonus?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
+}
 
 
-export type SaleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+
+export type saleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   soldPrice?: boolean
   quantity?: boolean
@@ -701,13 +697,13 @@ export type SaleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   employeeId?: boolean
   priceCategoryId?: boolean
-  employee?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  priceCategory?: boolean | Prisma.PriceCategoryDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sale"]>
 
 
 
-export type SaleSelectScalar = {
+export type saleSelectScalar = {
   id?: boolean
   soldPrice?: boolean
   quantity?: boolean
@@ -717,17 +713,17 @@ export type SaleSelectScalar = {
   priceCategoryId?: boolean
 }
 
-export type SaleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "soldPrice" | "quantity" | "bonus" | "createdAt" | "employeeId" | "priceCategoryId", ExtArgs["result"]["sale"]>
-export type SaleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  employee?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  priceCategory?: boolean | Prisma.PriceCategoryDefaultArgs<ExtArgs>
+export type saleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "soldPrice" | "quantity" | "bonus" | "createdAt" | "employeeId" | "priceCategoryId", ExtArgs["result"]["sale"]>
+export type saleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }
 
-export type $SalePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "Sale"
+export type $salePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "sale"
   objects: {
-    employee: Prisma.$UserPayload<ExtArgs>
-    priceCategory: Prisma.$PriceCategoryPayload<ExtArgs>
+    user: Prisma.$userPayload<ExtArgs>
+    pricecategory: Prisma.$pricecategoryPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -741,18 +737,18 @@ export type $SalePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   composites: {}
 }
 
-export type SaleGetPayload<S extends boolean | null | undefined | SaleDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$SalePayload, S>
+export type saleGetPayload<S extends boolean | null | undefined | saleDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$salePayload, S>
 
-export type SaleCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<SaleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type saleCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<saleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: SaleCountAggregateInputType | true
   }
 
-export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Sale'], meta: { name: 'Sale' } }
+export interface saleDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sale'], meta: { name: 'sale' } }
   /**
    * Find zero or one Sale that matches the filter.
-   * @param {SaleFindUniqueArgs} args - Arguments to find a Sale
+   * @param {saleFindUniqueArgs} args - Arguments to find a Sale
    * @example
    * // Get one Sale
    * const sale = await prisma.sale.findUnique({
@@ -761,12 +757,12 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findUnique<T extends SaleFindUniqueArgs>(args: Prisma.SelectSubset<T, SaleFindUniqueArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends saleFindUniqueArgs>(args: Prisma.SelectSubset<T, saleFindUniqueArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Sale that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {SaleFindUniqueOrThrowArgs} args - Arguments to find a Sale
+   * @param {saleFindUniqueOrThrowArgs} args - Arguments to find a Sale
    * @example
    * // Get one Sale
    * const sale = await prisma.sale.findUniqueOrThrow({
@@ -775,13 +771,13 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findUniqueOrThrow<T extends SaleFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, SaleFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends saleFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, saleFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Sale that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleFindFirstArgs} args - Arguments to find a Sale
+   * @param {saleFindFirstArgs} args - Arguments to find a Sale
    * @example
    * // Get one Sale
    * const sale = await prisma.sale.findFirst({
@@ -790,14 +786,14 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findFirst<T extends SaleFindFirstArgs>(args?: Prisma.SelectSubset<T, SaleFindFirstArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends saleFindFirstArgs>(args?: Prisma.SelectSubset<T, saleFindFirstArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Sale that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleFindFirstOrThrowArgs} args - Arguments to find a Sale
+   * @param {saleFindFirstOrThrowArgs} args - Arguments to find a Sale
    * @example
    * // Get one Sale
    * const sale = await prisma.sale.findFirstOrThrow({
@@ -806,13 +802,13 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findFirstOrThrow<T extends SaleFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, SaleFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends saleFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, saleFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Sales that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {saleFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Sales
    * const sales = await prisma.sale.findMany()
@@ -824,11 +820,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * const saleWithIdOnly = await prisma.sale.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends SaleFindManyArgs>(args?: Prisma.SelectSubset<T, SaleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends saleFindManyArgs>(args?: Prisma.SelectSubset<T, saleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Sale.
-   * @param {SaleCreateArgs} args - Arguments to create a Sale.
+   * @param {saleCreateArgs} args - Arguments to create a Sale.
    * @example
    * // Create one Sale
    * const Sale = await prisma.sale.create({
@@ -838,11 +834,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  create<T extends SaleCreateArgs>(args: Prisma.SelectSubset<T, SaleCreateArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends saleCreateArgs>(args: Prisma.SelectSubset<T, saleCreateArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Sales.
-   * @param {SaleCreateManyArgs} args - Arguments to create many Sales.
+   * @param {saleCreateManyArgs} args - Arguments to create many Sales.
    * @example
    * // Create many Sales
    * const sale = await prisma.sale.createMany({
@@ -852,11 +848,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    *     
    */
-  createMany<T extends SaleCreateManyArgs>(args?: Prisma.SelectSubset<T, SaleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends saleCreateManyArgs>(args?: Prisma.SelectSubset<T, saleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Sale.
-   * @param {SaleDeleteArgs} args - Arguments to delete one Sale.
+   * @param {saleDeleteArgs} args - Arguments to delete one Sale.
    * @example
    * // Delete one Sale
    * const Sale = await prisma.sale.delete({
@@ -866,11 +862,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  delete<T extends SaleDeleteArgs>(args: Prisma.SelectSubset<T, SaleDeleteArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends saleDeleteArgs>(args: Prisma.SelectSubset<T, saleDeleteArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Sale.
-   * @param {SaleUpdateArgs} args - Arguments to update one Sale.
+   * @param {saleUpdateArgs} args - Arguments to update one Sale.
    * @example
    * // Update one Sale
    * const sale = await prisma.sale.update({
@@ -883,11 +879,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  update<T extends SaleUpdateArgs>(args: Prisma.SelectSubset<T, SaleUpdateArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends saleUpdateArgs>(args: Prisma.SelectSubset<T, saleUpdateArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Sales.
-   * @param {SaleDeleteManyArgs} args - Arguments to filter Sales to delete.
+   * @param {saleDeleteManyArgs} args - Arguments to filter Sales to delete.
    * @example
    * // Delete a few Sales
    * const { count } = await prisma.sale.deleteMany({
@@ -897,13 +893,13 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  deleteMany<T extends SaleDeleteManyArgs>(args?: Prisma.SelectSubset<T, SaleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends saleDeleteManyArgs>(args?: Prisma.SelectSubset<T, saleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Sales.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {saleUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Sales
    * const sale = await prisma.sale.updateMany({
@@ -916,11 +912,11 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  updateMany<T extends SaleUpdateManyArgs>(args: Prisma.SelectSubset<T, SaleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends saleUpdateManyArgs>(args: Prisma.SelectSubset<T, saleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Sale.
-   * @param {SaleUpsertArgs} args - Arguments to update or create a Sale.
+   * @param {saleUpsertArgs} args - Arguments to update or create a Sale.
    * @example
    * // Update or create a Sale
    * const sale = await prisma.sale.upsert({
@@ -935,14 +931,14 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  upsert<T extends SaleUpsertArgs>(args: Prisma.SelectSubset<T, SaleUpsertArgs<ExtArgs>>): Prisma.Prisma__SaleClient<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends saleUpsertArgs>(args: Prisma.SelectSubset<T, saleUpsertArgs<ExtArgs>>): Prisma.Prisma__saleClient<runtime.Types.Result.GetResult<Prisma.$salePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Sales.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleCountArgs} args - Arguments to filter Sales to count.
+   * @param {saleCountArgs} args - Arguments to filter Sales to count.
    * @example
    * // Count the number of Sales
    * const count = await prisma.sale.count({
@@ -951,8 +947,8 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
   **/
-  count<T extends SaleCountArgs>(
-    args?: Prisma.Subset<T, SaleCountArgs>,
+  count<T extends saleCountArgs>(
+    args?: Prisma.Subset<T, saleCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -991,7 +987,7 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * Group by Sale.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SaleGroupByArgs} args - Group by arguments.
+   * @param {saleGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -1006,14 +1002,14 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * 
   **/
   groupBy<
-    T extends SaleGroupByArgs,
+    T extends saleGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: SaleGroupByArgs['orderBy'] }
-      : { orderBy?: SaleGroupByArgs['orderBy'] },
+      ? { orderBy: saleGroupByArgs['orderBy'] }
+      : { orderBy?: saleGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1062,23 +1058,23 @@ export interface SaleDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, SaleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, saleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the Sale model
+ * Fields of the sale model
  */
-readonly fields: SaleFieldRefs;
+readonly fields: saleFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for Sale.
+ * The delegate class that acts as a "Promise-like" for sale.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__SaleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__saleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  employee<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  priceCategory<T extends Prisma.PriceCategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceCategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pricecategory<T extends Prisma.pricecategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pricecategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1105,372 +1101,372 @@ export interface Prisma__SaleClient<T, Null = never, ExtArgs extends runtime.Typ
 
 
 /**
- * Fields of the Sale model
+ * Fields of the sale model
  */
-export interface SaleFieldRefs {
-  readonly id: Prisma.FieldRef<"Sale", 'Int'>
-  readonly soldPrice: Prisma.FieldRef<"Sale", 'Float'>
-  readonly quantity: Prisma.FieldRef<"Sale", 'Int'>
-  readonly bonus: Prisma.FieldRef<"Sale", 'Float'>
-  readonly createdAt: Prisma.FieldRef<"Sale", 'DateTime'>
-  readonly employeeId: Prisma.FieldRef<"Sale", 'Int'>
-  readonly priceCategoryId: Prisma.FieldRef<"Sale", 'Int'>
+export interface saleFieldRefs {
+  readonly id: Prisma.FieldRef<"sale", 'Int'>
+  readonly soldPrice: Prisma.FieldRef<"sale", 'Float'>
+  readonly quantity: Prisma.FieldRef<"sale", 'Int'>
+  readonly bonus: Prisma.FieldRef<"sale", 'Float'>
+  readonly createdAt: Prisma.FieldRef<"sale", 'DateTime'>
+  readonly employeeId: Prisma.FieldRef<"sale", 'Int'>
+  readonly priceCategoryId: Prisma.FieldRef<"sale", 'Int'>
 }
     
 
 // Custom InputTypes
 /**
- * Sale findUnique
+ * sale findUnique
  */
-export type SaleFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter, which Sale to fetch.
+   * Filter, which sale to fetch.
    */
-  where: Prisma.SaleWhereUniqueInput
+  where: Prisma.saleWhereUniqueInput
 }
 
 /**
- * Sale findUniqueOrThrow
+ * sale findUniqueOrThrow
  */
-export type SaleFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter, which Sale to fetch.
+   * Filter, which sale to fetch.
    */
-  where: Prisma.SaleWhereUniqueInput
+  where: Prisma.saleWhereUniqueInput
 }
 
 /**
- * Sale findFirst
+ * sale findFirst
  */
-export type SaleFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter, which Sale to fetch.
+   * Filter, which sale to fetch.
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Sales to fetch.
+   * Determine the order of sales to fetch.
    */
-  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
+  orderBy?: Prisma.saleOrderByWithRelationInput | Prisma.saleOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Sales.
+   * Sets the position for searching for sales.
    */
-  cursor?: Prisma.SaleWhereUniqueInput
+  cursor?: Prisma.saleWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Sales from the position of the cursor.
+   * Take `±n` sales from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Sales.
+   * Skip the first `n` sales.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Sales.
+   * Filter by unique combinations of sales.
    */
   distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
 }
 
 /**
- * Sale findFirstOrThrow
+ * sale findFirstOrThrow
  */
-export type SaleFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter, which Sale to fetch.
+   * Filter, which sale to fetch.
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Sales to fetch.
+   * Determine the order of sales to fetch.
    */
-  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
+  orderBy?: Prisma.saleOrderByWithRelationInput | Prisma.saleOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Sales.
+   * Sets the position for searching for sales.
    */
-  cursor?: Prisma.SaleWhereUniqueInput
+  cursor?: Prisma.saleWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Sales from the position of the cursor.
+   * Take `±n` sales from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Sales.
+   * Skip the first `n` sales.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Sales.
+   * Filter by unique combinations of sales.
    */
   distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
 }
 
 /**
- * Sale findMany
+ * sale findMany
  */
-export type SaleFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter, which Sales to fetch.
+   * Filter, which sales to fetch.
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Sales to fetch.
+   * Determine the order of sales to fetch.
    */
-  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
+  orderBy?: Prisma.saleOrderByWithRelationInput | Prisma.saleOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing Sales.
+   * Sets the position for listing sales.
    */
-  cursor?: Prisma.SaleWhereUniqueInput
+  cursor?: Prisma.saleWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Sales from the position of the cursor.
+   * Take `±n` sales from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Sales.
+   * Skip the first `n` sales.
    */
   skip?: number
   distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
 }
 
 /**
- * Sale create
+ * sale create
  */
-export type SaleCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * The data needed to create a Sale.
+   * The data needed to create a sale.
    */
-  data: Prisma.XOR<Prisma.SaleCreateInput, Prisma.SaleUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.saleCreateInput, Prisma.saleUncheckedCreateInput>
 }
 
 /**
- * Sale createMany
+ * sale createMany
  */
-export type SaleCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many Sales.
+   * The data used to create many sales.
    */
-  data: Prisma.SaleCreateManyInput | Prisma.SaleCreateManyInput[]
+  data: Prisma.saleCreateManyInput | Prisma.saleCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Sale update
+ * sale update
  */
-export type SaleUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * The data needed to update a Sale.
+   * The data needed to update a sale.
    */
-  data: Prisma.XOR<Prisma.SaleUpdateInput, Prisma.SaleUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.saleUpdateInput, Prisma.saleUncheckedUpdateInput>
   /**
-   * Choose, which Sale to update.
+   * Choose, which sale to update.
    */
-  where: Prisma.SaleWhereUniqueInput
+  where: Prisma.saleWhereUniqueInput
 }
 
 /**
- * Sale updateMany
+ * sale updateMany
  */
-export type SaleUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update Sales.
+   * The data used to update sales.
    */
-  data: Prisma.XOR<Prisma.SaleUpdateManyMutationInput, Prisma.SaleUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.saleUpdateManyMutationInput, Prisma.saleUncheckedUpdateManyInput>
   /**
-   * Filter which Sales to update
+   * Filter which sales to update
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
-   * Limit how many Sales to update.
+   * Limit how many sales to update.
    */
   limit?: number
 }
 
 /**
- * Sale upsert
+ * sale upsert
  */
-export type SaleUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * The filter to search for the Sale to update in case it exists.
+   * The filter to search for the sale to update in case it exists.
    */
-  where: Prisma.SaleWhereUniqueInput
+  where: Prisma.saleWhereUniqueInput
   /**
-   * In case the Sale found by the `where` argument doesn't exist, create a new Sale with this data.
+   * In case the sale found by the `where` argument doesn't exist, create a new sale with this data.
    */
-  create: Prisma.XOR<Prisma.SaleCreateInput, Prisma.SaleUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.saleCreateInput, Prisma.saleUncheckedCreateInput>
   /**
-   * In case the Sale was found with the provided `where` argument, update it with this data.
+   * In case the sale was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.SaleUpdateInput, Prisma.SaleUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.saleUpdateInput, Prisma.saleUncheckedUpdateInput>
 }
 
 /**
- * Sale delete
+ * sale delete
  */
-export type SaleDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
   /**
-   * Filter which Sale to delete.
+   * Filter which sale to delete.
    */
-  where: Prisma.SaleWhereUniqueInput
+  where: Prisma.saleWhereUniqueInput
 }
 
 /**
- * Sale deleteMany
+ * sale deleteMany
  */
-export type SaleDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Sales to delete
+   * Filter which sales to delete
    */
-  where?: Prisma.SaleWhereInput
+  where?: Prisma.saleWhereInput
   /**
-   * Limit how many Sales to delete.
+   * Limit how many sales to delete.
    */
   limit?: number
 }
 
 /**
- * Sale without action
+ * sale without action
  */
-export type SaleDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type saleDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sale
+   * Select specific fields to fetch from the sale
    */
-  select?: Prisma.SaleSelect<ExtArgs> | null
+  select?: Prisma.saleSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sale
+   * Omit specific fields from the sale
    */
-  omit?: Prisma.SaleOmit<ExtArgs> | null
+  omit?: Prisma.saleOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SaleInclude<ExtArgs> | null
+  include?: Prisma.saleInclude<ExtArgs> | null
 }

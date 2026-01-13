@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "mysql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n}\n\nenum Role {\n  OWNER\n  EMPLOYEE\n}\n\nmodel User {\n  id         Int    @id @default(autoincrement())\n  name       String\n  role       Role\n  baseSalary Float?\n\n  sales      Sale[]\n  salaryPays SalaryPayment[]\n}\n\nmodel Category {\n  id   Int    @id @default(autoincrement())\n  name String @unique\n\n  priceCategories PriceCategory[]\n}\n\nmodel PriceCategory {\n  id         Int   @id @default(autoincrement())\n  fixedPrice Float\n  categoryId Int\n\n  category Category @relation(fields: [categoryId], references: [id])\n  stock    Stock?\n  sales    Sale[]\n}\n\nmodel Stock {\n  id              Int   @id @default(autoincrement())\n  purchasePrice   Float\n  quantity        Int\n  priceCategoryId Int   @unique\n\n  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])\n}\n\nmodel Sale {\n  id        Int      @id @default(autoincrement())\n  soldPrice Float\n  quantity  Int\n  bonus     Float\n  createdAt DateTime @default(now())\n\n  employeeId      Int\n  priceCategoryId Int\n\n  employee      User          @relation(fields: [employeeId], references: [id])\n  priceCategory PriceCategory @relation(fields: [priceCategoryId], references: [id])\n}\n\nmodel SalaryPayment {\n  id        Int      @id @default(autoincrement())\n  amount    Float\n  weekStart DateTime\n  weekEnd   DateTime\n  createdAt DateTime @default(now())\n\n  userId Int\n  user   User @relation(fields: [userId], references: [id])\n}\n\nmodel Expense {\n  id          Int      @id @default(autoincrement())\n  description String\n  amount      Float\n  weekStart   DateTime\n  weekEnd     DateTime\n  createdAt   DateTime @default(now())\n}\n",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n}\n\nmodel category {\n  id            Int             @id @default(autoincrement())\n  name          String          @unique(map: \"Category_name_key\")\n  pricecategory pricecategory[]\n}\n\nmodel expense {\n  id          Int      @id @default(autoincrement())\n  description String\n  amount      Float\n  weekStart   DateTime\n  weekEnd     DateTime\n  createdAt   DateTime @default(now())\n}\n\nmodel pricecategory {\n  id         Int      @id @default(autoincrement())\n  fixedPrice Float\n  categoryId Int\n  category   category @relation(fields: [categoryId], references: [id], map: \"PriceCategory_categoryId_fkey\")\n  sale       sale[]\n  stock      stock?\n\n  @@index([categoryId], map: \"PriceCategory_categoryId_fkey\")\n}\n\nmodel salarypayment {\n  id        Int      @id @default(autoincrement())\n  amount    Float\n  weekStart DateTime\n  weekEnd   DateTime\n  createdAt DateTime @default(now())\n  userId    Int\n  user      user     @relation(fields: [userId], references: [id], map: \"SalaryPayment_userId_fkey\")\n\n  @@index([userId], map: \"SalaryPayment_userId_fkey\")\n}\n\nmodel sale {\n  id              Int           @id @default(autoincrement())\n  soldPrice       Float\n  quantity        Int\n  bonus           Float\n  createdAt       DateTime      @default(now())\n  employeeId      Int\n  priceCategoryId Int\n  user            user          @relation(fields: [employeeId], references: [id], map: \"Sale_employeeId_fkey\")\n  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: \"Sale_priceCategoryId_fkey\")\n\n  @@index([employeeId], map: \"Sale_employeeId_fkey\")\n  @@index([priceCategoryId], map: \"Sale_priceCategoryId_fkey\")\n}\n\nmodel stock {\n  id              Int           @id @default(autoincrement())\n  purchasePrice   Float\n  quantity        Int\n  priceCategoryId Int           @unique(map: \"Stock_priceCategoryId_key\")\n  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: \"Stock_priceCategoryId_fkey\")\n}\n\nmodel user {\n  id            Int             @id @default(autoincrement())\n  name          String          @unique\n  role          user_role\n  baseSalary    Float?\n  salarypayment salarypayment[]\n  sale          sale[]\n}\n\nenum user_role {\n  OWNER\n  EMPLOYEE\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"baseSalary\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"sales\",\"kind\":\"object\",\"type\":\"Sale\",\"relationName\":\"SaleToUser\"},{\"name\":\"salaryPays\",\"kind\":\"object\",\"type\":\"SalaryPayment\",\"relationName\":\"SalaryPaymentToUser\"}],\"dbName\":null},\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"priceCategories\",\"kind\":\"object\",\"type\":\"PriceCategory\",\"relationName\":\"CategoryToPriceCategory\"}],\"dbName\":null},\"PriceCategory\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"fixedPrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToPriceCategory\"},{\"name\":\"stock\",\"kind\":\"object\",\"type\":\"Stock\",\"relationName\":\"PriceCategoryToStock\"},{\"name\":\"sales\",\"kind\":\"object\",\"type\":\"Sale\",\"relationName\":\"PriceCategoryToSale\"}],\"dbName\":null},\"Stock\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"purchasePrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceCategoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceCategory\",\"kind\":\"object\",\"type\":\"PriceCategory\",\"relationName\":\"PriceCategoryToStock\"}],\"dbName\":null},\"Sale\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"soldPrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"bonus\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"employeeId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceCategoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"employee\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SaleToUser\"},{\"name\":\"priceCategory\",\"kind\":\"object\",\"type\":\"PriceCategory\",\"relationName\":\"PriceCategoryToSale\"}],\"dbName\":null},\"SalaryPayment\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"weekStart\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"weekEnd\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SalaryPaymentToUser\"}],\"dbName\":null},\"Expense\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"weekStart\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"weekEnd\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"pricecategory\",\"kind\":\"object\",\"type\":\"pricecategory\",\"relationName\":\"categoryTopricecategory\"}],\"dbName\":null},\"expense\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"weekStart\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"weekEnd\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"pricecategory\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"fixedPrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"category\",\"relationName\":\"categoryTopricecategory\"},{\"name\":\"sale\",\"kind\":\"object\",\"type\":\"sale\",\"relationName\":\"pricecategoryTosale\"},{\"name\":\"stock\",\"kind\":\"object\",\"type\":\"stock\",\"relationName\":\"pricecategoryTostock\"}],\"dbName\":null},\"salarypayment\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"weekStart\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"weekEnd\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"user\",\"relationName\":\"salarypaymentTouser\"}],\"dbName\":null},\"sale\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"soldPrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"bonus\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"employeeId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceCategoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"user\",\"relationName\":\"saleTouser\"},{\"name\":\"pricecategory\",\"kind\":\"object\",\"type\":\"pricecategory\",\"relationName\":\"pricecategoryTosale\"}],\"dbName\":null},\"stock\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"purchasePrice\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceCategoryId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"pricecategory\",\"kind\":\"object\",\"type\":\"pricecategory\",\"relationName\":\"pricecategoryTostock\"}],\"dbName\":null},\"user\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"user_role\"},{\"name\":\"baseSalary\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"salarypayment\",\"kind\":\"object\",\"type\":\"salarypayment\",\"relationName\":\"salarypaymentTouser\"},{\"name\":\"sale\",\"kind\":\"object\",\"type\":\"sale\",\"relationName\":\"saleTouser\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -58,8 +58,8 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Categories
+   * const categories = await prisma.category.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -80,8 +80,8 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Categories
+ * const categories = await prisma.category.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -175,74 +175,74 @@ export interface PrismaClient<
   }>>
 
       /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
-    * ```
-    */
-  get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.category`: Exposes CRUD operations for the **Category** model.
+   * `prisma.category`: Exposes CRUD operations for the **category** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Categories
     * const categories = await prisma.category.findMany()
     * ```
     */
-  get category(): Prisma.CategoryDelegate<ExtArgs, { omit: OmitOpts }>;
+  get category(): Prisma.categoryDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
-   * `prisma.priceCategory`: Exposes CRUD operations for the **PriceCategory** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more PriceCategories
-    * const priceCategories = await prisma.priceCategory.findMany()
-    * ```
-    */
-  get priceCategory(): Prisma.PriceCategoryDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.stock`: Exposes CRUD operations for the **Stock** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Stocks
-    * const stocks = await prisma.stock.findMany()
-    * ```
-    */
-  get stock(): Prisma.StockDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.sale`: Exposes CRUD operations for the **Sale** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Sales
-    * const sales = await prisma.sale.findMany()
-    * ```
-    */
-  get sale(): Prisma.SaleDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.salaryPayment`: Exposes CRUD operations for the **SalaryPayment** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more SalaryPayments
-    * const salaryPayments = await prisma.salaryPayment.findMany()
-    * ```
-    */
-  get salaryPayment(): Prisma.SalaryPaymentDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.expense`: Exposes CRUD operations for the **Expense** model.
+   * `prisma.expense`: Exposes CRUD operations for the **expense** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Expenses
     * const expenses = await prisma.expense.findMany()
     * ```
     */
-  get expense(): Prisma.ExpenseDelegate<ExtArgs, { omit: OmitOpts }>;
+  get expense(): Prisma.expenseDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.pricecategory`: Exposes CRUD operations for the **pricecategory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Pricecategories
+    * const pricecategories = await prisma.pricecategory.findMany()
+    * ```
+    */
+  get pricecategory(): Prisma.pricecategoryDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.salarypayment`: Exposes CRUD operations for the **salarypayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Salarypayments
+    * const salarypayments = await prisma.salarypayment.findMany()
+    * ```
+    */
+  get salarypayment(): Prisma.salarypaymentDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.sale`: Exposes CRUD operations for the **sale** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sales
+    * const sales = await prisma.sale.findMany()
+    * ```
+    */
+  get sale(): Prisma.saleDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.stock`: Exposes CRUD operations for the **stock** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Stocks
+    * const stocks = await prisma.stock.findMany()
+    * ```
+    */
+  get stock(): Prisma.stockDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.user`: Exposes CRUD operations for the **user** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.userDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

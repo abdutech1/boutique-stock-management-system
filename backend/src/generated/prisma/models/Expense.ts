@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `Expense` model and its related types.
+ * This file exports the `expense` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model Expense
+ * Model expense
  * 
  */
-export type ExpenseModel = runtime.Types.Result.DefaultSelection<Prisma.$ExpensePayload>
+export type expenseModel = runtime.Types.Result.DefaultSelection<Prisma.$expensePayload>
 
 export type AggregateExpense = {
   _count: ExpenseCountAggregateOutputType | null
@@ -105,37 +105,37 @@ export type ExpenseCountAggregateInputType = {
 
 export type ExpenseAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Expense to aggregate.
+   * Filter which expense to aggregate.
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Expenses to fetch.
+   * Determine the order of expenses to fetch.
    */
-  orderBy?: Prisma.ExpenseOrderByWithRelationInput | Prisma.ExpenseOrderByWithRelationInput[]
+  orderBy?: Prisma.expenseOrderByWithRelationInput | Prisma.expenseOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.ExpenseWhereUniqueInput
+  cursor?: Prisma.expenseWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Expenses from the position of the cursor.
+   * Take `±n` expenses from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Expenses.
+   * Skip the first `n` expenses.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned Expenses
+   * Count returned expenses
   **/
   _count?: true | ExpenseCountAggregateInputType
   /**
@@ -175,11 +175,11 @@ export type GetExpenseAggregateType<T extends ExpenseAggregateArgs> = {
 
 
 
-export type ExpenseGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ExpenseWhereInput
-  orderBy?: Prisma.ExpenseOrderByWithAggregationInput | Prisma.ExpenseOrderByWithAggregationInput[]
+export type expenseGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.expenseWhereInput
+  orderBy?: Prisma.expenseOrderByWithAggregationInput | Prisma.expenseOrderByWithAggregationInput[]
   by: Prisma.ExpenseScalarFieldEnum[] | Prisma.ExpenseScalarFieldEnum
-  having?: Prisma.ExpenseScalarWhereWithAggregatesInput
+  having?: Prisma.expenseScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: ExpenseCountAggregateInputType | true
@@ -203,7 +203,7 @@ export type ExpenseGroupByOutputType = {
   _max: ExpenseMaxAggregateOutputType | null
 }
 
-type GetExpenseGroupByPayload<T extends ExpenseGroupByArgs> = Prisma.PrismaPromise<
+type GetExpenseGroupByPayload<T extends expenseGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ExpenseGroupByOutputType, T['by']> &
       {
@@ -218,67 +218,67 @@ type GetExpenseGroupByPayload<T extends ExpenseGroupByArgs> = Prisma.PrismaPromi
 
 
 
-export type ExpenseWhereInput = {
-  AND?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
-  OR?: Prisma.ExpenseWhereInput[]
-  NOT?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
-  id?: Prisma.IntFilter<"Expense"> | number
-  description?: Prisma.StringFilter<"Expense"> | string
-  amount?: Prisma.FloatFilter<"Expense"> | number
-  weekStart?: Prisma.DateTimeFilter<"Expense"> | Date | string
-  weekEnd?: Prisma.DateTimeFilter<"Expense"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
+export type expenseWhereInput = {
+  AND?: Prisma.expenseWhereInput | Prisma.expenseWhereInput[]
+  OR?: Prisma.expenseWhereInput[]
+  NOT?: Prisma.expenseWhereInput | Prisma.expenseWhereInput[]
+  id?: Prisma.IntFilter<"expense"> | number
+  description?: Prisma.StringFilter<"expense"> | string
+  amount?: Prisma.FloatFilter<"expense"> | number
+  weekStart?: Prisma.DateTimeFilter<"expense"> | Date | string
+  weekEnd?: Prisma.DateTimeFilter<"expense"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"expense"> | Date | string
 }
 
-export type ExpenseOrderByWithRelationInput = {
+export type expenseOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   weekStart?: Prisma.SortOrder
   weekEnd?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  _relevance?: Prisma.ExpenseOrderByRelevanceInput
+  _relevance?: Prisma.expenseOrderByRelevanceInput
 }
 
-export type ExpenseWhereUniqueInput = Prisma.AtLeast<{
+export type expenseWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
-  OR?: Prisma.ExpenseWhereInput[]
-  NOT?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
-  description?: Prisma.StringFilter<"Expense"> | string
-  amount?: Prisma.FloatFilter<"Expense"> | number
-  weekStart?: Prisma.DateTimeFilter<"Expense"> | Date | string
-  weekEnd?: Prisma.DateTimeFilter<"Expense"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
+  AND?: Prisma.expenseWhereInput | Prisma.expenseWhereInput[]
+  OR?: Prisma.expenseWhereInput[]
+  NOT?: Prisma.expenseWhereInput | Prisma.expenseWhereInput[]
+  description?: Prisma.StringFilter<"expense"> | string
+  amount?: Prisma.FloatFilter<"expense"> | number
+  weekStart?: Prisma.DateTimeFilter<"expense"> | Date | string
+  weekEnd?: Prisma.DateTimeFilter<"expense"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"expense"> | Date | string
 }, "id">
 
-export type ExpenseOrderByWithAggregationInput = {
+export type expenseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   weekStart?: Prisma.SortOrder
   weekEnd?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  _count?: Prisma.ExpenseCountOrderByAggregateInput
-  _avg?: Prisma.ExpenseAvgOrderByAggregateInput
-  _max?: Prisma.ExpenseMaxOrderByAggregateInput
-  _min?: Prisma.ExpenseMinOrderByAggregateInput
-  _sum?: Prisma.ExpenseSumOrderByAggregateInput
+  _count?: Prisma.expenseCountOrderByAggregateInput
+  _avg?: Prisma.expenseAvgOrderByAggregateInput
+  _max?: Prisma.expenseMaxOrderByAggregateInput
+  _min?: Prisma.expenseMinOrderByAggregateInput
+  _sum?: Prisma.expenseSumOrderByAggregateInput
 }
 
-export type ExpenseScalarWhereWithAggregatesInput = {
-  AND?: Prisma.ExpenseScalarWhereWithAggregatesInput | Prisma.ExpenseScalarWhereWithAggregatesInput[]
-  OR?: Prisma.ExpenseScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.ExpenseScalarWhereWithAggregatesInput | Prisma.ExpenseScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Expense"> | number
-  description?: Prisma.StringWithAggregatesFilter<"Expense"> | string
-  amount?: Prisma.FloatWithAggregatesFilter<"Expense"> | number
-  weekStart?: Prisma.DateTimeWithAggregatesFilter<"Expense"> | Date | string
-  weekEnd?: Prisma.DateTimeWithAggregatesFilter<"Expense"> | Date | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Expense"> | Date | string
+export type expenseScalarWhereWithAggregatesInput = {
+  AND?: Prisma.expenseScalarWhereWithAggregatesInput | Prisma.expenseScalarWhereWithAggregatesInput[]
+  OR?: Prisma.expenseScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.expenseScalarWhereWithAggregatesInput | Prisma.expenseScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"expense"> | number
+  description?: Prisma.StringWithAggregatesFilter<"expense"> | string
+  amount?: Prisma.FloatWithAggregatesFilter<"expense"> | number
+  weekStart?: Prisma.DateTimeWithAggregatesFilter<"expense"> | Date | string
+  weekEnd?: Prisma.DateTimeWithAggregatesFilter<"expense"> | Date | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"expense"> | Date | string
 }
 
-export type ExpenseCreateInput = {
+export type expenseCreateInput = {
   description: string
   amount: number
   weekStart: Date | string
@@ -286,7 +286,7 @@ export type ExpenseCreateInput = {
   createdAt?: Date | string
 }
 
-export type ExpenseUncheckedCreateInput = {
+export type expenseUncheckedCreateInput = {
   id?: number
   description: string
   amount: number
@@ -295,7 +295,7 @@ export type ExpenseUncheckedCreateInput = {
   createdAt?: Date | string
 }
 
-export type ExpenseUpdateInput = {
+export type expenseUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -303,7 +303,7 @@ export type ExpenseUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseUncheckedUpdateInput = {
+export type expenseUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -312,7 +312,7 @@ export type ExpenseUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseCreateManyInput = {
+export type expenseCreateManyInput = {
   id?: number
   description: string
   amount: number
@@ -321,7 +321,7 @@ export type ExpenseCreateManyInput = {
   createdAt?: Date | string
 }
 
-export type ExpenseUpdateManyMutationInput = {
+export type expenseUpdateManyMutationInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
   weekStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -329,7 +329,7 @@ export type ExpenseUpdateManyMutationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseUncheckedUpdateManyInput = {
+export type expenseUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -338,13 +338,13 @@ export type ExpenseUncheckedUpdateManyInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseOrderByRelevanceInput = {
-  fields: Prisma.ExpenseOrderByRelevanceFieldEnum | Prisma.ExpenseOrderByRelevanceFieldEnum[]
+export type expenseOrderByRelevanceInput = {
+  fields: Prisma.expenseOrderByRelevanceFieldEnum | Prisma.expenseOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type ExpenseCountOrderByAggregateInput = {
+export type expenseCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -353,21 +353,12 @@ export type ExpenseCountOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
-export type ExpenseAvgOrderByAggregateInput = {
+export type expenseAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
 }
 
-export type ExpenseMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  weekStart?: Prisma.SortOrder
-  weekEnd?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-}
-
-export type ExpenseMinOrderByAggregateInput = {
+export type expenseMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -376,14 +367,35 @@ export type ExpenseMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
-export type ExpenseSumOrderByAggregateInput = {
+export type expenseMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  weekStart?: Prisma.SortOrder
+  weekEnd?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+}
+
+export type expenseSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
 }
 
+export type FloatFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
 
 
-export type ExpenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+
+export type expenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   description?: boolean
   amount?: boolean
@@ -394,7 +406,7 @@ export type ExpenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 
 
 
-export type ExpenseSelectScalar = {
+export type expenseSelectScalar = {
   id?: boolean
   description?: boolean
   amount?: boolean
@@ -403,10 +415,10 @@ export type ExpenseSelectScalar = {
   createdAt?: boolean
 }
 
-export type ExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "amount" | "weekStart" | "weekEnd" | "createdAt", ExtArgs["result"]["expense"]>
+export type expenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "amount" | "weekStart" | "weekEnd" | "createdAt", ExtArgs["result"]["expense"]>
 
-export type $ExpensePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "Expense"
+export type $expensePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "expense"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -419,18 +431,18 @@ export type $ExpensePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   composites: {}
 }
 
-export type ExpenseGetPayload<S extends boolean | null | undefined | ExpenseDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ExpensePayload, S>
+export type expenseGetPayload<S extends boolean | null | undefined | expenseDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$expensePayload, S>
 
-export type ExpenseCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<ExpenseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type expenseCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<expenseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: ExpenseCountAggregateInputType | true
   }
 
-export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Expense'], meta: { name: 'Expense' } }
+export interface expenseDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['expense'], meta: { name: 'expense' } }
   /**
    * Find zero or one Expense that matches the filter.
-   * @param {ExpenseFindUniqueArgs} args - Arguments to find a Expense
+   * @param {expenseFindUniqueArgs} args - Arguments to find a Expense
    * @example
    * // Get one Expense
    * const expense = await prisma.expense.findUnique({
@@ -439,12 +451,12 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUnique<T extends ExpenseFindUniqueArgs>(args: Prisma.SelectSubset<T, ExpenseFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends expenseFindUniqueArgs>(args: Prisma.SelectSubset<T, expenseFindUniqueArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Expense that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {ExpenseFindUniqueOrThrowArgs} args - Arguments to find a Expense
+   * @param {expenseFindUniqueOrThrowArgs} args - Arguments to find a Expense
    * @example
    * // Get one Expense
    * const expense = await prisma.expense.findUniqueOrThrow({
@@ -453,13 +465,13 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUniqueOrThrow<T extends ExpenseFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ExpenseFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends expenseFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, expenseFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Expense that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseFindFirstArgs} args - Arguments to find a Expense
+   * @param {expenseFindFirstArgs} args - Arguments to find a Expense
    * @example
    * // Get one Expense
    * const expense = await prisma.expense.findFirst({
@@ -468,14 +480,14 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirst<T extends ExpenseFindFirstArgs>(args?: Prisma.SelectSubset<T, ExpenseFindFirstArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends expenseFindFirstArgs>(args?: Prisma.SelectSubset<T, expenseFindFirstArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Expense that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseFindFirstOrThrowArgs} args - Arguments to find a Expense
+   * @param {expenseFindFirstOrThrowArgs} args - Arguments to find a Expense
    * @example
    * // Get one Expense
    * const expense = await prisma.expense.findFirstOrThrow({
@@ -484,13 +496,13 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirstOrThrow<T extends ExpenseFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ExpenseFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends expenseFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, expenseFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Expenses that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {expenseFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Expenses
    * const expenses = await prisma.expense.findMany()
@@ -502,11 +514,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * const expenseWithIdOnly = await prisma.expense.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends ExpenseFindManyArgs>(args?: Prisma.SelectSubset<T, ExpenseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends expenseFindManyArgs>(args?: Prisma.SelectSubset<T, expenseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Expense.
-   * @param {ExpenseCreateArgs} args - Arguments to create a Expense.
+   * @param {expenseCreateArgs} args - Arguments to create a Expense.
    * @example
    * // Create one Expense
    * const Expense = await prisma.expense.create({
@@ -516,11 +528,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  create<T extends ExpenseCreateArgs>(args: Prisma.SelectSubset<T, ExpenseCreateArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends expenseCreateArgs>(args: Prisma.SelectSubset<T, expenseCreateArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Expenses.
-   * @param {ExpenseCreateManyArgs} args - Arguments to create many Expenses.
+   * @param {expenseCreateManyArgs} args - Arguments to create many Expenses.
    * @example
    * // Create many Expenses
    * const expense = await prisma.expense.createMany({
@@ -530,11 +542,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    *     
    */
-  createMany<T extends ExpenseCreateManyArgs>(args?: Prisma.SelectSubset<T, ExpenseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends expenseCreateManyArgs>(args?: Prisma.SelectSubset<T, expenseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Expense.
-   * @param {ExpenseDeleteArgs} args - Arguments to delete one Expense.
+   * @param {expenseDeleteArgs} args - Arguments to delete one Expense.
    * @example
    * // Delete one Expense
    * const Expense = await prisma.expense.delete({
@@ -544,11 +556,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  delete<T extends ExpenseDeleteArgs>(args: Prisma.SelectSubset<T, ExpenseDeleteArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends expenseDeleteArgs>(args: Prisma.SelectSubset<T, expenseDeleteArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Expense.
-   * @param {ExpenseUpdateArgs} args - Arguments to update one Expense.
+   * @param {expenseUpdateArgs} args - Arguments to update one Expense.
    * @example
    * // Update one Expense
    * const expense = await prisma.expense.update({
@@ -561,11 +573,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  update<T extends ExpenseUpdateArgs>(args: Prisma.SelectSubset<T, ExpenseUpdateArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends expenseUpdateArgs>(args: Prisma.SelectSubset<T, expenseUpdateArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Expenses.
-   * @param {ExpenseDeleteManyArgs} args - Arguments to filter Expenses to delete.
+   * @param {expenseDeleteManyArgs} args - Arguments to filter Expenses to delete.
    * @example
    * // Delete a few Expenses
    * const { count } = await prisma.expense.deleteMany({
@@ -575,13 +587,13 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  deleteMany<T extends ExpenseDeleteManyArgs>(args?: Prisma.SelectSubset<T, ExpenseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends expenseDeleteManyArgs>(args?: Prisma.SelectSubset<T, expenseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Expenses.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {expenseUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Expenses
    * const expense = await prisma.expense.updateMany({
@@ -594,11 +606,11 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  updateMany<T extends ExpenseUpdateManyArgs>(args: Prisma.SelectSubset<T, ExpenseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends expenseUpdateManyArgs>(args: Prisma.SelectSubset<T, expenseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Expense.
-   * @param {ExpenseUpsertArgs} args - Arguments to update or create a Expense.
+   * @param {expenseUpsertArgs} args - Arguments to update or create a Expense.
    * @example
    * // Update or create a Expense
    * const expense = await prisma.expense.upsert({
@@ -613,14 +625,14 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  upsert<T extends ExpenseUpsertArgs>(args: Prisma.SelectSubset<T, ExpenseUpsertArgs<ExtArgs>>): Prisma.Prisma__ExpenseClient<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends expenseUpsertArgs>(args: Prisma.SelectSubset<T, expenseUpsertArgs<ExtArgs>>): Prisma.Prisma__expenseClient<runtime.Types.Result.GetResult<Prisma.$expensePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Expenses.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseCountArgs} args - Arguments to filter Expenses to count.
+   * @param {expenseCountArgs} args - Arguments to filter Expenses to count.
    * @example
    * // Count the number of Expenses
    * const count = await prisma.expense.count({
@@ -629,8 +641,8 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
   **/
-  count<T extends ExpenseCountArgs>(
-    args?: Prisma.Subset<T, ExpenseCountArgs>,
+  count<T extends expenseCountArgs>(
+    args?: Prisma.Subset<T, expenseCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -669,7 +681,7 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Group by Expense.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {ExpenseGroupByArgs} args - Group by arguments.
+   * @param {expenseGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -684,14 +696,14 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * 
   **/
   groupBy<
-    T extends ExpenseGroupByArgs,
+    T extends expenseGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: ExpenseGroupByArgs['orderBy'] }
-      : { orderBy?: ExpenseGroupByArgs['orderBy'] },
+      ? { orderBy: expenseGroupByArgs['orderBy'] }
+      : { orderBy?: expenseGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -740,20 +752,20 @@ export interface ExpenseDelegate<ExtArgs extends runtime.Types.Extensions.Intern
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, ExpenseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetExpenseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, expenseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetExpenseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the Expense model
+ * Fields of the expense model
  */
-readonly fields: ExpenseFieldRefs;
+readonly fields: expenseFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for Expense.
+ * The delegate class that acts as a "Promise-like" for expense.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__ExpenseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__expenseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -781,331 +793,331 @@ export interface Prisma__ExpenseClient<T, Null = never, ExtArgs extends runtime.
 
 
 /**
- * Fields of the Expense model
+ * Fields of the expense model
  */
-export interface ExpenseFieldRefs {
-  readonly id: Prisma.FieldRef<"Expense", 'Int'>
-  readonly description: Prisma.FieldRef<"Expense", 'String'>
-  readonly amount: Prisma.FieldRef<"Expense", 'Float'>
-  readonly weekStart: Prisma.FieldRef<"Expense", 'DateTime'>
-  readonly weekEnd: Prisma.FieldRef<"Expense", 'DateTime'>
-  readonly createdAt: Prisma.FieldRef<"Expense", 'DateTime'>
+export interface expenseFieldRefs {
+  readonly id: Prisma.FieldRef<"expense", 'Int'>
+  readonly description: Prisma.FieldRef<"expense", 'String'>
+  readonly amount: Prisma.FieldRef<"expense", 'Float'>
+  readonly weekStart: Prisma.FieldRef<"expense", 'DateTime'>
+  readonly weekEnd: Prisma.FieldRef<"expense", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"expense", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * Expense findUnique
+ * expense findUnique
  */
-export type ExpenseFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter, which Expense to fetch.
+   * Filter, which expense to fetch.
    */
-  where: Prisma.ExpenseWhereUniqueInput
+  where: Prisma.expenseWhereUniqueInput
 }
 
 /**
- * Expense findUniqueOrThrow
+ * expense findUniqueOrThrow
  */
-export type ExpenseFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter, which Expense to fetch.
+   * Filter, which expense to fetch.
    */
-  where: Prisma.ExpenseWhereUniqueInput
+  where: Prisma.expenseWhereUniqueInput
 }
 
 /**
- * Expense findFirst
+ * expense findFirst
  */
-export type ExpenseFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter, which Expense to fetch.
+   * Filter, which expense to fetch.
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Expenses to fetch.
+   * Determine the order of expenses to fetch.
    */
-  orderBy?: Prisma.ExpenseOrderByWithRelationInput | Prisma.ExpenseOrderByWithRelationInput[]
+  orderBy?: Prisma.expenseOrderByWithRelationInput | Prisma.expenseOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Expenses.
+   * Sets the position for searching for expenses.
    */
-  cursor?: Prisma.ExpenseWhereUniqueInput
+  cursor?: Prisma.expenseWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Expenses from the position of the cursor.
+   * Take `±n` expenses from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Expenses.
+   * Skip the first `n` expenses.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Expenses.
+   * Filter by unique combinations of expenses.
    */
   distinct?: Prisma.ExpenseScalarFieldEnum | Prisma.ExpenseScalarFieldEnum[]
 }
 
 /**
- * Expense findFirstOrThrow
+ * expense findFirstOrThrow
  */
-export type ExpenseFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter, which Expense to fetch.
+   * Filter, which expense to fetch.
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Expenses to fetch.
+   * Determine the order of expenses to fetch.
    */
-  orderBy?: Prisma.ExpenseOrderByWithRelationInput | Prisma.ExpenseOrderByWithRelationInput[]
+  orderBy?: Prisma.expenseOrderByWithRelationInput | Prisma.expenseOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Expenses.
+   * Sets the position for searching for expenses.
    */
-  cursor?: Prisma.ExpenseWhereUniqueInput
+  cursor?: Prisma.expenseWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Expenses from the position of the cursor.
+   * Take `±n` expenses from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Expenses.
+   * Skip the first `n` expenses.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Expenses.
+   * Filter by unique combinations of expenses.
    */
   distinct?: Prisma.ExpenseScalarFieldEnum | Prisma.ExpenseScalarFieldEnum[]
 }
 
 /**
- * Expense findMany
+ * expense findMany
  */
-export type ExpenseFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter, which Expenses to fetch.
+   * Filter, which expenses to fetch.
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Expenses to fetch.
+   * Determine the order of expenses to fetch.
    */
-  orderBy?: Prisma.ExpenseOrderByWithRelationInput | Prisma.ExpenseOrderByWithRelationInput[]
+  orderBy?: Prisma.expenseOrderByWithRelationInput | Prisma.expenseOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing Expenses.
+   * Sets the position for listing expenses.
    */
-  cursor?: Prisma.ExpenseWhereUniqueInput
+  cursor?: Prisma.expenseWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Expenses from the position of the cursor.
+   * Take `±n` expenses from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Expenses.
+   * Skip the first `n` expenses.
    */
   skip?: number
   distinct?: Prisma.ExpenseScalarFieldEnum | Prisma.ExpenseScalarFieldEnum[]
 }
 
 /**
- * Expense create
+ * expense create
  */
-export type ExpenseCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * The data needed to create a Expense.
+   * The data needed to create a expense.
    */
-  data: Prisma.XOR<Prisma.ExpenseCreateInput, Prisma.ExpenseUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.expenseCreateInput, Prisma.expenseUncheckedCreateInput>
 }
 
 /**
- * Expense createMany
+ * expense createMany
  */
-export type ExpenseCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many Expenses.
+   * The data used to create many expenses.
    */
-  data: Prisma.ExpenseCreateManyInput | Prisma.ExpenseCreateManyInput[]
+  data: Prisma.expenseCreateManyInput | Prisma.expenseCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Expense update
+ * expense update
  */
-export type ExpenseUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * The data needed to update a Expense.
+   * The data needed to update a expense.
    */
-  data: Prisma.XOR<Prisma.ExpenseUpdateInput, Prisma.ExpenseUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.expenseUpdateInput, Prisma.expenseUncheckedUpdateInput>
   /**
-   * Choose, which Expense to update.
+   * Choose, which expense to update.
    */
-  where: Prisma.ExpenseWhereUniqueInput
+  where: Prisma.expenseWhereUniqueInput
 }
 
 /**
- * Expense updateMany
+ * expense updateMany
  */
-export type ExpenseUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update Expenses.
+   * The data used to update expenses.
    */
-  data: Prisma.XOR<Prisma.ExpenseUpdateManyMutationInput, Prisma.ExpenseUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.expenseUpdateManyMutationInput, Prisma.expenseUncheckedUpdateManyInput>
   /**
-   * Filter which Expenses to update
+   * Filter which expenses to update
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
-   * Limit how many Expenses to update.
+   * Limit how many expenses to update.
    */
   limit?: number
 }
 
 /**
- * Expense upsert
+ * expense upsert
  */
-export type ExpenseUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * The filter to search for the Expense to update in case it exists.
+   * The filter to search for the expense to update in case it exists.
    */
-  where: Prisma.ExpenseWhereUniqueInput
+  where: Prisma.expenseWhereUniqueInput
   /**
-   * In case the Expense found by the `where` argument doesn't exist, create a new Expense with this data.
+   * In case the expense found by the `where` argument doesn't exist, create a new expense with this data.
    */
-  create: Prisma.XOR<Prisma.ExpenseCreateInput, Prisma.ExpenseUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.expenseCreateInput, Prisma.expenseUncheckedCreateInput>
   /**
-   * In case the Expense was found with the provided `where` argument, update it with this data.
+   * In case the expense was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.ExpenseUpdateInput, Prisma.ExpenseUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.expenseUpdateInput, Prisma.expenseUncheckedUpdateInput>
 }
 
 /**
- * Expense delete
+ * expense delete
  */
-export type ExpenseDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
   /**
-   * Filter which Expense to delete.
+   * Filter which expense to delete.
    */
-  where: Prisma.ExpenseWhereUniqueInput
+  where: Prisma.expenseWhereUniqueInput
 }
 
 /**
- * Expense deleteMany
+ * expense deleteMany
  */
-export type ExpenseDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Expenses to delete
+   * Filter which expenses to delete
    */
-  where?: Prisma.ExpenseWhereInput
+  where?: Prisma.expenseWhereInput
   /**
-   * Limit how many Expenses to delete.
+   * Limit how many expenses to delete.
    */
   limit?: number
 }
 
 /**
- * Expense without action
+ * expense without action
  */
-export type ExpenseDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type expenseDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Expense
+   * Select specific fields to fetch from the expense
    */
-  select?: Prisma.ExpenseSelect<ExtArgs> | null
+  select?: Prisma.expenseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Expense
+   * Omit specific fields from the expense
    */
-  omit?: Prisma.ExpenseOmit<ExtArgs> | null
+  omit?: Prisma.expenseOmit<ExtArgs> | null
 }

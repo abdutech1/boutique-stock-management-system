@@ -70,7 +70,7 @@ model stock {
 
 model user {
   id            Int             @id @default(autoincrement())
-  name          String
+  name          String          @unique
   role          user_role
   baseSalary    Float?
   salarypayment salarypayment[]

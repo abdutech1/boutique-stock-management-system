@@ -51,13 +51,13 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User',
-  Category: 'Category',
-  PriceCategory: 'PriceCategory',
-  Stock: 'Stock',
-  Sale: 'Sale',
-  SalaryPayment: 'SalaryPayment',
-  Expense: 'Expense'
+  category: 'category',
+  expense: 'expense',
+  pricecategory: 'pricecategory',
+  salarypayment: 'salarypayment',
+  sale: 'sale',
+  stock: 'stock',
+  user: 'user'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -76,16 +76,6 @@ export const TransactionIsolationLevel = {
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  role: 'role',
-  baseSalary: 'baseSalary'
-} as const
-
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
-
-
 export const CategoryScalarFieldEnum = {
   id: 'id',
   name: 'name'
@@ -94,23 +84,37 @@ export const CategoryScalarFieldEnum = {
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
 
 
-export const PriceCategoryScalarFieldEnum = {
+export const ExpenseScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  amount: 'amount',
+  weekStart: 'weekStart',
+  weekEnd: 'weekEnd',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpenseScalarFieldEnum = (typeof ExpenseScalarFieldEnum)[keyof typeof ExpenseScalarFieldEnum]
+
+
+export const PricecategoryScalarFieldEnum = {
   id: 'id',
   fixedPrice: 'fixedPrice',
   categoryId: 'categoryId'
 } as const
 
-export type PriceCategoryScalarFieldEnum = (typeof PriceCategoryScalarFieldEnum)[keyof typeof PriceCategoryScalarFieldEnum]
+export type PricecategoryScalarFieldEnum = (typeof PricecategoryScalarFieldEnum)[keyof typeof PricecategoryScalarFieldEnum]
 
 
-export const StockScalarFieldEnum = {
+export const SalarypaymentScalarFieldEnum = {
   id: 'id',
-  purchasePrice: 'purchasePrice',
-  quantity: 'quantity',
-  priceCategoryId: 'priceCategoryId'
+  amount: 'amount',
+  weekStart: 'weekStart',
+  weekEnd: 'weekEnd',
+  createdAt: 'createdAt',
+  userId: 'userId'
 } as const
 
-export type StockScalarFieldEnum = (typeof StockScalarFieldEnum)[keyof typeof StockScalarFieldEnum]
+export type SalarypaymentScalarFieldEnum = (typeof SalarypaymentScalarFieldEnum)[keyof typeof SalarypaymentScalarFieldEnum]
 
 
 export const SaleScalarFieldEnum = {
@@ -126,28 +130,24 @@ export const SaleScalarFieldEnum = {
 export type SaleScalarFieldEnum = (typeof SaleScalarFieldEnum)[keyof typeof SaleScalarFieldEnum]
 
 
-export const SalaryPaymentScalarFieldEnum = {
+export const StockScalarFieldEnum = {
   id: 'id',
-  amount: 'amount',
-  weekStart: 'weekStart',
-  weekEnd: 'weekEnd',
-  createdAt: 'createdAt',
-  userId: 'userId'
+  purchasePrice: 'purchasePrice',
+  quantity: 'quantity',
+  priceCategoryId: 'priceCategoryId'
 } as const
 
-export type SalaryPaymentScalarFieldEnum = (typeof SalaryPaymentScalarFieldEnum)[keyof typeof SalaryPaymentScalarFieldEnum]
+export type StockScalarFieldEnum = (typeof StockScalarFieldEnum)[keyof typeof StockScalarFieldEnum]
 
 
-export const ExpenseScalarFieldEnum = {
+export const UserScalarFieldEnum = {
   id: 'id',
-  description: 'description',
-  amount: 'amount',
-  weekStart: 'weekStart',
-  weekEnd: 'weekEnd',
-  createdAt: 'createdAt'
+  name: 'name',
+  role: 'role',
+  baseSalary: 'baseSalary'
 } as const
 
-export type ExpenseScalarFieldEnum = (typeof ExpenseScalarFieldEnum)[keyof typeof ExpenseScalarFieldEnum]
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -158,6 +158,20 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const categoryOrderByRelevanceFieldEnum = {
+  name: 'name'
+} as const
+
+export type categoryOrderByRelevanceFieldEnum = (typeof categoryOrderByRelevanceFieldEnum)[keyof typeof categoryOrderByRelevanceFieldEnum]
+
+
+export const expenseOrderByRelevanceFieldEnum = {
+  description: 'description'
+} as const
+
+export type expenseOrderByRelevanceFieldEnum = (typeof expenseOrderByRelevanceFieldEnum)[keyof typeof expenseOrderByRelevanceFieldEnum]
+
+
 export const NullsOrder = {
   first: 'first',
   last: 'last'
@@ -166,23 +180,9 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-export const UserOrderByRelevanceFieldEnum = {
+export const userOrderByRelevanceFieldEnum = {
   name: 'name'
 } as const
 
-export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
-
-
-export const CategoryOrderByRelevanceFieldEnum = {
-  name: 'name'
-} as const
-
-export type CategoryOrderByRelevanceFieldEnum = (typeof CategoryOrderByRelevanceFieldEnum)[keyof typeof CategoryOrderByRelevanceFieldEnum]
-
-
-export const ExpenseOrderByRelevanceFieldEnum = {
-  description: 'description'
-} as const
-
-export type ExpenseOrderByRelevanceFieldEnum = (typeof ExpenseOrderByRelevanceFieldEnum)[keyof typeof ExpenseOrderByRelevanceFieldEnum]
+export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
 

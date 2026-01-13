@@ -1,4 +1,4 @@
-import { PrismaClient } from '@/generated/prisma/client';
+import { PrismaClient } from './generated/prisma/client.js';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 import 'dotenv/config';  
 
@@ -11,7 +11,8 @@ const adapter = new PrismaMariaDb({
   password: url.password,
   database: url.pathname.slice(1),            
   connectTimeout: 5000,                       
-  idleTimeout: 300,                           
+  idleTimeout: 300, 
+  allowPublicKeyRetrieval: true,                          
 });
 
 

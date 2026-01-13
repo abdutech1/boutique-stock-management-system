@@ -8,11 +8,11 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/User.js'
-export type * from './models/Category.js'
-export type * from './models/PriceCategory.js'
-export type * from './models/Stock.js'
-export type * from './models/Sale.js'
-export type * from './models/SalaryPayment.js'
-export type * from './models/Expense.js'
+export type * from './models/category.js'
+export type * from './models/expense.js'
+export type * from './models/pricecategory.js'
+export type * from './models/salarypayment.js'
+export type * from './models/sale.js'
+export type * from './models/stock.js'
+export type * from './models/user.js'
 export type * from './commonInputTypes.js'

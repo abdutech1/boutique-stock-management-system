@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `Stock` model and its related types.
+ * This file exports the `stock` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model Stock
+ * Model stock
  * 
  */
-export type StockModel = runtime.Types.Result.DefaultSelection<Prisma.$StockPayload>
+export type stockModel = runtime.Types.Result.DefaultSelection<Prisma.$stockPayload>
 
 export type AggregateStock = {
   _count: StockCountAggregateOutputType | null
@@ -101,37 +101,37 @@ export type StockCountAggregateInputType = {
 
 export type StockAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Stock to aggregate.
+   * Filter which stock to aggregate.
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Stocks to fetch.
+   * Determine the order of stocks to fetch.
    */
-  orderBy?: Prisma.StockOrderByWithRelationInput | Prisma.StockOrderByWithRelationInput[]
+  orderBy?: Prisma.stockOrderByWithRelationInput | Prisma.stockOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.StockWhereUniqueInput
+  cursor?: Prisma.stockWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Stocks from the position of the cursor.
+   * Take `±n` stocks from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Stocks.
+   * Skip the first `n` stocks.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned Stocks
+   * Count returned stocks
   **/
   _count?: true | StockCountAggregateInputType
   /**
@@ -171,11 +171,11 @@ export type GetStockAggregateType<T extends StockAggregateArgs> = {
 
 
 
-export type StockGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.StockWhereInput
-  orderBy?: Prisma.StockOrderByWithAggregationInput | Prisma.StockOrderByWithAggregationInput[]
+export type stockGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.stockWhereInput
+  orderBy?: Prisma.stockOrderByWithAggregationInput | Prisma.stockOrderByWithAggregationInput[]
   by: Prisma.StockScalarFieldEnum[] | Prisma.StockScalarFieldEnum
-  having?: Prisma.StockScalarWhereWithAggregatesInput
+  having?: Prisma.stockScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: StockCountAggregateInputType | true
@@ -197,7 +197,7 @@ export type StockGroupByOutputType = {
   _max: StockMaxAggregateOutputType | null
 }
 
-type GetStockGroupByPayload<T extends StockGroupByArgs> = Prisma.PrismaPromise<
+type GetStockGroupByPayload<T extends stockGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<StockGroupByOutputType, T['by']> &
       {
@@ -212,97 +212,97 @@ type GetStockGroupByPayload<T extends StockGroupByArgs> = Prisma.PrismaPromise<
 
 
 
-export type StockWhereInput = {
-  AND?: Prisma.StockWhereInput | Prisma.StockWhereInput[]
-  OR?: Prisma.StockWhereInput[]
-  NOT?: Prisma.StockWhereInput | Prisma.StockWhereInput[]
-  id?: Prisma.IntFilter<"Stock"> | number
-  purchasePrice?: Prisma.FloatFilter<"Stock"> | number
-  quantity?: Prisma.IntFilter<"Stock"> | number
-  priceCategoryId?: Prisma.IntFilter<"Stock"> | number
-  priceCategory?: Prisma.XOR<Prisma.PriceCategoryScalarRelationFilter, Prisma.PriceCategoryWhereInput>
+export type stockWhereInput = {
+  AND?: Prisma.stockWhereInput | Prisma.stockWhereInput[]
+  OR?: Prisma.stockWhereInput[]
+  NOT?: Prisma.stockWhereInput | Prisma.stockWhereInput[]
+  id?: Prisma.IntFilter<"stock"> | number
+  purchasePrice?: Prisma.FloatFilter<"stock"> | number
+  quantity?: Prisma.IntFilter<"stock"> | number
+  priceCategoryId?: Prisma.IntFilter<"stock"> | number
+  pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }
 
-export type StockOrderByWithRelationInput = {
+export type stockOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
-  priceCategory?: Prisma.PriceCategoryOrderByWithRelationInput
+  pricecategory?: Prisma.pricecategoryOrderByWithRelationInput
 }
 
-export type StockWhereUniqueInput = Prisma.AtLeast<{
+export type stockWhereUniqueInput = Prisma.AtLeast<{
   id?: number
   priceCategoryId?: number
-  AND?: Prisma.StockWhereInput | Prisma.StockWhereInput[]
-  OR?: Prisma.StockWhereInput[]
-  NOT?: Prisma.StockWhereInput | Prisma.StockWhereInput[]
-  purchasePrice?: Prisma.FloatFilter<"Stock"> | number
-  quantity?: Prisma.IntFilter<"Stock"> | number
-  priceCategory?: Prisma.XOR<Prisma.PriceCategoryScalarRelationFilter, Prisma.PriceCategoryWhereInput>
+  AND?: Prisma.stockWhereInput | Prisma.stockWhereInput[]
+  OR?: Prisma.stockWhereInput[]
+  NOT?: Prisma.stockWhereInput | Prisma.stockWhereInput[]
+  purchasePrice?: Prisma.FloatFilter<"stock"> | number
+  quantity?: Prisma.IntFilter<"stock"> | number
+  pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }, "id" | "priceCategoryId">
 
-export type StockOrderByWithAggregationInput = {
+export type stockOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
-  _count?: Prisma.StockCountOrderByAggregateInput
-  _avg?: Prisma.StockAvgOrderByAggregateInput
-  _max?: Prisma.StockMaxOrderByAggregateInput
-  _min?: Prisma.StockMinOrderByAggregateInput
-  _sum?: Prisma.StockSumOrderByAggregateInput
+  _count?: Prisma.stockCountOrderByAggregateInput
+  _avg?: Prisma.stockAvgOrderByAggregateInput
+  _max?: Prisma.stockMaxOrderByAggregateInput
+  _min?: Prisma.stockMinOrderByAggregateInput
+  _sum?: Prisma.stockSumOrderByAggregateInput
 }
 
-export type StockScalarWhereWithAggregatesInput = {
-  AND?: Prisma.StockScalarWhereWithAggregatesInput | Prisma.StockScalarWhereWithAggregatesInput[]
-  OR?: Prisma.StockScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.StockScalarWhereWithAggregatesInput | Prisma.StockScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Stock"> | number
-  purchasePrice?: Prisma.FloatWithAggregatesFilter<"Stock"> | number
-  quantity?: Prisma.IntWithAggregatesFilter<"Stock"> | number
-  priceCategoryId?: Prisma.IntWithAggregatesFilter<"Stock"> | number
+export type stockScalarWhereWithAggregatesInput = {
+  AND?: Prisma.stockScalarWhereWithAggregatesInput | Prisma.stockScalarWhereWithAggregatesInput[]
+  OR?: Prisma.stockScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.stockScalarWhereWithAggregatesInput | Prisma.stockScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"stock"> | number
+  purchasePrice?: Prisma.FloatWithAggregatesFilter<"stock"> | number
+  quantity?: Prisma.IntWithAggregatesFilter<"stock"> | number
+  priceCategoryId?: Prisma.IntWithAggregatesFilter<"stock"> | number
 }
 
-export type StockCreateInput = {
+export type stockCreateInput = {
   purchasePrice: number
   quantity: number
-  priceCategory: Prisma.PriceCategoryCreateNestedOneWithoutStockInput
+  pricecategory: Prisma.pricecategoryCreateNestedOneWithoutStockInput
 }
 
-export type StockUncheckedCreateInput = {
+export type stockUncheckedCreateInput = {
   id?: number
   purchasePrice: number
   quantity: number
   priceCategoryId: number
 }
 
-export type StockUpdateInput = {
+export type stockUpdateInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  priceCategory?: Prisma.PriceCategoryUpdateOneRequiredWithoutStockNestedInput
+  pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutStockNestedInput
 }
 
-export type StockUncheckedUpdateInput = {
+export type stockUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type StockCreateManyInput = {
+export type stockCreateManyInput = {
   id?: number
   purchasePrice: number
   quantity: number
   priceCategoryId: number
 }
 
-export type StockUpdateManyMutationInput = {
+export type stockUpdateManyMutationInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type StockUncheckedUpdateManyInput = {
+export type stockUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -310,110 +310,110 @@ export type StockUncheckedUpdateManyInput = {
 }
 
 export type StockNullableScalarRelationFilter = {
-  is?: Prisma.StockWhereInput | null
-  isNot?: Prisma.StockWhereInput | null
+  is?: Prisma.stockWhereInput | null
+  isNot?: Prisma.stockWhereInput | null
 }
 
-export type StockCountOrderByAggregateInput = {
+export type stockCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type StockAvgOrderByAggregateInput = {
+export type stockAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type StockMaxOrderByAggregateInput = {
+export type stockMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type StockMinOrderByAggregateInput = {
+export type stockMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type StockSumOrderByAggregateInput = {
+export type stockSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
-export type StockCreateNestedOneWithoutPriceCategoryInput = {
-  create?: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
-  connectOrCreate?: Prisma.StockCreateOrConnectWithoutPriceCategoryInput
-  connect?: Prisma.StockWhereUniqueInput
+export type stockCreateNestedOneWithoutPricecategoryInput = {
+  create?: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
+  connectOrCreate?: Prisma.stockCreateOrConnectWithoutPricecategoryInput
+  connect?: Prisma.stockWhereUniqueInput
 }
 
-export type StockUncheckedCreateNestedOneWithoutPriceCategoryInput = {
-  create?: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
-  connectOrCreate?: Prisma.StockCreateOrConnectWithoutPriceCategoryInput
-  connect?: Prisma.StockWhereUniqueInput
+export type stockUncheckedCreateNestedOneWithoutPricecategoryInput = {
+  create?: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
+  connectOrCreate?: Prisma.stockCreateOrConnectWithoutPricecategoryInput
+  connect?: Prisma.stockWhereUniqueInput
 }
 
-export type StockUpdateOneWithoutPriceCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
-  connectOrCreate?: Prisma.StockCreateOrConnectWithoutPriceCategoryInput
-  upsert?: Prisma.StockUpsertWithoutPriceCategoryInput
-  disconnect?: Prisma.StockWhereInput | boolean
-  delete?: Prisma.StockWhereInput | boolean
-  connect?: Prisma.StockWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.StockUpdateToOneWithWhereWithoutPriceCategoryInput, Prisma.StockUpdateWithoutPriceCategoryInput>, Prisma.StockUncheckedUpdateWithoutPriceCategoryInput>
+export type stockUpdateOneWithoutPricecategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
+  connectOrCreate?: Prisma.stockCreateOrConnectWithoutPricecategoryInput
+  upsert?: Prisma.stockUpsertWithoutPricecategoryInput
+  disconnect?: Prisma.stockWhereInput | boolean
+  delete?: Prisma.stockWhereInput | boolean
+  connect?: Prisma.stockWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.stockUpdateToOneWithWhereWithoutPricecategoryInput, Prisma.stockUpdateWithoutPricecategoryInput>, Prisma.stockUncheckedUpdateWithoutPricecategoryInput>
 }
 
-export type StockUncheckedUpdateOneWithoutPriceCategoryNestedInput = {
-  create?: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
-  connectOrCreate?: Prisma.StockCreateOrConnectWithoutPriceCategoryInput
-  upsert?: Prisma.StockUpsertWithoutPriceCategoryInput
-  disconnect?: Prisma.StockWhereInput | boolean
-  delete?: Prisma.StockWhereInput | boolean
-  connect?: Prisma.StockWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.StockUpdateToOneWithWhereWithoutPriceCategoryInput, Prisma.StockUpdateWithoutPriceCategoryInput>, Prisma.StockUncheckedUpdateWithoutPriceCategoryInput>
+export type stockUncheckedUpdateOneWithoutPricecategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
+  connectOrCreate?: Prisma.stockCreateOrConnectWithoutPricecategoryInput
+  upsert?: Prisma.stockUpsertWithoutPricecategoryInput
+  disconnect?: Prisma.stockWhereInput | boolean
+  delete?: Prisma.stockWhereInput | boolean
+  connect?: Prisma.stockWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.stockUpdateToOneWithWhereWithoutPricecategoryInput, Prisma.stockUpdateWithoutPricecategoryInput>, Prisma.stockUncheckedUpdateWithoutPricecategoryInput>
 }
 
-export type StockCreateWithoutPriceCategoryInput = {
+export type stockCreateWithoutPricecategoryInput = {
   purchasePrice: number
   quantity: number
 }
 
-export type StockUncheckedCreateWithoutPriceCategoryInput = {
+export type stockUncheckedCreateWithoutPricecategoryInput = {
   id?: number
   purchasePrice: number
   quantity: number
 }
 
-export type StockCreateOrConnectWithoutPriceCategoryInput = {
-  where: Prisma.StockWhereUniqueInput
-  create: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
+export type stockCreateOrConnectWithoutPricecategoryInput = {
+  where: Prisma.stockWhereUniqueInput
+  create: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
 }
 
-export type StockUpsertWithoutPriceCategoryInput = {
-  update: Prisma.XOR<Prisma.StockUpdateWithoutPriceCategoryInput, Prisma.StockUncheckedUpdateWithoutPriceCategoryInput>
-  create: Prisma.XOR<Prisma.StockCreateWithoutPriceCategoryInput, Prisma.StockUncheckedCreateWithoutPriceCategoryInput>
-  where?: Prisma.StockWhereInput
+export type stockUpsertWithoutPricecategoryInput = {
+  update: Prisma.XOR<Prisma.stockUpdateWithoutPricecategoryInput, Prisma.stockUncheckedUpdateWithoutPricecategoryInput>
+  create: Prisma.XOR<Prisma.stockCreateWithoutPricecategoryInput, Prisma.stockUncheckedCreateWithoutPricecategoryInput>
+  where?: Prisma.stockWhereInput
 }
 
-export type StockUpdateToOneWithWhereWithoutPriceCategoryInput = {
-  where?: Prisma.StockWhereInput
-  data: Prisma.XOR<Prisma.StockUpdateWithoutPriceCategoryInput, Prisma.StockUncheckedUpdateWithoutPriceCategoryInput>
+export type stockUpdateToOneWithWhereWithoutPricecategoryInput = {
+  where?: Prisma.stockWhereInput
+  data: Prisma.XOR<Prisma.stockUpdateWithoutPricecategoryInput, Prisma.stockUncheckedUpdateWithoutPricecategoryInput>
 }
 
-export type StockUpdateWithoutPriceCategoryInput = {
+export type stockUpdateWithoutPricecategoryInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type StockUncheckedUpdateWithoutPriceCategoryInput = {
+export type stockUncheckedUpdateWithoutPricecategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -421,32 +421,32 @@ export type StockUncheckedUpdateWithoutPriceCategoryInput = {
 
 
 
-export type StockSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type stockSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   purchasePrice?: boolean
   quantity?: boolean
   priceCategoryId?: boolean
-  priceCategory?: boolean | Prisma.PriceCategoryDefaultArgs<ExtArgs>
+  pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stock"]>
 
 
 
-export type StockSelectScalar = {
+export type stockSelectScalar = {
   id?: boolean
   purchasePrice?: boolean
   quantity?: boolean
   priceCategoryId?: boolean
 }
 
-export type StockOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchasePrice" | "quantity" | "priceCategoryId", ExtArgs["result"]["stock"]>
-export type StockInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  priceCategory?: boolean | Prisma.PriceCategoryDefaultArgs<ExtArgs>
+export type stockOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchasePrice" | "quantity" | "priceCategoryId", ExtArgs["result"]["stock"]>
+export type stockInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }
 
-export type $StockPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "Stock"
+export type $stockPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "stock"
   objects: {
-    priceCategory: Prisma.$PriceCategoryPayload<ExtArgs>
+    pricecategory: Prisma.$pricecategoryPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -457,18 +457,18 @@ export type $StockPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   composites: {}
 }
 
-export type StockGetPayload<S extends boolean | null | undefined | StockDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$StockPayload, S>
+export type stockGetPayload<S extends boolean | null | undefined | stockDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$stockPayload, S>
 
-export type StockCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<StockFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type stockCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<stockFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: StockCountAggregateInputType | true
   }
 
-export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Stock'], meta: { name: 'Stock' } }
+export interface stockDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['stock'], meta: { name: 'stock' } }
   /**
    * Find zero or one Stock that matches the filter.
-   * @param {StockFindUniqueArgs} args - Arguments to find a Stock
+   * @param {stockFindUniqueArgs} args - Arguments to find a Stock
    * @example
    * // Get one Stock
    * const stock = await prisma.stock.findUnique({
@@ -477,12 +477,12 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findUnique<T extends StockFindUniqueArgs>(args: Prisma.SelectSubset<T, StockFindUniqueArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends stockFindUniqueArgs>(args: Prisma.SelectSubset<T, stockFindUniqueArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Stock that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {StockFindUniqueOrThrowArgs} args - Arguments to find a Stock
+   * @param {stockFindUniqueOrThrowArgs} args - Arguments to find a Stock
    * @example
    * // Get one Stock
    * const stock = await prisma.stock.findUniqueOrThrow({
@@ -491,13 +491,13 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findUniqueOrThrow<T extends StockFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, StockFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends stockFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, stockFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Stock that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockFindFirstArgs} args - Arguments to find a Stock
+   * @param {stockFindFirstArgs} args - Arguments to find a Stock
    * @example
    * // Get one Stock
    * const stock = await prisma.stock.findFirst({
@@ -506,14 +506,14 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findFirst<T extends StockFindFirstArgs>(args?: Prisma.SelectSubset<T, StockFindFirstArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends stockFindFirstArgs>(args?: Prisma.SelectSubset<T, stockFindFirstArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Stock that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockFindFirstOrThrowArgs} args - Arguments to find a Stock
+   * @param {stockFindFirstOrThrowArgs} args - Arguments to find a Stock
    * @example
    * // Get one Stock
    * const stock = await prisma.stock.findFirstOrThrow({
@@ -522,13 +522,13 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findFirstOrThrow<T extends StockFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, StockFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends stockFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, stockFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Stocks that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {stockFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Stocks
    * const stocks = await prisma.stock.findMany()
@@ -540,11 +540,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * const stockWithIdOnly = await prisma.stock.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends StockFindManyArgs>(args?: Prisma.SelectSubset<T, StockFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends stockFindManyArgs>(args?: Prisma.SelectSubset<T, stockFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Stock.
-   * @param {StockCreateArgs} args - Arguments to create a Stock.
+   * @param {stockCreateArgs} args - Arguments to create a Stock.
    * @example
    * // Create one Stock
    * const Stock = await prisma.stock.create({
@@ -554,11 +554,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  create<T extends StockCreateArgs>(args: Prisma.SelectSubset<T, StockCreateArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends stockCreateArgs>(args: Prisma.SelectSubset<T, stockCreateArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Stocks.
-   * @param {StockCreateManyArgs} args - Arguments to create many Stocks.
+   * @param {stockCreateManyArgs} args - Arguments to create many Stocks.
    * @example
    * // Create many Stocks
    * const stock = await prisma.stock.createMany({
@@ -568,11 +568,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    *     
    */
-  createMany<T extends StockCreateManyArgs>(args?: Prisma.SelectSubset<T, StockCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends stockCreateManyArgs>(args?: Prisma.SelectSubset<T, stockCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Stock.
-   * @param {StockDeleteArgs} args - Arguments to delete one Stock.
+   * @param {stockDeleteArgs} args - Arguments to delete one Stock.
    * @example
    * // Delete one Stock
    * const Stock = await prisma.stock.delete({
@@ -582,11 +582,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  delete<T extends StockDeleteArgs>(args: Prisma.SelectSubset<T, StockDeleteArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends stockDeleteArgs>(args: Prisma.SelectSubset<T, stockDeleteArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Stock.
-   * @param {StockUpdateArgs} args - Arguments to update one Stock.
+   * @param {stockUpdateArgs} args - Arguments to update one Stock.
    * @example
    * // Update one Stock
    * const stock = await prisma.stock.update({
@@ -599,11 +599,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  update<T extends StockUpdateArgs>(args: Prisma.SelectSubset<T, StockUpdateArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends stockUpdateArgs>(args: Prisma.SelectSubset<T, stockUpdateArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Stocks.
-   * @param {StockDeleteManyArgs} args - Arguments to filter Stocks to delete.
+   * @param {stockDeleteManyArgs} args - Arguments to filter Stocks to delete.
    * @example
    * // Delete a few Stocks
    * const { count } = await prisma.stock.deleteMany({
@@ -613,13 +613,13 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  deleteMany<T extends StockDeleteManyArgs>(args?: Prisma.SelectSubset<T, StockDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends stockDeleteManyArgs>(args?: Prisma.SelectSubset<T, stockDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Stocks.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {stockUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Stocks
    * const stock = await prisma.stock.updateMany({
@@ -632,11 +632,11 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  updateMany<T extends StockUpdateManyArgs>(args: Prisma.SelectSubset<T, StockUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends stockUpdateManyArgs>(args: Prisma.SelectSubset<T, stockUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Stock.
-   * @param {StockUpsertArgs} args - Arguments to update or create a Stock.
+   * @param {stockUpsertArgs} args - Arguments to update or create a Stock.
    * @example
    * // Update or create a Stock
    * const stock = await prisma.stock.upsert({
@@ -651,14 +651,14 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  upsert<T extends StockUpsertArgs>(args: Prisma.SelectSubset<T, StockUpsertArgs<ExtArgs>>): Prisma.Prisma__StockClient<runtime.Types.Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends stockUpsertArgs>(args: Prisma.SelectSubset<T, stockUpsertArgs<ExtArgs>>): Prisma.Prisma__stockClient<runtime.Types.Result.GetResult<Prisma.$stockPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Stocks.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockCountArgs} args - Arguments to filter Stocks to count.
+   * @param {stockCountArgs} args - Arguments to filter Stocks to count.
    * @example
    * // Count the number of Stocks
    * const count = await prisma.stock.count({
@@ -667,8 +667,8 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
   **/
-  count<T extends StockCountArgs>(
-    args?: Prisma.Subset<T, StockCountArgs>,
+  count<T extends stockCountArgs>(
+    args?: Prisma.Subset<T, stockCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -707,7 +707,7 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * Group by Stock.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {StockGroupByArgs} args - Group by arguments.
+   * @param {stockGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -722,14 +722,14 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * 
   **/
   groupBy<
-    T extends StockGroupByArgs,
+    T extends stockGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: StockGroupByArgs['orderBy'] }
-      : { orderBy?: StockGroupByArgs['orderBy'] },
+      ? { orderBy: stockGroupByArgs['orderBy'] }
+      : { orderBy?: stockGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -778,22 +778,22 @@ export interface StockDelegate<ExtArgs extends runtime.Types.Extensions.Internal
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, StockGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStockGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, stockGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStockGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the Stock model
+ * Fields of the stock model
  */
-readonly fields: StockFieldRefs;
+readonly fields: stockFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for Stock.
+ * The delegate class that acts as a "Promise-like" for stock.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__StockClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__stockClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  priceCategory<T extends Prisma.PriceCategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceCategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__PriceCategoryClient<runtime.Types.Result.GetResult<Prisma.$PriceCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pricecategory<T extends Prisma.pricecategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pricecategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__pricecategoryClient<runtime.Types.Result.GetResult<Prisma.$pricecategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -820,369 +820,369 @@ export interface Prisma__StockClient<T, Null = never, ExtArgs extends runtime.Ty
 
 
 /**
- * Fields of the Stock model
+ * Fields of the stock model
  */
-export interface StockFieldRefs {
-  readonly id: Prisma.FieldRef<"Stock", 'Int'>
-  readonly purchasePrice: Prisma.FieldRef<"Stock", 'Float'>
-  readonly quantity: Prisma.FieldRef<"Stock", 'Int'>
-  readonly priceCategoryId: Prisma.FieldRef<"Stock", 'Int'>
+export interface stockFieldRefs {
+  readonly id: Prisma.FieldRef<"stock", 'Int'>
+  readonly purchasePrice: Prisma.FieldRef<"stock", 'Float'>
+  readonly quantity: Prisma.FieldRef<"stock", 'Int'>
+  readonly priceCategoryId: Prisma.FieldRef<"stock", 'Int'>
 }
     
 
 // Custom InputTypes
 /**
- * Stock findUnique
+ * stock findUnique
  */
-export type StockFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter, which Stock to fetch.
+   * Filter, which stock to fetch.
    */
-  where: Prisma.StockWhereUniqueInput
+  where: Prisma.stockWhereUniqueInput
 }
 
 /**
- * Stock findUniqueOrThrow
+ * stock findUniqueOrThrow
  */
-export type StockFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter, which Stock to fetch.
+   * Filter, which stock to fetch.
    */
-  where: Prisma.StockWhereUniqueInput
+  where: Prisma.stockWhereUniqueInput
 }
 
 /**
- * Stock findFirst
+ * stock findFirst
  */
-export type StockFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter, which Stock to fetch.
+   * Filter, which stock to fetch.
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Stocks to fetch.
+   * Determine the order of stocks to fetch.
    */
-  orderBy?: Prisma.StockOrderByWithRelationInput | Prisma.StockOrderByWithRelationInput[]
+  orderBy?: Prisma.stockOrderByWithRelationInput | Prisma.stockOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Stocks.
+   * Sets the position for searching for stocks.
    */
-  cursor?: Prisma.StockWhereUniqueInput
+  cursor?: Prisma.stockWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Stocks from the position of the cursor.
+   * Take `±n` stocks from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Stocks.
+   * Skip the first `n` stocks.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Stocks.
+   * Filter by unique combinations of stocks.
    */
   distinct?: Prisma.StockScalarFieldEnum | Prisma.StockScalarFieldEnum[]
 }
 
 /**
- * Stock findFirstOrThrow
+ * stock findFirstOrThrow
  */
-export type StockFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter, which Stock to fetch.
+   * Filter, which stock to fetch.
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Stocks to fetch.
+   * Determine the order of stocks to fetch.
    */
-  orderBy?: Prisma.StockOrderByWithRelationInput | Prisma.StockOrderByWithRelationInput[]
+  orderBy?: Prisma.stockOrderByWithRelationInput | Prisma.stockOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Stocks.
+   * Sets the position for searching for stocks.
    */
-  cursor?: Prisma.StockWhereUniqueInput
+  cursor?: Prisma.stockWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Stocks from the position of the cursor.
+   * Take `±n` stocks from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Stocks.
+   * Skip the first `n` stocks.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Stocks.
+   * Filter by unique combinations of stocks.
    */
   distinct?: Prisma.StockScalarFieldEnum | Prisma.StockScalarFieldEnum[]
 }
 
 /**
- * Stock findMany
+ * stock findMany
  */
-export type StockFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter, which Stocks to fetch.
+   * Filter, which stocks to fetch.
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Stocks to fetch.
+   * Determine the order of stocks to fetch.
    */
-  orderBy?: Prisma.StockOrderByWithRelationInput | Prisma.StockOrderByWithRelationInput[]
+  orderBy?: Prisma.stockOrderByWithRelationInput | Prisma.stockOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing Stocks.
+   * Sets the position for listing stocks.
    */
-  cursor?: Prisma.StockWhereUniqueInput
+  cursor?: Prisma.stockWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Stocks from the position of the cursor.
+   * Take `±n` stocks from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Stocks.
+   * Skip the first `n` stocks.
    */
   skip?: number
   distinct?: Prisma.StockScalarFieldEnum | Prisma.StockScalarFieldEnum[]
 }
 
 /**
- * Stock create
+ * stock create
  */
-export type StockCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * The data needed to create a Stock.
+   * The data needed to create a stock.
    */
-  data: Prisma.XOR<Prisma.StockCreateInput, Prisma.StockUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.stockCreateInput, Prisma.stockUncheckedCreateInput>
 }
 
 /**
- * Stock createMany
+ * stock createMany
  */
-export type StockCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many Stocks.
+   * The data used to create many stocks.
    */
-  data: Prisma.StockCreateManyInput | Prisma.StockCreateManyInput[]
+  data: Prisma.stockCreateManyInput | Prisma.stockCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Stock update
+ * stock update
  */
-export type StockUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * The data needed to update a Stock.
+   * The data needed to update a stock.
    */
-  data: Prisma.XOR<Prisma.StockUpdateInput, Prisma.StockUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.stockUpdateInput, Prisma.stockUncheckedUpdateInput>
   /**
-   * Choose, which Stock to update.
+   * Choose, which stock to update.
    */
-  where: Prisma.StockWhereUniqueInput
+  where: Prisma.stockWhereUniqueInput
 }
 
 /**
- * Stock updateMany
+ * stock updateMany
  */
-export type StockUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update Stocks.
+   * The data used to update stocks.
    */
-  data: Prisma.XOR<Prisma.StockUpdateManyMutationInput, Prisma.StockUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.stockUpdateManyMutationInput, Prisma.stockUncheckedUpdateManyInput>
   /**
-   * Filter which Stocks to update
+   * Filter which stocks to update
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
-   * Limit how many Stocks to update.
+   * Limit how many stocks to update.
    */
   limit?: number
 }
 
 /**
- * Stock upsert
+ * stock upsert
  */
-export type StockUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * The filter to search for the Stock to update in case it exists.
+   * The filter to search for the stock to update in case it exists.
    */
-  where: Prisma.StockWhereUniqueInput
+  where: Prisma.stockWhereUniqueInput
   /**
-   * In case the Stock found by the `where` argument doesn't exist, create a new Stock with this data.
+   * In case the stock found by the `where` argument doesn't exist, create a new stock with this data.
    */
-  create: Prisma.XOR<Prisma.StockCreateInput, Prisma.StockUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.stockCreateInput, Prisma.stockUncheckedCreateInput>
   /**
-   * In case the Stock was found with the provided `where` argument, update it with this data.
+   * In case the stock was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.StockUpdateInput, Prisma.StockUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.stockUpdateInput, Prisma.stockUncheckedUpdateInput>
 }
 
 /**
- * Stock delete
+ * stock delete
  */
-export type StockDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
   /**
-   * Filter which Stock to delete.
+   * Filter which stock to delete.
    */
-  where: Prisma.StockWhereUniqueInput
+  where: Prisma.stockWhereUniqueInput
 }
 
 /**
- * Stock deleteMany
+ * stock deleteMany
  */
-export type StockDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Stocks to delete
+   * Filter which stocks to delete
    */
-  where?: Prisma.StockWhereInput
+  where?: Prisma.stockWhereInput
   /**
-   * Limit how many Stocks to delete.
+   * Limit how many stocks to delete.
    */
   limit?: number
 }
 
 /**
- * Stock without action
+ * stock without action
  */
-export type StockDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type stockDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Stock
+   * Select specific fields to fetch from the stock
    */
-  select?: Prisma.StockSelect<ExtArgs> | null
+  select?: Prisma.stockSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Stock
+   * Omit specific fields from the stock
    */
-  omit?: Prisma.StockOmit<ExtArgs> | null
+  omit?: Prisma.stockOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.StockInclude<ExtArgs> | null
+  include?: Prisma.stockInclude<ExtArgs> | null
 }
