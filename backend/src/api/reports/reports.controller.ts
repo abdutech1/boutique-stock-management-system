@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getWeeklyRange, getMonthlyRange,
   getYearlyRange } from "../../utils/dateRange.js";
-import { generateReport } from "../../services/reports.service.js";
+import { generateReport,employeePerformance } from "../../services/reports.service.js";
 
 // Weekly Report
 export async function weeklyReport(req:Request, res:Response) {
@@ -25,4 +25,20 @@ export async function yearlyReport(req:Request, res:Response) {
     year ? getYearlyRange(year) : getYearlyRange()
   );
   res.json(report);
+}
+
+// Weekly Employee Performance
+
+export async function weeklyEmployeePerformance(req: Request, res: Response) {
+  try {
+    const period = getWeeklyRange();
+    const report = await employeePerformance(period);
+    res.json(report);
+  } catch (err) {
+    const message = err instanceof Error 
+      ? err.message 
+      : 'An unexpected error occurred';
+
+    res.status(500).json({ message });
+  }
 }

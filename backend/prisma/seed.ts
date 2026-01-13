@@ -1,10 +1,13 @@
+/// <reference types="node" />
+
+
 import prisma from '../src/prismaClient.js';
 
 
 async function main() {
   console.log("🌱 Seeding database...");
 
-  // 1️⃣ Categories
+  // 1️ Categories
   const shoe = await prisma.category.upsert({
     where: { name: "Shoe" },
     update: {},
@@ -86,8 +89,32 @@ async function main() {
     skipDuplicates: true,
   });
 
+   // 5️⃣ Sales
+  await prisma.sale.createMany({
+    data: [
+      {
+        employeeId: employee.id, // Employee 1
+        priceCategoryId: shoe3000.id,
+        soldPrice: 3500,
+        quantity: 2,
+        bonus: 3500 - 3000 * 2, // or let your logic calculate it
+      },
+      {
+        employeeId: employee.id,
+        priceCategoryId: jacket5000.id,
+        soldPrice: 4800,
+        quantity: 1,
+        bonus: 4800 - 5000, // negative bonus example
+      },
+    ],
+    skipDuplicates: true,
+  });
+
+
   console.log("✅ Seeding completed successfully");
 }
+
+
 
 main()
   .catch((e) => {
