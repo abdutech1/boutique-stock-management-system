@@ -228,15 +228,15 @@ export type userOrderByWithRelationInput = {
 
 export type userWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.userWhereInput | Prisma.userWhereInput[]
   OR?: Prisma.userWhereInput[]
   NOT?: Prisma.userWhereInput | Prisma.userWhereInput[]
+  name?: Prisma.StringFilter<"user"> | string
   role?: Prisma.Enumuser_roleFilter<"user"> | $Enums.user_role
   baseSalary?: Prisma.FloatNullableFilter<"user"> | number | null
   salarypayment?: Prisma.SalarypaymentListRelationFilter
   sale?: Prisma.SaleListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type userOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

@@ -44,6 +44,8 @@ export type StockMinAggregateOutputType = {
   id: number | null
   purchasePrice: number | null
   quantity: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
   priceCategoryId: number | null
 }
 
@@ -51,6 +53,8 @@ export type StockMaxAggregateOutputType = {
   id: number | null
   purchasePrice: number | null
   quantity: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
   priceCategoryId: number | null
 }
 
@@ -58,6 +62,8 @@ export type StockCountAggregateOutputType = {
   id: number
   purchasePrice: number
   quantity: number
+  createdAt: number
+  updatedAt: number
   priceCategoryId: number
   _all: number
 }
@@ -81,6 +87,8 @@ export type StockMinAggregateInputType = {
   id?: true
   purchasePrice?: true
   quantity?: true
+  createdAt?: true
+  updatedAt?: true
   priceCategoryId?: true
 }
 
@@ -88,6 +96,8 @@ export type StockMaxAggregateInputType = {
   id?: true
   purchasePrice?: true
   quantity?: true
+  createdAt?: true
+  updatedAt?: true
   priceCategoryId?: true
 }
 
@@ -95,6 +105,8 @@ export type StockCountAggregateInputType = {
   id?: true
   purchasePrice?: true
   quantity?: true
+  createdAt?: true
+  updatedAt?: true
   priceCategoryId?: true
   _all?: true
 }
@@ -189,6 +201,8 @@ export type StockGroupByOutputType = {
   id: number
   purchasePrice: number
   quantity: number
+  createdAt: Date
+  updatedAt: Date
   priceCategoryId: number
   _count: StockCountAggregateOutputType | null
   _avg: StockAvgAggregateOutputType | null
@@ -219,6 +233,8 @@ export type stockWhereInput = {
   id?: Prisma.IntFilter<"stock"> | number
   purchasePrice?: Prisma.FloatFilter<"stock"> | number
   quantity?: Prisma.IntFilter<"stock"> | number
+  createdAt?: Prisma.DateTimeFilter<"stock"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"stock"> | Date | string
   priceCategoryId?: Prisma.IntFilter<"stock"> | number
   pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }
@@ -227,6 +243,8 @@ export type stockOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
   pricecategory?: Prisma.pricecategoryOrderByWithRelationInput
 }
@@ -239,6 +257,8 @@ export type stockWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.stockWhereInput | Prisma.stockWhereInput[]
   purchasePrice?: Prisma.FloatFilter<"stock"> | number
   quantity?: Prisma.IntFilter<"stock"> | number
+  createdAt?: Prisma.DateTimeFilter<"stock"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"stock"> | Date | string
   pricecategory?: Prisma.XOR<Prisma.PricecategoryScalarRelationFilter, Prisma.pricecategoryWhereInput>
 }, "id" | "priceCategoryId">
 
@@ -246,6 +266,8 @@ export type stockOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
   _count?: Prisma.stockCountOrderByAggregateInput
   _avg?: Prisma.stockAvgOrderByAggregateInput
@@ -261,12 +283,16 @@ export type stockScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"stock"> | number
   purchasePrice?: Prisma.FloatWithAggregatesFilter<"stock"> | number
   quantity?: Prisma.IntWithAggregatesFilter<"stock"> | number
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"stock"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"stock"> | Date | string
   priceCategoryId?: Prisma.IntWithAggregatesFilter<"stock"> | number
 }
 
 export type stockCreateInput = {
   purchasePrice: number
   quantity: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pricecategory: Prisma.pricecategoryCreateNestedOneWithoutStockInput
 }
 
@@ -274,12 +300,16 @@ export type stockUncheckedCreateInput = {
   id?: number
   purchasePrice: number
   quantity: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
   priceCategoryId: number
 }
 
 export type stockUpdateInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutStockNestedInput
 }
 
@@ -287,6 +317,8 @@ export type stockUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -294,18 +326,24 @@ export type stockCreateManyInput = {
   id?: number
   purchasePrice: number
   quantity: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
   priceCategoryId: number
 }
 
 export type stockUpdateManyMutationInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type stockUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -318,6 +356,8 @@ export type stockCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
@@ -332,6 +372,8 @@ export type stockMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
@@ -339,6 +381,8 @@ export type stockMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   purchasePrice?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
 
@@ -384,12 +428,16 @@ export type stockUncheckedUpdateOneWithoutPricecategoryNestedInput = {
 export type stockCreateWithoutPricecategoryInput = {
   purchasePrice: number
   quantity: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type stockUncheckedCreateWithoutPricecategoryInput = {
   id?: number
   purchasePrice: number
   quantity: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type stockCreateOrConnectWithoutPricecategoryInput = {
@@ -411,12 +459,16 @@ export type stockUpdateToOneWithWhereWithoutPricecategoryInput = {
 export type stockUpdateWithoutPricecategoryInput = {
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type stockUncheckedUpdateWithoutPricecategoryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   purchasePrice?: Prisma.FloatFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -425,6 +477,8 @@ export type stockSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   purchasePrice?: boolean
   quantity?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   priceCategoryId?: boolean
   pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stock"]>
@@ -435,10 +489,12 @@ export type stockSelectScalar = {
   id?: boolean
   purchasePrice?: boolean
   quantity?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   priceCategoryId?: boolean
 }
 
-export type stockOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchasePrice" | "quantity" | "priceCategoryId", ExtArgs["result"]["stock"]>
+export type stockOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchasePrice" | "quantity" | "createdAt" | "updatedAt" | "priceCategoryId", ExtArgs["result"]["stock"]>
 export type stockInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
 }
@@ -452,6 +508,8 @@ export type $stockPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     purchasePrice: number
     quantity: number
+    createdAt: Date
+    updatedAt: Date
     priceCategoryId: number
   }, ExtArgs["result"]["stock"]>
   composites: {}
@@ -826,6 +884,8 @@ export interface stockFieldRefs {
   readonly id: Prisma.FieldRef<"stock", 'Int'>
   readonly purchasePrice: Prisma.FieldRef<"stock", 'Float'>
   readonly quantity: Prisma.FieldRef<"stock", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"stock", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"stock", 'DateTime'>
   readonly priceCategoryId: Prisma.FieldRef<"stock", 'Int'>
 }
     

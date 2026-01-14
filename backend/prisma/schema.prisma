@@ -64,13 +64,15 @@ model stock {
   id              Int           @id @default(autoincrement())
   purchasePrice   Float
   quantity        Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   priceCategoryId Int           @unique(map: "Stock_priceCategoryId_key")
   pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Stock_priceCategoryId_fkey")
 }
 
 model user {
   id            Int             @id @default(autoincrement())
-  name          String          @unique
+  name          String
   role          user_role
   baseSalary    Float?
   salarypayment salarypayment[]

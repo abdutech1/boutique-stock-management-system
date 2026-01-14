@@ -969,6 +969,8 @@ export const StockScalarFieldEnum = {
   id: 'id',
   purchasePrice: 'purchasePrice',
   quantity: 'quantity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   priceCategoryId: 'priceCategoryId'
 } as const
 
