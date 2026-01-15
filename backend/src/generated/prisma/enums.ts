@@ -9,6 +9,15 @@
 * 🟢 You can import this file directly.
 */
 
+export const sale_status = {
+  DRAFT: 'DRAFT',
+  CONFIRMED: 'CONFIRMED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type sale_status = (typeof sale_status)[keyof typeof sale_status]
+
+
 export const user_role = {
   OWNER: 'OWNER',
   EMPLOYEE: 'EMPLOYEE'

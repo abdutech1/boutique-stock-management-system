@@ -913,7 +913,8 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const CategoryScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  isActive: 'isActive'
 } as const
 
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
@@ -958,6 +959,8 @@ export const SaleScalarFieldEnum = {
   quantity: 'quantity',
   bonus: 'bonus',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  status: 'status',
   employeeId: 'employeeId',
   priceCategoryId: 'priceCategoryId'
 } as const
@@ -980,8 +983,12 @@ export type StockScalarFieldEnum = (typeof StockScalarFieldEnum)[keyof typeof St
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  phoneNumber: 'phoneNumber',
   role: 'role',
-  baseSalary: 'baseSalary'
+  baseSalary: 'baseSalary',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -1018,7 +1025,8 @@ export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 export const userOrderByRelevanceFieldEnum = {
-  name: 'name'
+  name: 'name',
+  phoneNumber: 'phoneNumber'
 } as const
 
 export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
@@ -1045,6 +1053,13 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
 
 
 /**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1055,6 +1070,13 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'sale_status'
+ */
+export type Enumsale_statusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'sale_status'>
     
 
 

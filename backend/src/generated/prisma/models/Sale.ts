@@ -50,6 +50,8 @@ export type SaleMinAggregateOutputType = {
   quantity: number | null
   bonus: number | null
   createdAt: Date | null
+  updatedAt: Date | null
+  status: $Enums.sale_status | null
   employeeId: number | null
   priceCategoryId: number | null
 }
@@ -60,6 +62,8 @@ export type SaleMaxAggregateOutputType = {
   quantity: number | null
   bonus: number | null
   createdAt: Date | null
+  updatedAt: Date | null
+  status: $Enums.sale_status | null
   employeeId: number | null
   priceCategoryId: number | null
 }
@@ -70,6 +74,8 @@ export type SaleCountAggregateOutputType = {
   quantity: number
   bonus: number
   createdAt: number
+  updatedAt: number
+  status: number
   employeeId: number
   priceCategoryId: number
   _all: number
@@ -100,6 +106,8 @@ export type SaleMinAggregateInputType = {
   quantity?: true
   bonus?: true
   createdAt?: true
+  updatedAt?: true
+  status?: true
   employeeId?: true
   priceCategoryId?: true
 }
@@ -110,6 +118,8 @@ export type SaleMaxAggregateInputType = {
   quantity?: true
   bonus?: true
   createdAt?: true
+  updatedAt?: true
+  status?: true
   employeeId?: true
   priceCategoryId?: true
 }
@@ -120,6 +130,8 @@ export type SaleCountAggregateInputType = {
   quantity?: true
   bonus?: true
   createdAt?: true
+  updatedAt?: true
+  status?: true
   employeeId?: true
   priceCategoryId?: true
   _all?: true
@@ -217,6 +229,8 @@ export type SaleGroupByOutputType = {
   quantity: number
   bonus: number
   createdAt: Date
+  updatedAt: Date
+  status: $Enums.sale_status
   employeeId: number
   priceCategoryId: number
   _count: SaleCountAggregateOutputType | null
@@ -250,6 +264,8 @@ export type saleWhereInput = {
   quantity?: Prisma.IntFilter<"sale"> | number
   bonus?: Prisma.FloatFilter<"sale"> | number
   createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  status?: Prisma.Enumsale_statusFilter<"sale"> | $Enums.sale_status
   employeeId?: Prisma.IntFilter<"sale"> | number
   priceCategoryId?: Prisma.IntFilter<"sale"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
@@ -262,6 +278,8 @@ export type saleOrderByWithRelationInput = {
   quantity?: Prisma.SortOrder
   bonus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
   user?: Prisma.userOrderByWithRelationInput
@@ -277,6 +295,8 @@ export type saleWhereUniqueInput = Prisma.AtLeast<{
   quantity?: Prisma.IntFilter<"sale"> | number
   bonus?: Prisma.FloatFilter<"sale"> | number
   createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  status?: Prisma.Enumsale_statusFilter<"sale"> | $Enums.sale_status
   employeeId?: Prisma.IntFilter<"sale"> | number
   priceCategoryId?: Prisma.IntFilter<"sale"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
@@ -289,6 +309,8 @@ export type saleOrderByWithAggregationInput = {
   quantity?: Prisma.SortOrder
   bonus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
   _count?: Prisma.saleCountOrderByAggregateInput
@@ -307,6 +329,8 @@ export type saleScalarWhereWithAggregatesInput = {
   quantity?: Prisma.IntWithAggregatesFilter<"sale"> | number
   bonus?: Prisma.FloatWithAggregatesFilter<"sale"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"sale"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"sale"> | Date | string
+  status?: Prisma.Enumsale_statusWithAggregatesFilter<"sale"> | $Enums.sale_status
   employeeId?: Prisma.IntWithAggregatesFilter<"sale"> | number
   priceCategoryId?: Prisma.IntWithAggregatesFilter<"sale"> | number
 }
@@ -316,6 +340,8 @@ export type saleCreateInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   user: Prisma.userCreateNestedOneWithoutSaleInput
   pricecategory: Prisma.pricecategoryCreateNestedOneWithoutSaleInput
 }
@@ -326,6 +352,8 @@ export type saleUncheckedCreateInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   employeeId: number
   priceCategoryId: number
 }
@@ -335,6 +363,8 @@ export type saleUpdateInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   user?: Prisma.userUpdateOneRequiredWithoutSaleNestedInput
   pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutSaleNestedInput
 }
@@ -345,6 +375,8 @@ export type saleUncheckedUpdateInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -355,6 +387,8 @@ export type saleCreateManyInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   employeeId: number
   priceCategoryId: number
 }
@@ -364,6 +398,8 @@ export type saleUpdateManyMutationInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
 }
 
 export type saleUncheckedUpdateManyInput = {
@@ -372,6 +408,8 @@ export type saleUncheckedUpdateManyInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -392,6 +430,8 @@ export type saleCountOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
   bonus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
@@ -411,6 +451,8 @@ export type saleMaxOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
   bonus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
@@ -421,6 +463,8 @@ export type saleMinOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
   bonus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   priceCategoryId?: Prisma.SortOrder
 }
@@ -476,6 +520,10 @@ export type saleUncheckedUpdateManyWithoutPricecategoryNestedInput = {
   deleteMany?: Prisma.saleScalarWhereInput | Prisma.saleScalarWhereInput[]
 }
 
+export type Enumsale_statusFieldUpdateOperationsInput = {
+  set?: $Enums.sale_status
+}
+
 export type saleCreateNestedManyWithoutUserInput = {
   create?: Prisma.XOR<Prisma.saleCreateWithoutUserInput, Prisma.saleUncheckedCreateWithoutUserInput> | Prisma.saleCreateWithoutUserInput[] | Prisma.saleUncheckedCreateWithoutUserInput[]
   connectOrCreate?: Prisma.saleCreateOrConnectWithoutUserInput | Prisma.saleCreateOrConnectWithoutUserInput[]
@@ -523,6 +571,8 @@ export type saleCreateWithoutPricecategoryInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   user: Prisma.userCreateNestedOneWithoutSaleInput
 }
 
@@ -532,6 +582,8 @@ export type saleUncheckedCreateWithoutPricecategoryInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   employeeId: number
 }
 
@@ -570,6 +622,8 @@ export type saleScalarWhereInput = {
   quantity?: Prisma.IntFilter<"sale"> | number
   bonus?: Prisma.FloatFilter<"sale"> | number
   createdAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"sale"> | Date | string
+  status?: Prisma.Enumsale_statusFilter<"sale"> | $Enums.sale_status
   employeeId?: Prisma.IntFilter<"sale"> | number
   priceCategoryId?: Prisma.IntFilter<"sale"> | number
 }
@@ -579,6 +633,8 @@ export type saleCreateWithoutUserInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   pricecategory: Prisma.pricecategoryCreateNestedOneWithoutSaleInput
 }
 
@@ -588,6 +644,8 @@ export type saleUncheckedCreateWithoutUserInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   priceCategoryId: number
 }
 
@@ -623,6 +681,8 @@ export type saleCreateManyPricecategoryInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   employeeId: number
 }
 
@@ -631,6 +691,8 @@ export type saleUpdateWithoutPricecategoryInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   user?: Prisma.userUpdateOneRequiredWithoutSaleNestedInput
 }
 
@@ -640,6 +702,8 @@ export type saleUncheckedUpdateWithoutPricecategoryInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -649,6 +713,8 @@ export type saleUncheckedUpdateManyWithoutPricecategoryInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   employeeId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -658,6 +724,8 @@ export type saleCreateManyUserInput = {
   quantity: number
   bonus: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  status?: $Enums.sale_status
   priceCategoryId: number
 }
 
@@ -666,6 +734,8 @@ export type saleUpdateWithoutUserInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   pricecategory?: Prisma.pricecategoryUpdateOneRequiredWithoutSaleNestedInput
 }
 
@@ -675,6 +745,8 @@ export type saleUncheckedUpdateWithoutUserInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -684,6 +756,8 @@ export type saleUncheckedUpdateManyWithoutUserInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   bonus?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.Enumsale_statusFieldUpdateOperationsInput | $Enums.sale_status
   priceCategoryId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -695,6 +769,8 @@ export type saleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   quantity?: boolean
   bonus?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  status?: boolean
   employeeId?: boolean
   priceCategoryId?: boolean
   user?: boolean | Prisma.userDefaultArgs<ExtArgs>
@@ -709,11 +785,13 @@ export type saleSelectScalar = {
   quantity?: boolean
   bonus?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  status?: boolean
   employeeId?: boolean
   priceCategoryId?: boolean
 }
 
-export type saleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "soldPrice" | "quantity" | "bonus" | "createdAt" | "employeeId" | "priceCategoryId", ExtArgs["result"]["sale"]>
+export type saleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "soldPrice" | "quantity" | "bonus" | "createdAt" | "updatedAt" | "status" | "employeeId" | "priceCategoryId", ExtArgs["result"]["sale"]>
 export type saleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.userDefaultArgs<ExtArgs>
   pricecategory?: boolean | Prisma.pricecategoryDefaultArgs<ExtArgs>
@@ -731,6 +809,8 @@ export type $salePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     quantity: number
     bonus: number
     createdAt: Date
+    updatedAt: Date
+    status: $Enums.sale_status
     employeeId: number
     priceCategoryId: number
   }, ExtArgs["result"]["sale"]>
@@ -1109,6 +1189,8 @@ export interface saleFieldRefs {
   readonly quantity: Prisma.FieldRef<"sale", 'Int'>
   readonly bonus: Prisma.FieldRef<"sale", 'Float'>
   readonly createdAt: Prisma.FieldRef<"sale", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"sale", 'DateTime'>
+  readonly status: Prisma.FieldRef<"sale", 'sale_status'>
   readonly employeeId: Prisma.FieldRef<"sale", 'Int'>
   readonly priceCategoryId: Prisma.FieldRef<"sale", 'Int'>
 }

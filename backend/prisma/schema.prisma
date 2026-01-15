@@ -7,11 +7,16 @@ datasource db {
   provider = "mysql"
 }
 
+
+
 model category {
-  id            Int             @id @default(autoincrement())
-  name          String          @unique(map: "Category_name_key")
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  isActive  Boolean  @default(true)
+
   pricecategory pricecategory[]
 }
+
 
 model expense {
   id          Int      @id @default(autoincrement())
@@ -45,20 +50,33 @@ model salarypayment {
   @@index([userId], map: "SalaryPayment_userId_fkey")
 }
 
+
+
+
 model sale {
   id              Int           @id @default(autoincrement())
   soldPrice       Float
   quantity        Int
   bonus           Float
   createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  status          sale_status   @default(DRAFT)
+
   employeeId      Int
   priceCategoryId Int
-  user            user          @relation(fields: [employeeId], references: [id], map: "Sale_employeeId_fkey")
-  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Sale_priceCategoryId_fkey")
 
-  @@index([employeeId], map: "Sale_employeeId_fkey")
-  @@index([priceCategoryId], map: "Sale_priceCategoryId_fkey")
+  user            user          @relation(fields: [employeeId], references: [id])
+  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id])
 }
+
+
+enum sale_status {
+  DRAFT
+  CONFIRMED
+  CANCELLED
+}
+
 
 model stock {
   id              Int           @id @default(autoincrement())
@@ -70,14 +88,23 @@ model stock {
   pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Stock_priceCategoryId_fkey")
 }
 
+
+
 model user {
   id            Int             @id @default(autoincrement())
   name          String
+  phoneNumber   String          @unique
   role          user_role
   baseSalary    Float?
+  isActive      Boolean         @default(true)
+
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
   salarypayment salarypayment[]
   sale          sale[]
 }
+
 
 enum user_role {
   OWNER
