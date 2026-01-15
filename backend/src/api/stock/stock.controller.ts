@@ -4,10 +4,9 @@ import { createOrUpdateStock } from "../../services/stock.service.js";
 
 export async function registerStock(req: Request, res: Response) {
   try {
-    const { categoryId, priceCategoryId, purchasePrice, quantity } = req.body;
+    const { priceCategoryId, purchasePrice, quantity } = req.body;
 
     const stock = await createOrUpdateStock({
-      categoryId: Number(categoryId),
       priceCategoryId: Number(priceCategoryId),
       purchasePrice: Number(purchasePrice),
       quantity: Number(quantity),

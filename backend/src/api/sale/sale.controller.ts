@@ -3,14 +3,17 @@ import { createSale } from "../../services/sale.service.js";
 
 export async function createSaleController(req: Request, res: Response) {
   try {
-    const { employeeId, priceCategoryId, soldPrice, quantity } = req.body;
+    const { priceCategoryId, soldPrice, quantity } = req.body;
 
-    if (!employeeId || !priceCategoryId || !soldPrice || !quantity) {
+    if (!priceCategoryId || !soldPrice || !quantity) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
+    // 🔐 employeeId comes from authenticated user
+    const employeeId = req.user!.id;
+
     const result = await createSale({
-      employeeId: Number(employeeId),
+      employeeId,
       priceCategoryId: Number(priceCategoryId),
       soldPrice: Number(soldPrice),
       quantity: Number(quantity),
