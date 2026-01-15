@@ -52,3 +52,13 @@ export type stock = Prisma.stockModel
  * 
  */
 export type user = Prisma.userModel
+/**
+ * Model bonusRule
+ * 
+ */
+export type bonusRule = Prisma.bonusRuleModel
+/**
+ * Model weeklyBonus
+ * 
+ */
+export type weeklyBonus = Prisma.weeklyBonusModel

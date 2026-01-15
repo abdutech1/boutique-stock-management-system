@@ -57,7 +57,9 @@ export const ModelName = {
   salarypayment: 'salarypayment',
   sale: 'sale',
   stock: 'stock',
-  user: 'user'
+  user: 'user',
+  bonusRule: 'bonusRule',
+  weeklyBonus: 'weeklyBonus'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -157,6 +159,32 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const BonusRuleScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  minAmount: 'minAmount',
+  bonusAmount: 'bonusAmount',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BonusRuleScalarFieldEnum = (typeof BonusRuleScalarFieldEnum)[keyof typeof BonusRuleScalarFieldEnum]
+
+
+export const WeeklyBonusScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  weekStart: 'weekStart',
+  weekEnd: 'weekEnd',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WeeklyBonusScalarFieldEnum = (typeof WeeklyBonusScalarFieldEnum)[keyof typeof WeeklyBonusScalarFieldEnum]
 
 
 export const SortOrder = {

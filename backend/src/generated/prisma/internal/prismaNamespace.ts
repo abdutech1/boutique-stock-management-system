@@ -390,7 +390,9 @@ export const ModelName = {
   salarypayment: 'salarypayment',
   sale: 'sale',
   stock: 'stock',
-  user: 'user'
+  user: 'user',
+  bonusRule: 'bonusRule',
+  weeklyBonus: 'weeklyBonus'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -406,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "category" | "expense" | "pricecategory" | "salarypayment" | "sale" | "stock" | "user"
+    modelProps: "category" | "expense" | "pricecategory" | "salarypayment" | "sale" | "stock" | "user" | "bonusRule" | "weeklyBonus"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -872,6 +874,138 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    bonusRule: {
+      payload: Prisma.$bonusRulePayload<ExtArgs>
+      fields: Prisma.bonusRuleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.bonusRuleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.bonusRuleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        findFirst: {
+          args: Prisma.bonusRuleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.bonusRuleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        findMany: {
+          args: Prisma.bonusRuleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>[]
+        }
+        create: {
+          args: Prisma.bonusRuleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        createMany: {
+          args: Prisma.bonusRuleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.bonusRuleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        update: {
+          args: Prisma.bonusRuleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        deleteMany: {
+          args: Prisma.bonusRuleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.bonusRuleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.bonusRuleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$bonusRulePayload>
+        }
+        aggregate: {
+          args: Prisma.BonusRuleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBonusRule>
+        }
+        groupBy: {
+          args: Prisma.bonusRuleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BonusRuleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.bonusRuleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BonusRuleCountAggregateOutputType> | number
+        }
+      }
+    }
+    weeklyBonus: {
+      payload: Prisma.$weeklyBonusPayload<ExtArgs>
+      fields: Prisma.weeklyBonusFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.weeklyBonusFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.weeklyBonusFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        findFirst: {
+          args: Prisma.weeklyBonusFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.weeklyBonusFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        findMany: {
+          args: Prisma.weeklyBonusFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>[]
+        }
+        create: {
+          args: Prisma.weeklyBonusCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        createMany: {
+          args: Prisma.weeklyBonusCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.weeklyBonusDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        update: {
+          args: Prisma.weeklyBonusUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        deleteMany: {
+          args: Prisma.weeklyBonusDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.weeklyBonusUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.weeklyBonusUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weeklyBonusPayload>
+        }
+        aggregate: {
+          args: Prisma.WeeklyBonusAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWeeklyBonus>
+        }
+        groupBy: {
+          args: Prisma.weeklyBonusGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WeeklyBonusGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.weeklyBonusCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WeeklyBonusCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -994,6 +1128,32 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+export const BonusRuleScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  minAmount: 'minAmount',
+  bonusAmount: 'bonusAmount',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BonusRuleScalarFieldEnum = (typeof BonusRuleScalarFieldEnum)[keyof typeof BonusRuleScalarFieldEnum]
+
+
+export const WeeklyBonusScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  weekStart: 'weekStart',
+  weekEnd: 'weekEnd',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WeeklyBonusScalarFieldEnum = (typeof WeeklyBonusScalarFieldEnum)[keyof typeof WeeklyBonusScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1081,9 +1241,16 @@ export type Enumsale_statusFieldRefInput<$PrismaModel> = FieldRefInputType<$Pris
 
 
 /**
- * Reference to a field of type 'user_role'
+ * Reference to a field of type 'UserRole'
  */
-export type Enumuser_roleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'user_role'>
+export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
+    
+
+
+/**
+ * Reference to a field of type 'bonus_type'
+ */
+export type Enumbonus_typeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'bonus_type'>
     
 
 /**
@@ -1188,6 +1355,8 @@ export type GlobalOmitConfig = {
   sale?: Prisma.saleOmit
   stock?: Prisma.stockOmit
   user?: Prisma.userOmit
+  bonusRule?: Prisma.bonusRuleOmit
+  weeklyBonus?: Prisma.weeklyBonusOmit
 }
 
 /* Types for Logging */

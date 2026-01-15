@@ -7,16 +7,13 @@ datasource db {
   provider = "mysql"
 }
 
-
-
 model category {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  isActive  Boolean  @default(true)
+  id       Int     @id @default(autoincrement())
+  name     String  @unique
+  isActive Boolean @default(true)
 
   pricecategory pricecategory[]
 }
-
 
 model expense {
   id          Int      @id @default(autoincrement())
@@ -47,29 +44,26 @@ model salarypayment {
   userId    Int
   user      user     @relation(fields: [userId], references: [id], map: "SalaryPayment_userId_fkey")
 
+  @@unique([userId, weekStart, weekEnd])
   @@index([userId], map: "SalaryPayment_userId_fkey")
 }
 
-
-
-
 model sale {
-  id              Int           @id @default(autoincrement())
-  soldPrice       Float
-  quantity        Int
-  bonus           Float
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
+  id        Int      @id @default(autoincrement())
+  soldPrice Float
+  quantity  Int
+  bonus     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  status          sale_status   @default(DRAFT)
+  status sale_status @default(DRAFT)
 
   employeeId      Int
   priceCategoryId Int
 
-  user            user          @relation(fields: [employeeId], references: [id])
-  pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id])
+  user          user          @relation(fields: [employeeId], references: [id])
+  pricecategory pricecategory @relation(fields: [priceCategoryId], references: [id])
 }
-
 
 enum sale_status {
   DRAFT
@@ -77,36 +71,65 @@ enum sale_status {
   CANCELLED
 }
 
-
 model stock {
   id              Int           @id @default(autoincrement())
   purchasePrice   Float
   quantity        Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
   priceCategoryId Int           @unique(map: "Stock_priceCategoryId_key")
   pricecategory   pricecategory @relation(fields: [priceCategoryId], references: [id], map: "Stock_priceCategoryId_fkey")
 }
 
-
-
 model user {
-  id            Int             @id @default(autoincrement())
-  name          String
-  phoneNumber   String          @unique
-  role          user_role
-  baseSalary    Float?
-  isActive      Boolean         @default(true)
+  id          Int      @id @default(autoincrement())
+  name        String
+  phoneNumber String   @unique
+  role        UserRole
+  baseSalary  Float?
+  isActive    Boolean  @default(true)
 
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   salarypayment salarypayment[]
   sale          sale[]
+
+  weeklyBonus weeklyBonus[]
 }
 
-
-enum user_role {
+enum UserRole {
   OWNER
   EMPLOYEE
+}
+
+enum bonus_type {
+  WEEKLY_TOTAL
+  SINGLE_CUSTOMER
+}
+
+model bonusRule {
+  id          Int        @id @default(autoincrement())
+  type        bonus_type
+  minAmount   Float
+  bonusAmount Float
+  isActive    Boolean    @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model weeklyBonus {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  weekStart DateTime
+  weekEnd   DateTime
+  amount    Float
+
+  user user @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, weekStart, weekEnd])
 }

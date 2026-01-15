@@ -7,7 +7,6 @@ interface CreateSaleInput {
   quantity: number;
 }
 
-
 export async function createSale({
   employeeId,
   priceCategoryId,
@@ -15,45 +14,42 @@ export async function createSale({
   quantity,
 }: CreateSaleInput) {
   if (quantity <= 0) {
-    throw new Error('Quantity must be greater than zero');
+    throw new Error("Quantity must be greater than zero");
   }
 
   return await prisma.$transaction(async (tx) => {
-    // 1️ Get price category with stock
+    // 1️⃣ Get price category with stock
     const priceCategory = await tx.pricecategory.findUnique({
       where: { id: priceCategoryId },
       include: { stock: true },
     });
 
     if (!priceCategory) {
-      throw new Error('Price category not found');
+      throw new Error("Price category not found");
     }
 
     if (!priceCategory.stock) {
-      throw new Error('Stock not initialized for this price category');
+      throw new Error("Stock not initialized for this price category");
     }
 
-    // 2️ Check stock availability
+    // 2️⃣ Check stock availability
     if (priceCategory.stock.quantity < quantity) {
-      throw new Error('Insufficient stock');
+      throw new Error("Insufficient stock");
     }
 
-    // 3️ Calculate bonus
-    const bonusPerItem = soldPrice - priceCategory.fixedPrice;
-    const totalBonus = bonusPerItem * quantity;
-
-    // 4️ Create sale
+    // 3️⃣ Create sale (NO BONUS YET)
     const sale = await tx.sale.create({
       data: {
         employeeId,
         priceCategoryId,
         soldPrice,
         quantity,
-        bonus: totalBonus,
+        bonus: 0,                 // ✅ bonus assigned later
+        status: "DRAFT",          // ✅ owner confirms later
       },
     });
 
-    // 5️ Deduct stock
+    // 4️⃣ Deduct stock
     const updatedStock = await tx.stock.update({
       where: { priceCategoryId },
       data: {
@@ -63,7 +59,7 @@ export async function createSale({
       },
     });
 
-    // 6️ Low-stock warning
+    // 5️⃣ Low-stock warning
     const lowStockWarning =
       updatedStock.quantity < 3
         ? `⚠️ Low stock alert: only ${updatedStock.quantity} left`
@@ -74,5 +70,27 @@ export async function createSale({
       remainingStock: updatedStock.quantity,
       lowStockWarning,
     };
+  });
+}
+
+
+export async function confirmSale(saleId: number) {
+  const sale = await prisma.sale.findUnique({
+    where: { id: saleId },
+  });
+
+  if (!sale) {
+    throw new Error("Sale not found");
+  }
+
+  if (sale.status !== "DRAFT") {
+    throw new Error("Only DRAFT sales can be confirmed");
+  }
+
+  return await prisma.sale.update({
+    where: { id: saleId },
+    data: {
+      status: "CONFIRMED",
+    },
   });
 }

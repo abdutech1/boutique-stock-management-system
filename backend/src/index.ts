@@ -11,6 +11,13 @@ import salaryRoutes from "./api/salary/salary.routes.js";
 import stockRoutes from "./api/stock/stock.routes.js";
 import { authenticate } from "./middleware/authenticate.js";
 import { authorize } from "./middleware/authorize.js";
+import userRoutes from "./api/users/user.routes.js";
+import bonusRuleRoutes from "./api/bonusRules/bonus.routes.js";
+import bonusRoutes from "./api/bonus/bonus.routes.js";
+
+
+
+
 
 dotenv.config();
 
@@ -27,12 +34,17 @@ app.use(authenticate);
 /* =========================
    API ROUTES
    ========================= */
+app.use("/api/users", userRoutes);
 app.use("/api/categories", authorize("OWNER"), categoryRoutes);
 app.use("/api/price-categories", authorize("OWNER"), priceCategoryRoutes);
 app.use("/api/stocks", authorize("OWNER"), stockRoutes);
 app.use("/api/expenses", authorize("OWNER"), expenseRoutes);
 app.use("/api/salaries", authorize("OWNER"), salaryRoutes);
 app.use("/api/reports", authorize("OWNER"), reportsRoutes);
+
+app.use("/api/bonus-rules", bonusRuleRoutes);
+app.use("/api/bonuses", bonusRoutes);
+
 
 
 app.use("/api/sales", authorize("OWNER", "EMPLOYEE"), saleRouter);

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createSale } from "../../services/sale.service.js";
+import { createSale,confirmSale } from "../../services/sale.service.js";
 
 export async function createSaleController(req: Request, res: Response) {
   try {
@@ -26,3 +26,20 @@ export async function createSaleController(req: Request, res: Response) {
     });
   }
 }
+
+
+export async function confirmSaleController(req: Request, res: Response) {
+  try {
+    const saleId = Number(req.params.id);
+
+    const sale = await confirmSale(saleId);
+
+    res.json({
+      message: "Sale confirmed successfully",
+      sale,
+    });
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+}
+

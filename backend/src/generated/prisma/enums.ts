@@ -18,9 +18,17 @@ export const sale_status = {
 export type sale_status = (typeof sale_status)[keyof typeof sale_status]
 
 
-export const user_role = {
+export const UserRole = {
   OWNER: 'OWNER',
   EMPLOYEE: 'EMPLOYEE'
 } as const
 
-export type user_role = (typeof user_role)[keyof typeof user_role]
+export type UserRole = (typeof UserRole)[keyof typeof UserRole]
+
+
+export const bonus_type = {
+  WEEKLY_TOTAL: 'WEEKLY_TOTAL',
+  SINGLE_CUSTOMER: 'SINGLE_CUSTOMER'
+} as const
+
+export type bonus_type = (typeof bonus_type)[keyof typeof bonus_type]

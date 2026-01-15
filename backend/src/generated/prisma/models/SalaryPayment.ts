@@ -247,6 +247,7 @@ export type salarypaymentOrderByWithRelationInput = {
 
 export type salarypaymentWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  userId_weekStart_weekEnd?: Prisma.salarypaymentUserIdWeekStartWeekEndCompoundUniqueInput
   AND?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
   OR?: Prisma.salarypaymentWhereInput[]
   NOT?: Prisma.salarypaymentWhereInput | Prisma.salarypaymentWhereInput[]
@@ -256,7 +257,7 @@ export type salarypaymentWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"salarypayment"> | Date | string
   userId?: Prisma.IntFilter<"salarypayment"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
-}, "id">
+}, "id" | "userId_weekStart_weekEnd">
 
 export type salarypaymentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -341,6 +342,12 @@ export type salarypaymentUncheckedUpdateManyInput = {
   weekEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type salarypaymentUserIdWeekStartWeekEndCompoundUniqueInput = {
+  userId: number
+  weekStart: Date | string
+  weekEnd: Date | string
 }
 
 export type salarypaymentCountOrderByAggregateInput = {
