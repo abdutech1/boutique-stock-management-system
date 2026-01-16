@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createSale,confirmSale,updateDraftSale } from "../../services/sale.service.js";
+import { createSale,confirmSale,updateDraftSale,deleteDraftSale } from "../../services/sale.service.js";
 
 export async function createSaleController(req: Request, res: Response) {
   try {
@@ -82,5 +82,26 @@ export async function updateSaleController(req: Request, res: Response) {
     console.error(error);
     const status = error.message?.includes('not found') ? 404 : 400;
     res.status(status).json({ error: error.message || 'Failed to update sale' });
+  }
+}
+
+
+
+export async function deleteDraftSaleController(req:Request, res:Response) {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    const saleId = Number(req.params.id);
+
+    const result = await deleteDraftSale({
+      saleId,
+      userId: req.user.id,
+      role: req.user.role,
+    });
+
+    res.status(200).json(result);
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
   }
 }

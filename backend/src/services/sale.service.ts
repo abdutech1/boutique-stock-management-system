@@ -177,3 +177,62 @@ export async function updateDraftSale({
     });
   });
 }
+
+
+
+interface DeleteDraftSaleInput {
+  saleId: number;
+  userId: number;
+  role: "OWNER" | "EMPLOYEE";
+}
+
+export async function deleteDraftSale({
+  saleId,
+  userId,
+  role,
+}: DeleteDraftSaleInput) {
+  return prisma.$transaction(async (tx) => {
+    const sale = await tx.sale.findUnique({
+      where: { id: saleId },
+      include: {
+        pricecategory: {
+          include: { stock: true },
+        },
+      },
+    });
+
+    if (!sale) {
+      throw new Error("Sale not found");
+    }
+
+    if (sale.status !== "DRAFT") {
+      throw new Error("Only DRAFT sales can be deleted");
+    }
+
+    if (role === "EMPLOYEE" && sale.employeeId !== userId) {
+      throw new Error("You can only delete your own draft sales");
+    }
+
+    if (!sale.pricecategory?.stock) {
+      throw new Error("Stock information missing");
+    }
+
+    // 1️⃣ Return stock
+    await tx.stock.update({
+      where: { priceCategoryId: sale.priceCategoryId },
+      data: {
+        quantity: {
+          increment: sale.quantity,
+        },
+      },
+    });
+
+    // 2️⃣ Delete sale
+    await tx.sale.delete({
+      where: { id: saleId },
+    });
+
+    return { message: "Draft sale deleted successfully" };
+  });
+}
+

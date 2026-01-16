@@ -1,7 +1,7 @@
 import express from "express";
 import { createSaleController, confirmSaleController } from "./sale.controller.js";
 import { authorize } from "../../middleware/authorize.js";
-import { updateSaleController } from "./sale.controller.js";
+import { updateSaleController,deleteDraftSaleController } from "./sale.controller.js";
 
 
 
@@ -25,6 +25,13 @@ router.patch(
   authorize("OWNER", "EMPLOYEE"),
   updateSaleController
 );
+
+router.delete(
+  "/:id",
+  authorize("OWNER", "EMPLOYEE"),
+  deleteDraftSaleController
+);
+
 
 
 export default router;
