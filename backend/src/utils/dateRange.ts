@@ -1,3 +1,15 @@
+export function getDailyRange(referenceDate: Date = new Date()) {
+  const start = new Date(referenceDate);
+  start.setHours(0, 0, 0, 0);
+
+  const end = new Date(referenceDate);
+  end.setHours(23, 59, 59, 999);
+
+  return { start, end };
+}
+
+
+
 export function getWeeklyRange(referenceDate: Date = new Date()) {
   const start = new Date(referenceDate);
   start.setDate(start.getDate() - start.getDay()); // Sunday

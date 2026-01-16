@@ -1,33 +1,32 @@
 import { Request, Response } from "express";
-import { generateBusinessReport, Period } from "../../services/reports.service.js";
+import { generateBusinessReport, Period,generateSalesReport } from "../../services/reports.service.js";
 import {
+  getDailyRange,
   getWeeklyRange,
   getMonthlyRange,
   getYearlyRange,
 } from "../../utils/dateRange.js";
 
-/* =========================
-   PERIOD MAP
-   ========================= */
+/* =====================================================
+   BUSINESS REPORTS (PROFIT / DASHBOARD)
+   ===================================================== */
 
-const rangeMap: Record<"weekly" | "monthly" | "yearly", () => Period> = {
+type BusinessPeriodType = "weekly" | "monthly" | "yearly";
+
+const businessRangeMap: Record<BusinessPeriodType, () => Period> = {
   weekly: getWeeklyRange,
   monthly: getMonthlyRange,
   yearly: getYearlyRange,
 };
 
-/* =========================
-   GENERIC HANDLER FACTORY
-   ========================= */
-
-async function handleReportRequest(
+async function handleBusinessReport(
   req: Request,
   res: Response,
-  type: "weekly" | "monthly" | "yearly",
+  type: BusinessPeriodType,
   isDashboard: boolean
 ) {
   try {
-    const period = rangeMap[type]();
+    const period = businessRangeMap[type]();
 
     const report = await generateBusinessReport(period, {
       includeTopEmployees: isDashboard,
@@ -36,35 +35,83 @@ async function handleReportRequest(
 
     return res.status(200).json(report);
   } catch (error) {
-    console.error("Report error:", error);
+    console.error("Business report error:", error);
     return res.status(500).json({
-      message: "Failed to generate report",
+      message: "Failed to generate business report",
     });
   }
 }
 
-/* =========================
-   FINANCIAL REPORTS (NO DASHBOARD DATA)
-   ========================= */
+/* -------- Financial Reports -------- */
 
 export const weeklyFinancialReport = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "weekly", false);
+  handleBusinessReport(req, res, "weekly", false);
 
 export const monthlyFinancialReport = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "monthly", false);
+  handleBusinessReport(req, res, "monthly", false);
 
 export const yearlyFinancialReport = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "yearly", false);
+  handleBusinessReport(req, res, "yearly", false);
 
-/* =========================
-   OWNER DASHBOARD REPORTS
-   ========================= */
+/* -------- Owner Dashboard -------- */
 
 export const weeklyOwnerDashboard = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "weekly", true);
+  handleBusinessReport(req, res, "weekly", true);
 
 export const monthlyOwnerDashboard = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "monthly", true);
+  handleBusinessReport(req, res, "monthly", true);
 
 export const yearlyOwnerDashboard = (req: Request, res: Response) =>
-  handleReportRequest(req, res, "yearly", true);
+  handleBusinessReport(req, res, "yearly", true);
+
+/* =====================================================
+   SALES REPORTS (OPERATIONAL / TESTING)
+   ===================================================== */
+
+type SalesPeriodType = "daily" | "weekly" | "monthly";
+
+const salesRangeMap: Record<SalesPeriodType, () => { start: Date; end: Date }> =
+  {
+    daily: getDailyRange,
+    weekly: getWeeklyRange,
+    monthly: getMonthlyRange,
+  };
+
+async function handleSalesReport(
+  req: Request,
+  res: Response,
+  type: SalesPeriodType
+) {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized: No user found on request" });
+    }
+    
+    const { start, end } = salesRangeMap[type]();
+
+    const report = await generateSalesReport({
+      start,
+      end,
+      userId: req.user.id,
+      role: req.user.role,
+    });
+
+    return res.status(200).json(report);
+  } catch (error) {
+    console.error("Sales report error:", error);
+    return res.status(500).json({
+      message: "Failed to generate sales report",
+    });
+  }
+}
+
+/* -------- Sales Reports -------- */
+
+export const dailySalesReport = (req: Request, res: Response) =>
+  handleSalesReport(req, res, "daily");
+
+export const weeklySalesReport = (req: Request, res: Response) =>
+  handleSalesReport(req, res, "weekly");
+
+export const monthlySalesReport = (req: Request, res: Response) =>
+  handleSalesReport(req, res, "monthly");

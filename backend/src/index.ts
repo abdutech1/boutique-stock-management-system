@@ -40,7 +40,7 @@ app.use("/api/price-categories", authorize("OWNER"), priceCategoryRoutes);
 app.use("/api/stocks", authorize("OWNER"), stockRoutes);
 app.use("/api/expenses", authorize("OWNER"), expenseRoutes);
 app.use("/api/salaries", authorize("OWNER"), salaryRoutes);
-app.use("/api/reports", authorize("OWNER"), reportsRoutes);
+app.use("/api/reports", reportsRoutes);
 
 app.use("/api/bonus-rules", bonusRuleRoutes);
 app.use("/api/bonuses", bonusRoutes);

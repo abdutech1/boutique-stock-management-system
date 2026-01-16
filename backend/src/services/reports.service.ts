@@ -1,5 +1,6 @@
 import prisma from "../prismaClient.js";
 
+
 export type Period = {
   start: Date;
   end: Date;
@@ -116,3 +117,82 @@ export async function generateBusinessReport(
     ...(includeLowStock ? { lowStock } : {}),
   };
 }
+
+
+
+
+export interface SalesReportOptions {
+  start: Date;
+  end: Date;
+  userId: number;
+  role: "OWNER" | "EMPLOYEE";
+}
+
+export async function generateSalesReport({
+  start,
+  end,
+  userId,
+  role,
+}: SalesReportOptions) {
+  const whereClause: any = {
+    status: "CONFIRMED",
+    createdAt: {
+      gte: start,
+      lte: end,
+    },
+  };
+
+  if (role === "EMPLOYEE") {
+    whereClause.employeeId = userId;
+  }
+
+  const sales = await prisma.sale.findMany({
+    where: whereClause,
+    include: {
+      user: { 
+        select: { id: true, name: true },
+      },
+      pricecategory: {
+        include: {
+          category: true,
+        },
+      },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  let totalRevenue = 0;
+  let totalQuantity = 0;
+
+  const formattedSales = sales.map((sale) => {
+    // 1. Calculate revenue safely
+    const revenue = (sale.soldPrice || 0) * (sale.quantity || 0);
+    
+    // 2. Accumulate totals
+    totalRevenue += revenue;
+    totalQuantity += sale.quantity || 0;
+
+
+    // 3. Return object with fallbacks for relations
+    return {
+      saleId: sale.id,
+      date: sale.createdAt,
+      // Use optional chaining (?.) and Nullish Coalescing (??)
+      employeeName: sale.user?.name ?? "Unknown Employee",
+      category: sale.pricecategory?.category?.name ?? "Uncategorized",
+      soldPrice: sale.soldPrice,
+      quantity: sale.quantity,
+      revenue,
+    };
+  });
+
+  return {
+    period: { start, end },
+    totalSales: sales.length,
+    totalQuantity,
+    totalRevenue,
+    sales: formattedSales,
+  };
+}
+
+
