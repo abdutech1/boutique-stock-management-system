@@ -94,3 +94,86 @@ export async function confirmSale(saleId: number) {
     },
   });
 }
+
+
+
+interface UpdateSaleInput {
+  saleId: number;
+  userId: number;
+  role: "OWNER" | "EMPLOYEE";
+  soldPrice?: number;
+  quantity?: number;
+}
+
+export async function updateDraftSale({
+  saleId,
+  userId,
+  role,
+  soldPrice,
+  quantity,
+}: UpdateSaleInput) {
+  return await prisma.$transaction(async (tx) => {
+    const sale = await tx.sale.findUnique({
+      where: { id: saleId },
+      include: {
+        pricecategory: {
+          include: { stock: true },
+        },
+      },
+    });
+
+    if (!sale) {
+      throw new Error("Sale not found");
+    }
+
+    if (sale.status !== "DRAFT") {
+      throw new Error("Only DRAFT sales can be edited");
+    }
+
+    // Permission check
+    if (role === "EMPLOYEE" && sale.employeeId !== userId) {
+      throw new Error("You can only edit your own draft sales");
+    }
+
+    // ── Quantity change handling ────────────────────────────────
+    if (quantity !== undefined) {
+      if (quantity <= 0) {
+        throw new Error("Quantity must be greater than zero");
+      }
+
+      const diff = quantity - sale.quantity; // positive = need more, negative = returning stock
+
+      // Safety check: make sure we have pricecategory & stock info
+      if (!sale.pricecategory?.stock) {
+        throw new Error("Cannot update quantity: stock information is missing");
+      }
+
+      if (diff > 0 && sale.pricecategory.stock.quantity < diff) {
+        throw new Error("Insufficient stock");
+      }
+
+      // Only update stock if there's an actual change
+      if (diff !== 0) {
+        await tx.stock.update({
+          where: { priceCategoryId: sale.priceCategoryId }, // ← fixed field name
+          data: {
+            quantity: {
+              increment: -diff, // if diff > 0 → decrement stock, if diff < 0 → increment stock
+            },
+          },
+        });
+      }
+    }
+
+    // ── Final update ─────────────────────────────────────────────
+    return await tx.sale.update({
+      where: { id: saleId },
+      data: {
+        soldPrice: soldPrice ?? sale.soldPrice,
+        quantity: quantity ?? sale.quantity,
+        // Optional: update timestamp manually if you want
+        // updatedAt: new Date(),
+      },
+    });
+  });
+}

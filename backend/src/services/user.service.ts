@@ -5,7 +5,7 @@ export interface CreateEmployeeInput {
   name: string;
   phoneNumber: string;
   baseSalary?: number;
-  role?: UserRole; // optional, default EMPLOYEE
+  role?: UserRole;
 }
 
 export interface UpdateEmployeeInput {
